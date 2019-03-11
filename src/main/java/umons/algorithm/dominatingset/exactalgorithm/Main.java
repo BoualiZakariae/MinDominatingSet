@@ -19,9 +19,9 @@ import java.io.IOException;
 public class Main {
 
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\XPRIME.txt";
-      public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
-    //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\g13.txt";
-    //public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
+    //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
+    // public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\3degreeVertexbug.txt";
+        public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\g24.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\badResult.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\two.txt";
@@ -32,7 +32,7 @@ public class Main {
      * @param args
      */
     public static void main( String[] args ) {
-        int arg =41;
+        int arg =2;
         mdsAlgorithm exactAlgo ;
         if (arg == 1){
             exactAlgo = new ArbitraryGraph();
@@ -69,14 +69,13 @@ public class Main {
             String line = reader.readLine();
             int count=0;
             while (line != null) {
-                if (count==3000000 || count==6000000 || count==9000000)
-                    System.out.println(count);
                 count++;
                 String[] res = line.split("\\s");
                 g = FileParser.createGraph(Integer.parseInt(res[0]),res[1]); //n 010101 mdssize
                 mds = algo.run(g,Integer.parseInt(res[2]));
                 if (mds.getMds().size() != Integer.parseInt(res[2])){
                     incorrect++;
+                    System.out.println(g+" "+line+" AlgoFound"+mds.getMds().size());
                 }
                 Stats.addStatistic(g,mds.getMds().size(),mds.getTime());
                 line = reader.readLine();
