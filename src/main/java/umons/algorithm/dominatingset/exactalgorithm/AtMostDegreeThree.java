@@ -120,9 +120,11 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             int temp = v;
             v = getNextElement(w, v, g);
             w = temp;
+            temp = v;
+            v = getNextElement(w, v, g);
+            w = temp;
             if (g.getAdj().get(v).size() == 1) {
                 mds.add(v);
-                cnt++;
                 break;
             }
             temp = v;

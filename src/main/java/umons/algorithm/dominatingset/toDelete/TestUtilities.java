@@ -1,28 +1,36 @@
 package umons.algorithm.dominatingset.toDelete;
-
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class TestUtilities {
-
-
 
     public static void main( String[] args ) {
 
-     Set<Integer> set1 = Stream.of(1,2,3).collect(Collectors.toCollection(HashSet::new));
-     Set<Integer> set2 = Stream.of(5,4).collect(Collectors.toCollection(HashSet::new));
-     Set<Integer> set3 = null;
-     System.out.println(minOfTheSet(set1,set2,set3));
+        String [] words ={"0","00","000","0000","00000","000000","0000000"} ;
+        for (String str :words) {
+            System.out.println(transform(str));
+        }
+    }
+    private static String  transform( String word ) {
+        int min =  getMinNumber(word);
+        StringBuilder sb = new StringBuilder(word);
+        //starting from char at index 1 replace each third '0' with '1'
+        //and substract 1 for each replaced char from min
+        for(int i = 1; i< word.length(); i = i+3){
+            sb.setCharAt(i, '1');
+            min--;
+        }
+        //if minimum replacement count not yet met replace last char
+        if(min >0){
+            sb.setCharAt(word.length()-1, '1');
+        }
+        return sb.toString();
     }
 
-    public static Set<Integer> minOfTheSet( Set<Integer>... sets) {
-        return  Arrays.stream(sets)
-                      .filter(set->set!=null)
-                      .min(Comparator.comparingInt(Set::size))
-                      .get();
+    public static int getMinNumber(String word) {
+        int min;
+        if (word.length() % 3 == 0) {
+            min = word.length() / 3;
+        } else {
+            min = (word.length() / 3) + 1;
+        }
+        return min;
     }
 }

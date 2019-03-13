@@ -6,34 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff9584af-b495-474a-8eec-f216b4a1e2ff" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_4_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_4_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/AtmostThreeDegreeVertexAlgoTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/CycleGraphInstanceTest.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/PathGraphInstanceTest.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MinDominatingSet.iml" afterPath="$PROJECT_DIR$/MinDominatingSet.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/Main.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/Main.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/mdsAlgorithm.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/mdsAlgorithm.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/graph/Graph.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/graph/Graph.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/graph/Node.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/graph/Node.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/graph/Result.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/graph/Result.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/Greedy/Greedy.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/Greedy/Greedy.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRandom.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRandom.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/DFS.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/DFS.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/FileParser.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/FileParser.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util$Edge.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util$Edge.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/toDelete/TestUtilities.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/toDelete/TestUtilities.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,12 +29,64 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="AtMostDegreeThree.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="146" column="36" lean-forward="false" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="36" />
+            <state relative-caret-position="422">
+              <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PathGraphInstanceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/PathGraphInstanceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="111" column="27" lean-forward="false" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CycleGraphInstanceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/CycleGraphInstanceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="80" column="24" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -178,11 +209,14 @@
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Result.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java" />
         <option value="$PROJECT_DIR$/src/test/java/AtmostThreeDegreeVertexAlgoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" />
+        <option value="$PROJECT_DIR$/src/test/java/PathCycleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/PathGraphInstanceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CycleGraphInstanceTest.java" />
       </list>
     </option>
   </component>
@@ -217,9 +251,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,7 +333,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,6 +353,7 @@
       <recent name="umons.algorithm.dominatingset.util.Util" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="umons.algorithm.dominatingset.heuristics" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -339,7 +374,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.CycleGraphInstanceTest.seventhCycleInstance">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -380,13 +415,13 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="AtmostThreeDegreeVertexAlgoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CycleGraphInstanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="MinDominatingSet" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AtmostThreeDegreeVertexAlgoTest" />
+      <option name="MAIN_CLASS_NAME" value="CycleGraphInstanceTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -400,14 +435,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CycleGraphInstanceTest.seventhCycleInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="MinDominatingSet" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AtmostThreeDegreeVertexAlgoTest" />
-      <option name="METHOD_NAME" value="fifthGraphInstance" />
+      <option name="MAIN_CLASS_NAME" value="CycleGraphInstanceTest" />
+      <option name="METHOD_NAME" value="seventhCycleInstance" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -420,14 +455,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="AtmostThreeDegreeVertexAlgoTest.fourthGraphInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CycleGraphInstanceTest.sixsthCycleInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="MinDominatingSet" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AtmostThreeDegreeVertexAlgoTest" />
-      <option name="METHOD_NAME" value="fourthGraphInstance" />
+      <option name="MAIN_CLASS_NAME" value="CycleGraphInstanceTest" />
+      <option name="METHOD_NAME" value="sixsthCycleInstance" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -440,15 +475,15 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="AtmostThreeDegreeVertexAlgoTest.thirdGraphInstance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PathGraphInstanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="MinDominatingSet" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AtmostThreeDegreeVertexAlgoTest" />
-      <option name="METHOD_NAME" value="thirdGraphInstance" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="PathGraphInstanceTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -522,18 +557,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest.thirdGraphInstance" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest.fourthGraphInstance" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.PathGraphInstanceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CycleGraphInstanceTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CycleGraphInstanceTest.sixsthCycleInstance" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CycleGraphInstanceTest.seventhCycleInstance" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest.fourthGraphInstance" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AtmostThreeDegreeVertexAlgoTest.thirdGraphInstance" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CycleGraphInstanceTest.seventhCycleInstance" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CycleGraphInstanceTest.sixsthCycleInstance" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CycleGraphInstanceTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.PathGraphInstanceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -598,7 +633,8 @@
       <workItem from="1550780406680" duration="1450000" />
       <workItem from="1551956883788" duration="3174000" />
       <workItem from="1552225464906" duration="124000" />
-      <workItem from="1552329573674" duration="13446000" />
+      <workItem from="1552329573674" duration="13682000" />
+      <workItem from="1552402737534" duration="11104000" />
     </task>
     <task id="LOCAL-00001" summary="bug resolved">
       <created>1552062022387</created>
@@ -611,39 +647,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest - 2019.03.11 at 23h 33m 44s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest" configurationId="JUnit" />
+    <history-entry file="CycleGraphInstanceTest - 2019.03.13 at 01h 58m 22s.xml">
+      <configuration name="CycleGraphInstanceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.11 at 23h 44m 35s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="CycleGraphInstanceTest_seventhCycleInstance - 2019.03.13 at 02h 05m 36s.xml">
+      <configuration name="CycleGraphInstanceTest.seventhCycleInstance" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.11 at 23h 51m 55s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="CycleGraphInstanceTest_sixsthCycleInstance - 2019.03.13 at 02h 05m 29s.xml">
+      <configuration name="CycleGraphInstanceTest.sixsthCycleInstance" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.11 at 23h 54m 46s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 42m 01s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.11 at 23h 55m 45s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 42m 13s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.12 at 00h 01m 56s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 44m 07s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.12 at 00h 02m 05s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 44m 43s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.12 at 00h 04m 04s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 45m 44s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fifthGraphInstance - 2019.03.12 at 00h 04m 11s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fifthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 46m 14s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AtmostThreeDegreeVertexAlgoTest_fourthGraphInstance - 2019.03.11 at 23h 33m 20s.xml">
-      <configuration name="AtmostThreeDegreeVertexAlgoTest.fourthGraphInstance" configurationId="JUnit" />
+    <history-entry file="PathCycleTest - 2019.03.13 at 01h 48m 41s.xml">
+      <configuration name="PathCycleTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387816000" />
+    <option name="totallyTimeSpent" value="399156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -657,19 +693,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.48385417" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27489176" sideWeight="0.5161458" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32683983" sideWeight="0.5161458" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53900707" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09010417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20885417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4004329" sideWeight="0.49375" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4004329" sideWeight="0.49375" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -695,183 +731,93 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>253</line>
-          <properties />
-          <option name="timeStamp" value="194" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>254</line>
-          <properties />
-          <option name="timeStamp" value="196" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>611</line>
+          <line>613</line>
           <properties />
           <option name="timeStamp" value="197" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>612</line>
+          <line>614</line>
           <properties />
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>613</line>
+          <line>615</line>
           <properties />
           <option name="timeStamp" value="199" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>620</line>
+          <line>622</line>
           <properties />
           <option name="timeStamp" value="200" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>622</line>
+          <line>624</line>
           <properties />
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>250</line>
+          <line>252</line>
           <properties />
           <option name="timeStamp" value="202" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>201</line>
+          <line>203</line>
           <properties />
           <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>203</line>
+          <line>205</line>
           <properties />
           <option name="timeStamp" value="204" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>211</line>
-          <properties />
-          <option name="timeStamp" value="205" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>213</line>
-          <properties />
-          <option name="timeStamp" value="206" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>623</line>
+          <line>625</line>
           <properties />
           <option name="timeStamp" value="207" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>627</line>
+          <line>629</line>
           <properties />
           <option name="timeStamp" value="208" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>628</line>
+          <line>630</line>
           <properties />
           <option name="timeStamp" value="209" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>629</line>
+          <line>631</line>
           <properties />
           <option name="timeStamp" value="210" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>630</line>
+          <line>632</line>
           <properties />
           <option name="timeStamp" value="211" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>642</line>
+          <line>644</line>
           <properties />
           <option name="timeStamp" value="212" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>643</line>
+          <line>645</line>
           <properties />
           <option name="timeStamp" value="213" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>210</line>
-          <properties />
-          <option name="timeStamp" value="214" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>110</line>
-          <properties />
-          <option name="timeStamp" value="215" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>112</line>
-          <properties />
-          <option name="timeStamp" value="217" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>113</line>
-          <properties />
-          <option name="timeStamp" value="218" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="219" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="220" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>117</line>
-          <properties />
-          <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>116</line>
-          <properties />
-          <option name="timeStamp" value="222" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="223" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
-          <line>128</line>
-          <properties />
-          <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
@@ -879,11 +825,43 @@
           <properties />
           <option name="timeStamp" value="229" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
+          <line>149</line>
+          <properties />
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
+          <line>209</line>
+          <properties />
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
+          <line>212</line>
+          <properties />
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
+          <line>210</line>
+          <properties />
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java</url>
+          <line>148</line>
+          <properties class="umons.algorithm.dominatingset.exactalgorithm.AtMostDegreeThree" method="mdsFromCycle">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="230" />
+      <option name="time" value="235" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -892,20 +870,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.10.1/joda-time-2.10.1.jar!/org/joda/time/DateTime.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/pokec_50000.col">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/pokec_10000.col">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1157,7 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,24 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="57" column="17" lean-forward="false" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1199,11 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding>
-            <marker date="1552336530093" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1552336530093" expanded="false" signature="145:409" ph="..." />
-            <marker date="1552336530093" expanded="true" signature="411:560" ph="@{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1211,7 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1223,36 +1162,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/AtmostThreeDegreeVertexAlgoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="202" column="24" lean-forward="false" selection-start-line="202" selection-start-column="24" selection-end-line="202" selection-end-column="24" />
+        <state relative-caret-position="194">
+          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/AtmostThreeDegreeVertexAlgoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="79" column="26" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="34" />
+        <state relative-caret-position="164">
+          <caret line="123" column="30" lean-forward="false" selection-start-line="123" selection-start-column="30" selection-end-line="123" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/PathGraphInstanceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="111" column="27" lean-forward="false" selection-start-line="111" selection-start-column="27" selection-end-line="111" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/CycleGraphInstanceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="64" column="21" lean-forward="true" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+        <state relative-caret-position="272">
+          <caret line="80" column="24" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="146" column="36" lean-forward="false" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="36" />
+        <state relative-caret-position="422">
+          <caret line="172" column="5" lean-forward="true" selection-start-line="172" selection-start-column="5" selection-end-line="172" selection-end-column="5" />
           <folding />
         </state>
       </provider>
