@@ -6,18 +6,23 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 /**
+ * This class represents a population for the genetic algorithm
+ *
+ * a population is a list of individuals that evolve in each iteration
  *
  */
 public class Population {
 
-    private int size;
-    private List<Individual> individuals;
-    private int individualSize;
+
+    private int size;/*the size of the population*/
+    private List<Individual> individuals;/*the list of individuals*/
+    private int individualSize;/*the individual size*/
 
 
     /**
-     * @param size
-     * @param individuals
+     * Class constructor
+     * @param size the size of the population
+     * @param individuals the list of individuals
      */
     public Population( int size, List<Individual> individuals ) {
         this.size = size;
@@ -25,10 +30,21 @@ public class Population {
         this.individualSize = individuals.get(0).getSize();
     }
 
+
+    /**
+     * Class constructor
+     * @param size the size of the population
+     *
+     */
     public Population( int size ) {
         this.size = size;
     }
 
+    /**
+     *
+     * return the size of the population
+     *
+     */
     public int size() {
         return this.size;
     }
@@ -59,6 +75,13 @@ public class Population {
         return individuals.get(size - 1);
     }
 
+    /**
+     *
+     * @param fittest
+     * @param prob
+     * @param random
+     * @return
+     */
     public Individual getNewSecondFittest( Individual fittest, double prob, double random ) {
         int randomIndex = new Random().nextInt(individuals.size());
         if (random > prob)
@@ -72,8 +95,13 @@ public class Population {
     }
 
 
-
-
+    /**
+     * whenever this method is called, a new child is created
+     * @param pMutation
+     * @param prob
+     * @param random
+     * @return
+     */
     public Individual evolve( double pMutation, double prob, double random ) {
         Individual fittestOne = getFittest(prob, random);
         Individual fittestTwo = getNewSecondFittest(fittestOne, prob, random);
@@ -83,6 +111,11 @@ public class Population {
         return child;
     }
 
+    /**
+     *
+     * @param child
+     * @param pMutation
+     */
     private void applyMutation( Individual child, double pMutation ) {
         int index = 0;
         double ran;
@@ -120,15 +153,30 @@ public class Population {
         return child;
     }
 
+    /**
+     *
+     * @param size
+     * @param p_prob
+     * @return
+     */
     public Individual generateRandom( int size, double p_prob ) {
         Individual individual = new Individual(size, p_prob);
         return individual;
     }
 
+    /**
+     *
+     * @param child
+     * @return
+     */
     public boolean isUnique( Individual child ) {
         return !this.individuals.contains(child);
     }
 
+    /**
+     *
+     * @param child
+     */
     public void replaceWorstBy( Individual child ) {
         int worstIndividualIndex = IntStream.range(0, individuals.size())
                 .boxed()
@@ -154,10 +202,18 @@ public class Population {
                 .get();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIndividualSize() {
         return individualSize;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Individual> getIndividuals() {
         return individuals;
     }

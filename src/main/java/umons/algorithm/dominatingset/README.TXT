@@ -7,9 +7,9 @@ By Bouali Zakariae
 
 The are 4 packages:
 
-exactalgorithm: contains the class responsible for the exact solution algorithms
+exactalgorithm: contains the class responsible for the exacts solutions algorithms
 graph: for the data structure representation of the graphs
-heuristics:contains the class responsible for the heuristics solutions
+heuristics: contains the class responsible for the heuristics solutions
 util: some utility class used in this project
 
 

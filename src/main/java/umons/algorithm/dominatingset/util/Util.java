@@ -21,6 +21,7 @@ public class Util {
      */
     public static Set<Integer> minOfTheSet( Set<Integer>... sets) {
         return  Arrays.stream(sets)
+                      .filter(set->set!=null)
                       .min(Comparator.comparingInt(Set::size))
                       .get();
     }

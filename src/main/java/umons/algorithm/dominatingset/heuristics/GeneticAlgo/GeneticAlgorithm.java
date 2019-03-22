@@ -8,8 +8,11 @@ import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.heuristics.Greedy.Greedy;
 import com.google.common.collect.HashBiMap;
 import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.FileParser;
 import umons.algorithm.dominatingset.util.Util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class GeneticAlgorithm  implements mdsAlgorithm {
@@ -73,7 +76,12 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
         Stats.numberOfGraphs++;
         return new Result(mdsFrom(graph,best,biMap),end-start);    }
 
-
+    /**
+     *
+     * @param graph
+     * @param knownDominatingNumber
+     * @return
+     */
     @Override
     public Result run( Graph graph , int knownDominatingNumber) {
         double start = System.currentTimeMillis();
@@ -122,6 +130,10 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
 
     }
 
+    /**
+     *
+     * @param individuals
+     */
     private void printIndividualsSize( List<Individual> individuals ) {
         for (Individual ind:individuals) {
            // System.out.print(ind.getFitness()+" ");
@@ -129,8 +141,13 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
         //System.out.println();
     }
 
+    /**
+     * mapping genes to verticies
+     * @param graph
+     * @return
+     */
     private BiMap<Integer, Integer> genes_verticesMap( Graph graph ) {
-        BiMap<Integer, Integer> biMap = HashBiMap.create();//mapping genes<--->verticies
+        BiMap<Integer, Integer> biMap = HashBiMap.create();
         int index = 0;
         for (Integer key :graph.getAdj().keySet() ) {
             biMap.put(index,key);
@@ -140,6 +157,7 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
     }
 
     /**
+     *
      *
      * @param best
      * @return
@@ -178,8 +196,13 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
         }
     }
 
-
-
+    /**
+     *
+     * @param graph
+     * @param child
+     * @param map
+     * @return
+     */
     private Set<Integer> randomRepair( Graph graph,Individual child,BiMap<Integer, Integer> map  ) {
         Set<Integer> currentDS      = new HashSet<>();
         Set<Integer> setToDominate  = new HashSet<>();
@@ -236,9 +259,12 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
         return currentDS ;
     }
 
-
-
-
+    /**
+     *
+     * @param DS
+     * @param map
+     * @return
+     */
     private Set<Integer> getBackRealIndices( Set<Integer> DS, BiMap<Integer, Integer> map ) {
         Set<Integer> realIndices = new HashSet<>();
         for (Integer b: DS) {
@@ -269,19 +295,40 @@ public class GeneticAlgorithm  implements mdsAlgorithm {
         return individuals;
     }
 
-
-
-    public static void main( String[] args ) {
-        Graph g = new Graph(3);
-        g.addVertex(1);
-        g.addVertex(2);
-        g.addVertex(3);
-        g.addEdge(1,2);
-        g.addEdge(2,3);
-
-        mdsAlgorithm geneticAlgo = new GeneticAlgorithm();
-        Set<Integer> mds = geneticAlgo.run(g).getMds();
-        System.out.println(mds);
+    /**
+     *
+     */
+    static Map<String,Integer> hugesGraphs = new HashMap<>();
+    static {
+        hugesGraphs.put("gplus_200.col",19);
+        hugesGraphs.put("gplus_500.col",42);
+        hugesGraphs.put("gplus_2000.col",170);
+        hugesGraphs.put("pokec_500.col",16);
+        hugesGraphs.put("pokec_2000.col",75);
     }
 
+    /**
+     * Testing the genetic algo for statistics results
+     * @param args
+     */
+    public static void main( String[] args ) throws IOException {
+        System.out.println("geneticAlgo");
+        Iterator<Map.Entry<String, Integer>> it = hugesGraphs.entrySet().iterator();
+        while (it.hasNext())
+        {
+            Map.Entry<String, Integer> pair = it.next();
+            String grapheName =  pair.getKey();
+            int knownMdsSize  =  pair.getValue();
+            ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+            File file = new File(classloader.getResource(grapheName).getFile());
+            Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
+
+            double start = System.currentTimeMillis();
+            mdsAlgorithm heuristic = new GeneticAlgorithm();
+            Set<Integer> mds = heuristic.run(hugeGraph,knownMdsSize).getMds();
+            double end = System.currentTimeMillis();
+            System.out.println(mds.size()+" in "+((end-start)/1000)+" sec");
+            System.out.println();
+        }
+    }
 }
