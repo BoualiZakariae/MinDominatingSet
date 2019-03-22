@@ -5,18 +5,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff9584af-b495-474a-8eec-f216b4a1e2ff" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/GeneticAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/Individual.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/Individual.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/Population.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/Population.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/Greedy.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/Greedy.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRev.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRev.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/HeuristicsMain.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/HeuristicsMain.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.class" />
-    </list>
+    <list default="true" id="ff9584af-b495-474a-8eec-f216b4a1e2ff" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +25,9 @@
       <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/GeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="890">
-              <caret line="164" column="41" lean-forward="false" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,7 +84,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="AtmostThreeDegree" />
       </map>
     </option>
     <favorite-branches>
@@ -269,18 +256,6 @@
               <item name="algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="dominatingset" type="462c0819:PsiDirectoryNode" />
               <item name="heuristics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="umons" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="dominatingset" type="462c0819:PsiDirectoryNode" />
-              <item name="heuristics" type="462c0819:PsiDirectoryNode" />
-              <item name="GeneticAlgo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -589,7 +564,7 @@
       <workItem from="1552481420807" duration="2912000" />
       <workItem from="1552495270770" duration="604000" />
       <workItem from="1553196632204" duration="3887000" />
-      <workItem from="1553256964587" duration="5088000" />
+      <workItem from="1553256964587" duration="5363000" />
     </task>
     <task id="LOCAL-00001" summary="bug resolved">
       <created>1552062022387</created>
@@ -634,7 +609,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414282000" />
+    <option name="totallyTimeSpent" value="414557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1204,11 +1179,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/GeneticAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="890">
-          <caret line="164" column="41" lean-forward="false" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
