@@ -8,23 +8,27 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- *
- */
+ *  This Class represents an individual of the population
+ **/
 public class Individual {
     /**
-     *
+     *  each individual has a size,a fitness value and
+     *  a byte array that represent the mds
      */
     private byte[] genes;
     private int size;
     private int fitness;
 
 
-
+    /**
+     * Class constructor
+     */
     Individual(){
 
     }
 
     /**
+     * Class constructor
      * @param size
      * @param prob
      */
@@ -102,9 +106,11 @@ public class Individual {
     }
 
     /**
+     * edit the individual such that it represent
+     * the dominatingSet passed as parameter
+     *
      * @param DS To be reviewed
-     *           <p>
-     *           map
+     *
      */
     public void setDS( Set<Integer> DS ) {
         this.fitness = 0;
@@ -115,6 +121,11 @@ public class Individual {
         }
     }
 
+    /**
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals( Object o ) {
         if (this == o) return true;
@@ -124,6 +135,10 @@ public class Individual {
                 Arrays.equals(genes, that.genes);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
 
@@ -132,6 +147,10 @@ public class Individual {
         return result;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -141,6 +160,9 @@ public class Individual {
         return str.toString();
     }
 
+    /**
+     *
+     */
     public void calculateFitness() {
         this.fitness = 0;
         for (byte b : genes) {
@@ -149,6 +171,10 @@ public class Individual {
         }
     }
 
+    /**
+     *
+     * @param fitness
+     */
     public void setFitness( int fitness ) {
         this.fitness = fitness;
     }

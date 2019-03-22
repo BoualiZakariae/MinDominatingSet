@@ -21,7 +21,7 @@ public class Main {
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\XPRIME.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
     // public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\3degreeVertexbug.txt";
-        public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
+     public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\g24.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\badResult.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\two.txt";

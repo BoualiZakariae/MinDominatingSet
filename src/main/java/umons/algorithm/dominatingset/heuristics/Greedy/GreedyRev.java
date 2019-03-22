@@ -14,9 +14,15 @@ import java.util.stream.Collectors;
  */
 public class GreedyRev implements mdsAlgorithm {
 
-    private List<Integer> V;
+
+    /**
+     * each vertex in the graph has an integer value that
+     * indicate how much time it can be covered and a boolean
+     * value that indicate if it is uniquely covered
+     */
     private HashMap<Integer, Integer> coveredBy ;
     private HashMap<Integer, Boolean> uniquely ;
+    private List<Integer> V;
     private int n;
 
     /**

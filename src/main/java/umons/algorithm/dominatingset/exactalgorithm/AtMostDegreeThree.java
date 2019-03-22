@@ -151,25 +151,24 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         int mdsSize = Util.getMdsSize(component);
         int cnt = 1;
         int w = v;
-
         Set<Integer> neighborsSet = g.getAdj().get(v);
         Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
         v = neighbors[0] ;//second vertex in the cycle
         mds.add(v);
         int temp;
-        do {
+        while (cnt < mdsSize) {
             temp = v;
             v = getNextElement(w, v, g);
             w = temp;
-
             temp = v;
             v = getNextElement(w, v, g);
             w = temp;
-
+            temp = v;
             v = getNextElement(w, v, g);
-            cnt++;
+            w = temp;
             mds.add(v);
-        } while ((cnt < mdsSize));
+            cnt++;
+        }
     }
 
     /**
@@ -629,7 +628,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         // add y-z1 to the ArbitraryGraph
         Set<Integer> neighborsOfZ1 = g.getClosedNeighbors(z1);
         Set<Integer> vertices;
-        Set<Integer> D2 = null,D3=null;
+        Set<Integer> D2 = null,D3=null,D4=null;
         if (neighborsOfZ1.size()>3){
             vertices =  neighborsOfZ1.stream()
                     .filter(v -> !neighborsOfY.contains(v))
@@ -653,7 +652,8 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D3.add(y);
             D3.add(z2);
         }
-        return Util.minOfTheSet(D1,D2,D3);
+
+        return Util.minOfTheSet(D1,D2,D3,D4);
 
     }
 

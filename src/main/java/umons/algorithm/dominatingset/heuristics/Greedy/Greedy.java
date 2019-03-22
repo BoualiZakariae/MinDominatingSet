@@ -11,10 +11,14 @@ import java.util.stream.Collectors;
 /**
  * This class implements the Greedy algorithm
  *
- *
  */
 public class Greedy implements mdsAlgorithm {
 
+    /**
+     * each vertex in the graph has an integer value that
+     * represents its weight, and a boolean value that indicate
+     * if it is already covered
+     */
     HashMap<Integer, Integer> weights ;
     HashMap<Integer, Boolean> covered ;
 
@@ -27,7 +31,9 @@ public class Greedy implements mdsAlgorithm {
     }
 
     /**
-     * @return the the maximum weight
+     * @return the the maximum weight of the graph
+     * this value indicate wich vertex can cover
+     * the maximum of  vertices
      */
     protected int getMax() {
         return this.weights.entrySet()
@@ -63,6 +69,8 @@ public class Greedy implements mdsAlgorithm {
 
     /**
      * adjustWeights implementation for the greedy algorithm
+     * After adding a vertex to the dominating Set, an adjustement
+     * of weight should be done on the vertices caracteristics
      * @param g
      * @param v
      */

@@ -24,18 +24,6 @@ import java.util.Set;
 public class HeuristicsMain {
 
 
-
-    static Map<String,Integer> hugesGraphs = new HashMap<>();
-    static {
-
-        hugesGraphs.put("gplus_200.col",19);
-        hugesGraphs.put("gplus_500.col",42);
-        hugesGraphs.put("gplus_2000.col",170);
-        hugesGraphs.put("pokec_500.col",16);
-        hugesGraphs.put("pokec_2000.col",75);
-    }
-
-
     static String [] mediumGraphs = {"fpsol2.col"};
     static String [] googleGraphs = {"gplus_50000.col"};
     //"gplus_10000.col","gplus_20000.col",    "pokec_10000.col","pokec_20000.col" ,"pokec_2000.col"
@@ -45,29 +33,17 @@ public class HeuristicsMain {
 
 
     public static void main( String[] args ) throws IOException {
-        /*Iterator iterator = hugesGraphs.entrySet().iterator();
-        while (iterator.hasNext())
-        {
-            Map.Entry pair = (Map.Entry) iterator.next();
-            String grapheName = (String) pair.getKey();
-            int knownMDSSize = (int) pair.getValue();
-        }*/
-        //geneticRun();
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
          for (String grapheName: googleGraphs) {
             System.out.println(grapheName);
             File file = new File(classloader.getResource(grapheName).getFile());
             Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
             heuristicsrun(hugeGraph);
         }
-
-
-
-
-    }
+}
 
     public static void heuristicsrun(Graph hugeGraph){
-       /* System.out.println("greedy");
+       System.out.println("greedy");
         double start = System.currentTimeMillis();
         mdsAlgorithm heuristic = new Greedy();
         Set<Integer> mds = heuristic.run(hugeGraph).getMds();
@@ -87,15 +63,7 @@ public class HeuristicsMain {
         mds = heuristic.run(hugeGraph).getMds();
         end = System.currentTimeMillis();
         System.out.println(mds.size()+" in "+((end-start)/1000)+" sec");
-        System.out.println("\n\n");*/
-
-        System.out.println("geneticAlgo");
-        double start = System.currentTimeMillis();
-        mdsAlgorithm heuristic = new GeneticAlgorithm();
-        Set<Integer> mds = heuristic.run(hugeGraph).getMds();
-        double end = System.currentTimeMillis();
-        System.out.println(mds.size()+" in "+((end-start)/1000)+" sec");
-        System.out.println();
+        System.out.println("\n\n");
 
     }
 
