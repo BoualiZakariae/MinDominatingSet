@@ -82,29 +82,6 @@ public class ArbitraryGraph implements mdsAlgorithm {
 
 
     /**
-     * Return the set of vertices that are not dominated by {@code dominatingSet}
-     *
-     * @param graph         a {@link Graph} data structure
-     * @param dominatingSet the dominated set
-     * @param X             set of vertices that should be dominated
-     * @return              the elements in X that are not dominated by {@code dominatingSet}
-     */
-    public static Set<Integer> remainingSet(Graph graph, Set<Integer> dominatingSet, Set<Integer> X) {
-        Set<Integer> dominatedVertices = new HashSet<>();
-        for (int x : dominatingSet) {
-            Set<Integer> neighborsOfx = graph.getClosedNeighbors(x);
-            for (Integer e : neighborsOfx) {
-                dominatedVertices.add(e);
-            }
-        }
-        Set<Integer> remainingSet = Util.setMinus(X,dominatedVertices);
-        return remainingSet;
-    }
-
-
-
-
-    /**
      * Return the mds from a base case where every vertex is degree zero or at least three
      *
      * @param graph a {@link Graph} data structure

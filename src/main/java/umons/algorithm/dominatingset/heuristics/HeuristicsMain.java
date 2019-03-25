@@ -2,16 +2,13 @@ package umons.algorithm.dominatingset.heuristics;
 
 import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgorithm;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgoImpl;
 import umons.algorithm.dominatingset.heuristics.Greedy.Greedy;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRandom;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -77,7 +74,7 @@ public class HeuristicsMain {
         String grapheName = "gplus_200.col";
         File file = new File(classloader.getResource(grapheName).getFile());
         Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-        GeneticAlgorithm heuristic = new GeneticAlgorithm();
+        GeneticAlgoImpl heuristic = new GeneticAlgoImpl();
         System.out.println("    public static final int     POPULATION_SIZE = 100;\n" +
                 "    public static final int     MAX_GEN = 20000;//number of iteration\n" +
                 "    public static final double  P_DS = 0.3;\n" +
@@ -85,7 +82,7 @@ public class HeuristicsMain {
                 "    public static final double  P_MUTATION = 0.1;//probability for mutation\n" +
                 "    public static final double  P_H = 0.8;\n" +
                 "    public static final double  P_BETTER = 0.8;");
-        Set<Integer> mds = heuristic.run(hugeGraph).getMds();
+        Set<Integer> mds = heuristic.run(hugeGraph,-1).getMds();
         double end = System.currentTimeMillis();
         System.out.println(mds.size()+" in "+((end-start)/1000)+" sec");
         System.out.println();

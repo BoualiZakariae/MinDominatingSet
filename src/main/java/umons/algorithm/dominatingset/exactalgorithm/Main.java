@@ -3,8 +3,7 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgorithm;
-import umons.algorithm.dominatingset.heuristics.Greedy.Greedy;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgoImpl;
 import umons.algorithm.dominatingset.toDelete.Stats;
 import umons.algorithm.dominatingset.util.FileParser;
 import java.io.BufferedReader;
@@ -47,9 +46,7 @@ public class Main {
             exactAlgo = new ImprovedSetCover();
             runExactAlgo(exactAlgo,pathToHugeFile);
         }
-        else{
-            runExactAlgo(new GeneticAlgorithm(),pathToHugeFile);
-        }
+
     }
     /**
      * As the hugeFile contains 12.... graph instance
@@ -72,7 +69,7 @@ public class Main {
                 count++;
                 String[] res = line.split("\\s");
                 g = FileParser.createGraph(Integer.parseInt(res[0]),res[1]); //n 010101 mdssize
-                mds = algo.run(g,Integer.parseInt(res[2]));
+                mds = algo.run(g);
                 if (mds.getMds().size() != Integer.parseInt(res[2])){
                     incorrect++;
                     System.out.println(g+" "+line+" AlgoFound"+mds.getMds().size());

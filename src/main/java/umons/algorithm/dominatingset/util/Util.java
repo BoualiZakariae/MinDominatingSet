@@ -156,7 +156,7 @@ public class Util {
      * @param Q
      * @return true if Q Contains all element of P
      */
-    public static boolean isSubset(List<Integer> P, List<Integer> Q) {
+    public static boolean isSubset(Collection<Integer> P, Collection<Integer> Q) {
         if (Q.containsAll(P))
             return true;
        return false;
@@ -374,6 +374,26 @@ public class Util {
             counter++;
         }
         return neighbors;
+    }
+
+    /**
+     * Return the set of vertices that are not dominated by the {@code dominatingSet}
+     *
+     * @param graph         a {@link Graph} data structure
+     * @param dominatingSet the dominated set
+     * @param X             set of vertices that should be dominated
+     * @return              the elements in X that are not dominated by {@code dominatingSet}
+     */
+    public static Set<Integer> remainingSet(Graph graph, Set<Integer> dominatingSet, Set<Integer> X) {
+        Set<Integer> dominatedVertices = new HashSet<>();
+        for (int x : dominatingSet) {
+            Set<Integer> neighborsOfx = graph.getClosedNeighbors(x);
+            for (Integer e : neighborsOfx) {
+                dominatedVertices.add(e);
+            }
+        }
+        Set<Integer> remainingSet = setMinus(X,dominatedVertices);
+        return remainingSet;
     }
 
     static class Edge {
