@@ -15,8 +15,8 @@ public class GeneticAlgoTest {
     @Test
     public void testDominatingSetMinimisation(){
 
-        Graph graph = new Graph(6);
-        graph.addVertices(0,1,2,3,4,5);
+        Graph graph = new Graph(7);
+        graph.addVertices(0,1,2,3,4,5,6);
         graph.addEdge(0,1);
         graph.addEdge(2,1);
         graph.addEdge(3,1);

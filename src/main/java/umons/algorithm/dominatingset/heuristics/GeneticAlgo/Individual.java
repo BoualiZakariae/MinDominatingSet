@@ -1,9 +1,8 @@
 package umons.algorithm.dominatingset.heuristics.GeneticAlgo;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Set;
+import com.google.common.collect.BiMap;
+
+import java.util.*;
 
 /**
  *  This Class represents an individual of the population
@@ -65,6 +64,8 @@ public class Individual {
 
 
     /**
+     * Class constructor
+     * Create a new Individual with the given size
      * @param size
      */
     public Individual( int size ) {
@@ -75,7 +76,7 @@ public class Individual {
 
 
     /**
-     * @return
+     * @return the fitness value of this individual
      */
     public int getFitness() {
         return fitness;
@@ -92,15 +93,14 @@ public class Individual {
     public byte[] getGenes() { return genes; }
 
     /**
+     * Edit the genes such that the value at the given index
+     * is equal to the given passed value.
+     *
      * @param index
      * @param b
      */
     public void setAtIndex( int index, byte b ) {
         this.genes[index] = b;
-        //  if (this.genes[index] == 1 && b == 0)
-        //  fitness--;
-        //else if (this.genes[index] == 0 && b == 1)
-        //  fitness++;
     }
 
     /**
@@ -110,12 +110,10 @@ public class Individual {
      * @param DS To be reviewed
      *
      */
-    public void setDS( Set<Integer> DS ) {
-        this.fitness = 0;
+    public void setDS( Set<Integer> DS) {
+        this.genes = new byte[size];
         for (Integer index : DS) {
-            //   if (this.genes[index] == 0)
-            //  this.fitness++;
-            this.genes[index] = 1;
+             this.genes[index] = 1;
         }
     }
 
@@ -135,7 +133,7 @@ public class Individual {
 
     /**
      *
-     * @return
+     * @return the computed hashCode calue of this individual
      */
     @Override
     public int hashCode() {
@@ -146,7 +144,7 @@ public class Individual {
 
     /**
      *
-     * @return
+     * @return the String representation of this individual
      */
     @Override
     public String toString() {
@@ -159,18 +157,31 @@ public class Individual {
 
     /**
      *
-     * @param fitness
      */
-    public void setFitness( int fitness ) {
-        this.fitness = fitness;
-    }
-
-    public void calculateFitness() {
+    public void computeFitness() {
         this.fitness = 0;
         for (byte b : genes) {
             if (b == 1) {
                 this.fitness++;
             }
         }
+    }
+
+    /**
+     * given a biMap that stores the real values of the vertices,
+     * it return the dominating Set.
+     *
+     * @param biMap
+     *  @return the dominating Set represenented int this individual
+     */
+    public Set<Integer> mdsFrom( BiMap<Integer, Integer> biMap ) {
+        Set<Integer> mdsFound = new HashSet<>();
+        int index = 0;
+        for (byte b : this.genes ) {
+            if (b==1)
+                mdsFound.add(biMap.get(index));
+            index++;
+        }
+       return  mdsFound;
     }
 }

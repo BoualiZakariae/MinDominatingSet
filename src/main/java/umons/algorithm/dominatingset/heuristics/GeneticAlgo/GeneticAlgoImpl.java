@@ -27,16 +27,23 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      * default values
      */
     private int     populationSize = 100;// the size of the population
-    private int     maxNumGeneration = 10000;//10000;//number of iteration
-    private double  p_Ds = 0.3;//probability of adding a vertex to a dominating set
-    private double  p_CrossOver = 0.7;//probability of cross over
-    private double  p_Mutation = 0.02;//probability for mutation
-    private double  p_Heuristic = 0.8;//probability for using heuristic to repair a solution
-    private double  p_Better = 0.8;//probability for picking the best individual to be selected as a parent
+    int     maxNumGeneration = 10000;//10000;//number of iteration
+    double  p_Ds = 0.3;//probability of adding a vertex to a dominating set
+    double  p_CrossOver = 0.7;//probability of cross over
+    double  p_Mutation = 0.02;//probability for mutation
+    double  p_Heuristic = 0.8;//probability for using heuristic to repair a solution
+    double  p_Better = 0.8;//probability for picking the best individual to be selected as a parent
 
     public GeneticAlgoImpl() {}
 
     /**
+     *  Class constructor
+     *  This constructor give the caller a possibility to choose
+     *  the Genetic Algorithm parameters.
+     *
+     *  The parameters have default values, initialized
+     *  whenever the default constructor is called.
+     *
      *
      * @param populationSize
      * @param maxNumGeneration
@@ -61,10 +68,17 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
 
 
     /**
+     * The main genetic algorithm method
      *
-     * @param graph
+     * @param graph the given graph.
      * @param knownDominatingNumber
-     * @return
+     *              the known minimum dominating Set size
+     *              for the given graph.
+     *              When this value equal to -1, it means that the mds
+     *              number is unknown for this graph.
+     *              Knowing the mds size help to stop the algorithm.
+     *
+     * @return      the dominating set and the time taken to compute it.
      */
     @Override
     public Result run( Graph graph , int knownDominatingNumber) {
@@ -73,17 +87,14 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
         List<Individual> individuals = popInitialisation(graph,biMap);
         Population population = new Population(individuals,p_Mutation, p_Better);
         Individual best = individuals.get(0),child;
-        int gen=0,F = best.getFitness(),uniqueness=0,theSame=0;
+        int gen=0,F = best.getFitness();
         double random ;
         do{
-            // printIndividualsSize(population.getIndividuals());
             random = new Random().nextDouble();
-            if(random < p_CrossOver){
+            if(random < p_CrossOver)
                 child = population.evolve(random);
-            }
-            else{
+            else
                 child = population.generateRandom(population.getIndividualSize(), p_Ds);
-            }
             Set<Integer> currentDS;
             if(random < p_Heuristic){
                 currentDS = repairSolution(graph,child,biMap);
@@ -91,10 +102,10 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
             else{
                 currentDS = randomRepair(graph,child,biMap);
             }
-            minimizeSolution(graph, currentDS);//should be reviewed
-            child.setDS(currentDS);
+            minimizeSolution(graph, currentDS);
+            child.setDS(getBackRealIndices(currentDS,biMap));
+            child.computeFitness();
             if (population.isUnique(child)){
-                uniqueness++;
                 population.replaceWorstBy(child);
                 if(child.getFitness()<F){
                     System.out.println("best fitness found "+child.getFitness());
@@ -103,25 +114,21 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
                 }
                 gen++;
             }
-        }while (gen < maxNumGeneration && (knownDominatingNumber==-1 || best.getFitness() != knownDominatingNumber));
-
-        // System.out.println("uniqueness "+ uniqueness);
+        }while (gen < maxNumGeneration && (knownDominatingNumber == -1  ||  best.getFitness() != knownDominatingNumber));
         // printIndividualsSize(population.getIndividuals());
         double end = System.currentTimeMillis();
         Stats.numberOfGraphs++;
-        return new Result(mdsFrom(graph,best,biMap),end-start);
-
+        return new Result(best.mdsFrom(biMap),end-start);
     }
 
     /**
-     *
+     *  helper method to print individuals fitness
      * @param individuals
      */
     private void printIndividualsSize( List<Individual> individuals ) {
         for (Individual ind:individuals) {
-           // System.out.print(ind.getFitness()+" ");
+            System.out.print(ind.getFitness()+" ");
         }
-        //System.out.println();
     }
 
     /**
@@ -133,7 +140,7 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      * @param graph the given graph
      * @return the Mapping where each key(gene) point to a value(vertex)
      */
-    private BiMap<Integer, Integer> genesToVerticesMapping( Graph graph ) {
+     BiMap<Integer, Integer> genesToVerticesMapping( Graph graph ) {
         BiMap<Integer, Integer> biMap = HashBiMap.create();
         int index = 0;
         for (Integer key :graph.getAdj().keySet() ) {
@@ -143,57 +150,26 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
         return biMap;
     }
 
-    /**
-     *
-     *
-     * @param best
-     * @return
-     */
-    private Set<Integer> mdsFrom( Graph g, Individual best, BiMap<Integer, Integer> biMap) {
-        Set<Integer> mdsFound = new HashSet<>();
-        int index = 0;
-        for (byte b :best.getGenes() ) {
-            if (b==1)
-                mdsFound.add(biMap.get(index));
-            index++;
-        }
-       return  mdsFound;
-    }
 
     /**
      *  Given an dominating Set Solution, try to minimize the ds size by removing
      *  vertices without affecting the domination property
      *
-     *
+     *  todo: improving the algorithm complexity
      */
     public void minimizeSolution( Graph graph, Set<Integer> currentDS) {
         Iterator<Integer> it = currentDS.iterator();
+        Set<Integer> newDS;
         while (it.hasNext()){
-            boolean flag=false;
             int v = it.next();
-            for (Integer u :currentDS ) {
-                if (graph.getClosedNeighbors(u).contains(v)){
-                    flag=true;
-                    continue;
-                }
-            }
-            if (flag==true)
+            newDS = new HashSet<>(currentDS);
+            newDS.remove(v);
+            Set<Integer> neighbors = graph.getClosedNeighbors(v);
+            if(ArbitraryGraph.isDominating(graph,newDS,neighbors)){
                 it.remove();
+            }
         }
     }
-        /*
-        for (Integer v :currentDS ) {
-            boolean flag=false;
-            currentDS.remove(v);
-            for (Integer u :currentDS ) {
-                if (graph.getClosedNeighbors(u).contains(v)){
-                    flag=true;
-                    continue;
-                }
-            }
-            if (flag==false)
-                currentDS.add(v);
-        }*/
 
 
     /**
@@ -203,15 +179,13 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      * @param map
      * @return
      */
-    private Set<Integer> randomRepair( Graph graph,Individual child,BiMap<Integer, Integer> map  ) {
+    Set<Integer> randomRepair( Graph graph, Individual child, BiMap<Integer, Integer> map ) {
         Set<Integer> currentDS      = new HashSet<>();
         Set<Integer> setToDominate  = new HashSet<>();
-        int index = 0;
         for (Integer key :graph.getAdj().keySet() ) {
             setToDominate.add(key);
             if(child.getGenes()[map.inverse().get(key)]==1)
                 currentDS.add(key);
-            index++;
         }
         boolean dominated = false;
         int ran ;
@@ -225,7 +199,6 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
             if (remainingSet.size()==0)
                 dominated=true ;
         }
-        child.setDS(getBackRealIndices(currentDS,map));
         return currentDS ;
     }
 
@@ -236,7 +209,7 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      *
      * Heuristic repair
      */
-    private Set<Integer> repairSolution( Graph graph, Individual individual, BiMap<Integer, Integer> map) {
+    Set<Integer> repairSolution( Graph graph, Individual individual, BiMap<Integer, Integer> map ) {
         Set<Integer> currentDS      = new HashSet<>();
         Set<Integer> setToDominate  = new HashSet<>();
         for (Integer key :graph.getAdj().keySet()) {
@@ -261,7 +234,7 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      * @param map
      * @return
      */
-    private Set<Integer> getBackRealIndices( Set<Integer> DS, BiMap<Integer, Integer> map ) {
+    Set<Integer> getBackRealIndices( Set<Integer> DS, BiMap<Integer, Integer> map ) {
         Set<Integer> realIndices = new HashSet<>();
         for (Integer b: DS) {
             realIndices.add(map.inverse().get(b));
@@ -274,7 +247,7 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      *
      * @return an initialized population where each individual is a valid dominating Set.
      */
-    private List<Individual> popInitialisation(Graph graph, BiMap<Integer, Integer> biMap) {
+    List<Individual> popInitialisation( Graph graph, BiMap<Integer, Integer> biMap ) {
         List<Individual> individuals = new ArrayList<>();
         Individual individual;
         int individualSize = graph.size();
@@ -284,7 +257,7 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
             currentDS = repairSolution(graph, individual, biMap);
             minimizeSolution(graph, currentDS);//minimize the given solution
             individual.setDS(getBackRealIndices(currentDS, biMap));
-            individual.calculateFitness();
+            individual.computeFitness();
             individuals.add(individual);
         }
         return individuals;
@@ -295,11 +268,11 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
      */
     static Map<String,Integer> hugesGraphs = new HashMap<>();
     static {
-        hugesGraphs.put("gplus_200.col",19);
-        hugesGraphs.put("gplus_500.col",42);
-        hugesGraphs.put("gplus_2000.col",170);
-        hugesGraphs.put("pokec_500.col",16);
-        hugesGraphs.put("pokec_2000.col",75);
+           hugesGraphs.put("gplus_200.col",19);
+           hugesGraphs.put("gplus_500.col",42);
+           hugesGraphs.put("gplus_2000.col",170);
+           hugesGraphs.put("pokec_500.col",16);
+           hugesGraphs.put("pokec_2000.col",75);
     }
 
     /**
@@ -314,15 +287,14 @@ public class GeneticAlgoImpl implements GeneticAlgorithm {
             Map.Entry<String, Integer> pair = it.next();
             String grapheName =  pair.getKey();
             int knownMdsSize  =  pair.getValue();
+            System.out.println(grapheName+" "+knownMdsSize);
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
             File file = new File(classloader.getResource(grapheName).getFile());
             Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-
-            double start = System.currentTimeMillis();
             GeneticAlgorithm heuristic = new GeneticAlgoImpl();
-            Set<Integer> mds = heuristic.run(hugeGraph,knownMdsSize).getMds();
-            double end = System.currentTimeMillis();
-            System.out.println(mds.size()+" in "+((end-start)/1000)+" sec");
+            Result mds = heuristic.run(hugeGraph,knownMdsSize);
+
+            System.out.println(mds.getMds().size()+" in "+(mds.getTime())+" sec");
             System.out.println();
         }
     }

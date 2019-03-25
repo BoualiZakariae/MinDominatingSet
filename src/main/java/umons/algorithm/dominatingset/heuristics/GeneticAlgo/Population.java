@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * This class represents a population for the genetic algorithm
@@ -115,6 +116,40 @@ public class Population {
         return child;
     }
 
+
+    /**
+     * whenever this method is called, a new individuals are created to replace
+     * the half of the current population
+     *
+     *
+     * @return
+     */
+    public List<Individual> evolve() {
+        this.individuals.sort(Comparator.comparingInt(ind->ind.getFitness()));
+        int half = individuals.size()/2;
+        return null;
+        /* Stream.concat(
+                individuals.stream().limit(half+1),
+                IntStream.range(0,half).mapToObj(index->)
+
+        );*/
+
+
+      /*  Individual fittestOne = getFittest(random);
+        Individual fittestTwo = getNewSecondFittest(fittestOne, pBetter, random);
+        Individual child = crossOver(fittestOne, fittestTwo);
+        applyMutation(child);
+        return child;*/
+
+
+
+    }
+
+
+
+
+
+
     /**
      *
      * @param child
@@ -142,7 +177,6 @@ public class Population {
     private Individual crossOver( Individual parentOne, Individual parentTwo ) {
         Individual child = new Individual(parentOne.getSize());
         double probParentOne = (double) parentOne.getFitness() / (parentOne.getFitness() + parentTwo.getFitness());
-        // double probParentTwo = parentTwo.getFitness()/(parentOne.getFitness()+parentTwo.getFitness());
         double p_parent;
         int index = 0;
         while (index < parentOne.getSize()) {
