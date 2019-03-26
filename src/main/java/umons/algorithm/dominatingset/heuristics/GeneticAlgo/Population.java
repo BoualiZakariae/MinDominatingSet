@@ -4,41 +4,47 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * This class represents a population for the genetic algorithm
  *
- * a population is a list of individuals that evolve in each iteration
+ * a population is a list of individuals that evolve over each iteration
  *
  */
 public class Population {
 
-
-    private int size;/*the size of the population*/
     private List<Individual> individuals;/*the list of individuals*/
-    private int individualSize;/*the individual size*/
+    private double pMutation;
+    private double pBetter;
 
 
     /**
      * Class constructor
+     * Create a population besed on the passed values
      * @param size the size of the population
      * @param individuals the list of individuals
      */
     public Population( int size, List<Individual> individuals ) {
-        this.size = size;
+       // this.size = size;
         this.individuals = individuals;
-        this.individualSize = individuals.get(0).getSize();
+        //this.individualSize = individuals.get(0).getSize();
     }
+
+
 
 
     /**
      * Class constructor
-     * @param size the size of the population
-     *
+     * Create a population besed on the passed values
+     * @param individuals the list of individuals
      */
-    public Population( int size ) {
-        this.size = size;
+    public Population(List<Individual> individuals, double p_Mutation, double p_Better ) {
+        this.individuals = individuals;
+        this.pMutation = p_Mutation;
+        this.pBetter = p_Better;
     }
+
 
     /**
      *
@@ -46,7 +52,7 @@ public class Population {
      *
      */
     public int size() {
-        return this.size;
+        return this.individuals.size();
     }
 
     /**
@@ -72,7 +78,7 @@ public class Population {
             if (value < 0 && !individual.equals(fittest))
                 return individual;
         }
-        return individuals.get(size - 1);
+        return individuals.get(getSize() - 1);
     }
 
     /**
@@ -95,28 +101,60 @@ public class Population {
     }
 
 
+
     /**
      * whenever this method is called, a new child is created
-     * @param pMutation
-     * @param prob
+     *
      * @param random
      * @return
      */
-    public Individual evolve( double pMutation, double prob, double random ) {
-        Individual fittestOne = getFittest(prob, random);
-        Individual fittestTwo = getNewSecondFittest(fittestOne, prob, random);
+    public Individual evolve(double random ) {
+        Individual fittestOne = getFittest(random);
+        Individual fittestTwo = getNewSecondFittest(fittestOne, pBetter, random);
         Individual child = crossOver(fittestOne, fittestTwo);
-        applyMutation(child, pMutation);
-        // child.calculateFitness();
+        applyMutation(child);
         return child;
     }
+
+
+    /**
+     * whenever this method is called, a new individuals are created to replace
+     * the half of the current population
+     *
+     *
+     * @return
+     */
+    public List<Individual> evolve() {
+        this.individuals.sort(Comparator.comparingInt(ind->ind.getFitness()));
+        int half = individuals.size()/2;
+        return null;
+        /* Stream.concat(
+                individuals.stream().limit(half+1),
+                IntStream.range(0,half).mapToObj(index->)
+
+        );*/
+
+
+      /*  Individual fittestOne = getFittest(random);
+        Individual fittestTwo = getNewSecondFittest(fittestOne, pBetter, random);
+        Individual child = crossOver(fittestOne, fittestTwo);
+        applyMutation(child);
+        return child;*/
+
+
+
+    }
+
+
+
+
+
 
     /**
      *
      * @param child
-     * @param pMutation
      */
-    private void applyMutation( Individual child, double pMutation ) {
+    private void applyMutation( Individual child ) {
         int index = 0;
         double ran;
         while (index < child.getSize()) {
@@ -139,7 +177,6 @@ public class Population {
     private Individual crossOver( Individual parentOne, Individual parentTwo ) {
         Individual child = new Individual(parentOne.getSize());
         double probParentOne = (double) parentOne.getFitness() / (parentOne.getFitness() + parentTwo.getFitness());
-        // double probParentTwo = parentTwo.getFitness()/(parentOne.getFitness()+parentTwo.getFitness());
         double p_parent;
         int index = 0;
         while (index < parentOne.getSize()) {
@@ -180,7 +217,7 @@ public class Population {
     public void replaceWorstBy( Individual child ) {
         int worstIndividualIndex = IntStream.range(0, individuals.size())
                 .boxed()
-                .parallel()//to be deleted
+                .parallel()
                 .max(Comparator.comparingInt(i -> individuals.get(i).getFitness()))
                 .get();
         this.individuals.set(worstIndividualIndex, child);
@@ -188,18 +225,18 @@ public class Population {
     }
 
     /**
-     * @param prob
      * @param random
      * @return
      */
-    public Individual getFittest( double prob, double random ) {
+    public Individual getFittest(double random ) {
         int randomIndex = new Random().nextInt(individuals.size());
-        if (random > prob)
-            return individuals.get(randomIndex);
-        return individuals.stream()
-                .parallel()//to be deleted
-                .min(Comparator.comparingInt(indiv -> indiv.getFitness()))
-                .get();
+        if (random > this.pBetter)
+            return this.individuals.get(randomIndex);
+        return this.individuals
+                   .stream()
+                   .parallel()
+                   .min(Comparator.comparingInt(indiv -> indiv.getFitness()))
+                   .get();
     }
 
     /**
@@ -207,7 +244,7 @@ public class Population {
      * @return
      */
     public int getIndividualSize() {
-        return individualSize;
+        return individuals.get(0).getSize();
     }
 
     /**
@@ -216,5 +253,10 @@ public class Population {
      */
     public List<Individual> getIndividuals() {
         return individuals;
+    }
+
+
+    public int getSize(){
+        return this.individuals.size();
     }
 }

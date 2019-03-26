@@ -1,19 +1,16 @@
 package umons.algorithm.dominatingset.heuristics.GeneticAlgo;
 
-import umons.algorithm.dominatingset.util.Util;
+import com.google.common.collect.BiMap;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 /**
  *  This Class represents an individual of the population
  **/
 public class Individual {
     /**
-     *  each individual has a size,a fitness value and
-     *  a byte array that represent the mds
+     *  Each individual has a size,a fitness value and
+     *  a byte array that represent the equivalent mds
      */
     private byte[] genes;
     private int size;
@@ -21,88 +18,89 @@ public class Individual {
 
 
     /**
-     * Class constructor
+     * Default class constructor
      */
-    Individual(){
-
-    }
+    Individual(){}
 
     /**
      * Class constructor
-     * @param size
-     * @param prob
+     * Create a new individual based on the given parameters
+     *
+     *
+     * @param size the size of the individual
+     * @param prob the probability to add a vertex to the dominating Set
+     *             in the context of the genomes of an individual,
+     *             it is equivalent to making an index equal to 1
+     *
      */
-    public Individual( int size, double prob ) {
+    public Individual( int size, double prob) {
         this.size = size;
         this.genes = new byte[size];
-        double ran;
+        initialisation(prob);
+    }
+
+    /**
+     *  This method initialize the created individual
+     *
+     *
+     * @param prob
+     */
+    private void initialisation( double prob ) {
         boolean flag = false;
-        while (flag == false) {
+        while (flag == false) {/* this flag is used to be sure that at least one genome is different than 0*/
             int index = 0;
-            this.fitness = 0;
+            double ran;
             for (byte b : genes) {
                 ran = new Random().nextDouble();
                 if (ran < prob) {
                     flag = true;
                     genes[index] = 1;
-                    this.fitness++;
                 } else
                     genes[index] = 0;
                 index++;
             }
         }
-
     }
 
 
     /**
+     * Class constructor
+     * Create a new Individual with the given size
      * @param size
      */
     public Individual( int size ) {
         this.size = size;
         this.genes = new byte[size];
-        this.fitness = 0;
     }
 
+
+
     /**
-     * @return
+     * @return the fitness value of this individual
      */
     public int getFitness() {
-        if (genes==null)
-            return this.fitness;
-        int fitness0 = 0;
-        for (byte b : genes) {
-            if (b == 1) {
-                fitness0++;
-            }
-        }
-        return fitness0;
+        return fitness;
     }
 
     /**
-     * @return
+     * @return the size of this individual
      */
-    public int getSize() {
-        return size;
-    }
+    public int getSize() { return size; }
 
     /**
-     * @return
+     * @return the genes array of this individual
      */
-    public byte[] getGenes() {
-        return genes;
-    }
+    public byte[] getGenes() { return genes; }
 
     /**
+     * Edit the genes such that the value at the given index
+     * is equal to the given passed value.
+     *
      * @param index
      * @param b
      */
     public void setAtIndex( int index, byte b ) {
         this.genes[index] = b;
-        if (this.genes[index] == 1 && b == 0)
-            fitness--;
-        else if (this.genes[index] == 0 && b == 1)
-            fitness++;
     }
 
     /**
@@ -112,12 +110,10 @@ public class Individual {
      * @param DS To be reviewed
      *
      */
-    public void setDS( Set<Integer> DS ) {
-        this.fitness = 0;
+    public void setDS( Set<Integer> DS) {
+        this.genes = new byte[size];
         for (Integer index : DS) {
-            if (this.genes[index] == 0)
-                this.fitness++;
-            this.genes[index] = 1;
+             this.genes[index] = 1;
         }
     }
 
@@ -137,11 +133,10 @@ public class Individual {
 
     /**
      *
-     * @return
+     * @return the computed hashCode calue of this individual
      */
     @Override
     public int hashCode() {
-
         int result = Objects.hash(size);
         result = 31 * result + Arrays.hashCode(genes);
         return result;
@@ -149,7 +144,7 @@ public class Individual {
 
     /**
      *
-     * @return
+     * @return the String representation of this individual
      */
     @Override
     public String toString() {
@@ -163,19 +158,30 @@ public class Individual {
     /**
      *
      */
-    public void calculateFitness() {
+    public void computeFitness() {
         this.fitness = 0;
         for (byte b : genes) {
-            if (b == 1)
+            if (b == 1) {
                 this.fitness++;
+            }
         }
     }
 
     /**
+     * given a biMap that stores the real values of the vertices,
+     * it return the dominating Set.
      *
-     * @param fitness
+     * @param biMap
+     *  @return the dominating Set represenented int this individual
      */
-    public void setFitness( int fitness ) {
-        this.fitness = fitness;
+    public Set<Integer> mdsFrom( BiMap<Integer, Integer> biMap ) {
+        Set<Integer> mdsFound = new HashSet<>();
+        int index = 0;
+        for (byte b : this.genes ) {
+            if (b==1)
+                mdsFound.add(biMap.get(index));
+            index++;
+        }
+       return  mdsFound;
     }
 }

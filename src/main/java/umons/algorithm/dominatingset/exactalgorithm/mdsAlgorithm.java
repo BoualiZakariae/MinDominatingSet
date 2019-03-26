@@ -23,15 +23,7 @@ public interface mdsAlgorithm {
      */
     public Result run( Graph graph );
 
-    /**
-     *
-     * @param graph
-     * @param knowDominaitingNumber
-     * @return
-     */
-    default Result run( Graph graph,int knowDominaitingNumber ){
-            return run(graph);
-    }
+
 
 
 }
