@@ -14,8 +14,6 @@ import java.util.Set;
  */
 public class GreedyRandom extends Greedy {
 
-    private HashMap<Integer, Double> probabilities ;
-
     /**
      *
      * chooseVertex implementation for the greedy Random algorithm
@@ -29,13 +27,13 @@ public class GreedyRandom extends Greedy {
         int sumOfWeights = weights.values()
                                  .stream()
                                  .reduce(0,Integer::sum);
-        probabilities = new HashMap<>();
+        HashMap<Integer, Double> probabilities = new HashMap<>();
         for (Integer key:weights.keySet()) {
             probabilities.put(key, weights.get(key)* 1.0 / sumOfWeights);
         }
         double cumulativeSum = 0;
         double r = new Random().nextDouble();
-        for (Integer key:probabilities.keySet()) {
+        for (Integer key: probabilities.keySet()) {
             cumulativeSum += probabilities.get(key);
             if (cumulativeSum >= r) {
                 return key;

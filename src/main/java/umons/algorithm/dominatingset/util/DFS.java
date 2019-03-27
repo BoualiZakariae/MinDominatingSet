@@ -16,7 +16,6 @@ public class DFS {
      */
     private List<List<Integer>> listOfCompenents = new ArrayList<>();
     private Map<Integer,Boolean> visited ;
-    private int n;
     Map<Integer, Set<Integer>> adj;
 
     /**
@@ -24,7 +23,7 @@ public class DFS {
      * @param n
      */
     public DFS(int n){
-        this.n = n;
+        int n1 = n;
         visited = new HashMap<>();
     }
 

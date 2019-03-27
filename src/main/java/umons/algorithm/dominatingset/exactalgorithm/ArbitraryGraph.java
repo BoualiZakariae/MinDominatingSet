@@ -93,7 +93,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
             return new HashSet<>();
         }
         int t = graph.size();
-        int maxMdsSize = (int) (3 *t / 8) ;
+        int maxMdsSize = 3 *t / 8;
         int[] currentMds = null;
         int minMdsSize = Integer.MAX_VALUE;
         int[] V = new int[graph.size()];
@@ -389,11 +389,13 @@ public class ArbitraryGraph implements mdsAlgorithm {
         Stats.numberOfGraphs++;
         return new Result(mds,end-start);
     }
+
+
     /**
      * main method for testing purpose
      * @param args
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
     }
 }

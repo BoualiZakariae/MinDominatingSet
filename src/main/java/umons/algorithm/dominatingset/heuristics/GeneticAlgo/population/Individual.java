@@ -1,13 +1,14 @@
-package umons.algorithm.dominatingset.heuristics.GeneticAlgo;
+package umons.algorithm.dominatingset.heuristics.GeneticAlgo.population;
 
 import com.google.common.collect.BiMap;
 
 import java.util.*;
 
 /**
- *  This Class represents an individual of the population
+ *  This Class represents an individual of the population.
+ *
  **/
-public class Individual {
+public class Individual implements Comparable<Individual>{
     /**
      *  Each individual has a size,a fitness value and
      *  a byte array that represent the equivalent mds
@@ -20,7 +21,7 @@ public class Individual {
     /**
      * Default class constructor
      */
-    Individual(){}
+    Individual(){this.genes = new byte[1];}
 
     /**
      * Class constructor
@@ -120,7 +121,7 @@ public class Individual {
     /**
      *
      * @param o
-     * @return
+     * @return true if the passe object is equal to this object.
      */
     @Override
     public boolean equals( Object o ) {
@@ -133,7 +134,7 @@ public class Individual {
 
     /**
      *
-     * @return the computed hashCode calue of this individual
+     * @return the computed hashCode value of this individual
      */
     @Override
     public int hashCode() {
@@ -156,6 +157,12 @@ public class Individual {
     }
 
     /**
+     *  This method compute the fitness value of this Individual.
+     *  This value is equal to the dominating Set represented by
+     *  this individual.
+     *
+     * Technically this vakue is equivalent to the number of 1
+     * inn the genes array.
      *
      */
     public void computeFitness() {
@@ -169,10 +176,10 @@ public class Individual {
 
     /**
      * given a biMap that stores the real values of the vertices,
-     * it return the dominating Set.
+     * this method return the dominating Set represented by this individual.
      *
      * @param biMap
-     *  @return the dominating Set represenented int this individual
+     *  @return the dominating Set represented by this individual
      */
     public Set<Integer> mdsFrom( BiMap<Integer, Integer> biMap ) {
         Set<Integer> mdsFound = new HashSet<>();
@@ -183,5 +190,35 @@ public class Individual {
             index++;
         }
        return  mdsFound;
+    }
+
+
+    /**
+     *
+     * @param o
+     * @return
+     */
+    @Override
+    public int compareTo( Individual o ) {
+        return this.getFitness()-o.getFitness();
+    }
+
+    /**
+     *
+     * @param i
+     * @return
+     */
+    public static Individual ofFitness( int i ) {
+        Individual individual= new Individual();
+        individual.seFitness(i);
+        return  individual;
+    }
+
+    /**
+     *
+     * @param _fitness
+     */
+    private void seFitness( int _fitness ) {
+        this.fitness = _fitness;
     }
 }

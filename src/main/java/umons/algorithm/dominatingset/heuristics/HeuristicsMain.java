@@ -2,7 +2,7 @@ package umons.algorithm.dominatingset.heuristics;
 
 import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgoImpl;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplOne;
 import umons.algorithm.dominatingset.heuristics.Greedy.Greedy;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRandom;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
@@ -74,7 +74,7 @@ public class HeuristicsMain {
         String grapheName = "gplus_200.col";
         File file = new File(classloader.getResource(grapheName).getFile());
         Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-        GeneticAlgoImpl heuristic = new GeneticAlgoImpl();
+        GeneticAlgoImplOne heuristic = new GeneticAlgoImplOne();
         System.out.println("    public static final int     POPULATION_SIZE = 100;\n" +
                 "    public static final int     MAX_GEN = 20000;//number of iteration\n" +
                 "    public static final double  P_DS = 0.3;\n" +

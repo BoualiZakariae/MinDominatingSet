@@ -21,7 +21,7 @@ public interface mdsAlgorithm {
      * @return      a Result object that contains the solution
      *
      */
-    public Result run( Graph graph );
+    Result run( Graph graph );
 
 
 

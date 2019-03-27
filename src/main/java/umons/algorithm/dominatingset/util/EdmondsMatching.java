@@ -1,4 +1,5 @@
-package umons.algorithm.dominatingset.util; /******************************************************************************
+package umons.algorithm.dominatingset.util;
+/**
  * File: EdmondsMatching.java
  * Author: Keith Schwarz (htiek@cs.stanford.edu)
  *

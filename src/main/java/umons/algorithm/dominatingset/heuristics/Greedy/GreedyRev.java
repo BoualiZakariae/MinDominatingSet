@@ -22,7 +22,6 @@ public class GreedyRev implements mdsAlgorithm {
      */
     private HashMap<Integer, Integer> coveredBy ;
     private HashMap<Integer, Boolean> uniquely ;
-    private List<Integer> V;
     private int n;
 
     /**
@@ -105,12 +104,12 @@ public class GreedyRev implements mdsAlgorithm {
         int start = 0;
         n=g.size();
         Set<Integer> D = new HashSet<>();
-        V = g.getAdj().keySet()
-                      .stream()
-                      .collect(Collectors.toCollection(ArrayList::new));
-        V.sort((arg0, arg1) -> g.getDegreeOf(arg0) - g.getDegreeOf(arg1));
+        List<Integer> v1 = g.getAdj().keySet()
+                .stream()
+                .collect(Collectors.toCollection(ArrayList::new));
+        v1.sort(( arg0, arg1) -> g.getDegreeOf(arg0) - g.getDegreeOf(arg1));
 
-        D.addAll(V);
+        D.addAll(v1);
         for (int key: g.getAdj().keySet() ) {
             coveredBy.put(key,1 + g.getDegreeOf(key));
             if (coveredBy.get(key) == 1)
@@ -119,13 +118,13 @@ public class GreedyRev implements mdsAlgorithm {
                 uniquely.put(key,false);
         }
 
-        int v = chooseVertex(g,D, V, start);
+        int v = chooseVertex(g,D, v1, start);
 
         while (v != -1) {
             D.remove(v);
             //System.out.println("removed vertex "+v);
             adjustWeights(D, v, g);
-            v = chooseVertex(g,D, V, start);
+            v = chooseVertex(g,D, v1, start);
         }
         double end = System.currentTimeMillis();
         Stats.numberOfGraphs++;

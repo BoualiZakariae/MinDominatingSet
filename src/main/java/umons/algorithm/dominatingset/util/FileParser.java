@@ -36,7 +36,7 @@ public class FileParser {
      * @return
      * @throws IOException
      */
-    public static Graph createGraphFromDimacsFormat( File file) throws IOException {
+    public static Graph createGraphFromDimacsFormat( File file) {
         BufferedReader reader;
         Graph g = null ;
         try {
@@ -177,7 +177,7 @@ public class FileParser {
     public static void main( String[] args ) throws IOException {
 
         mdsAlgorithm atMostThreeDegreeAlgo = new ArbitraryGraph();
-        BufferedReader reader = new BufferedReader(new FileReader(pathTomax3degreeFile));;
+        BufferedReader reader = new BufferedReader(new FileReader(pathTomax3degreeFile));
         BufferedWriter writer = new BufferedWriter(new FileWriter(maxDegreeFile));
         Graph g=null;
         String firstLine   =  reader.readLine();
@@ -196,7 +196,7 @@ public class FileParser {
                 .append(" ")
                 .append(createTriangleUpFormat(g))
                 .append(" ");
-            int mdsSize = (int) result.getMds().size();
+            int mdsSize = result.getMds().size();
             line.append(mdsSize).append("\n");
 
             System.out.println(line);

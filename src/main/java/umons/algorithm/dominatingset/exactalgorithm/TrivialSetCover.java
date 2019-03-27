@@ -192,7 +192,7 @@ public class TrivialSetCover implements mdsAlgorithm {
      * to run this Algo, we pass the the location file as arguments to the main method
      * @param args
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
 
     }

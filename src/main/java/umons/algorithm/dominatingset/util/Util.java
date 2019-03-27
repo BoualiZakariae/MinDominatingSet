@@ -157,9 +157,7 @@ public class Util {
      * @return true if Q Contains all element of P
      */
     public static boolean isSubset(Collection<Integer> P, Collection<Integer> Q) {
-        if (Q.containsAll(P))
-            return true;
-       return false;
+        return Q.containsAll(P);
     }
 
 

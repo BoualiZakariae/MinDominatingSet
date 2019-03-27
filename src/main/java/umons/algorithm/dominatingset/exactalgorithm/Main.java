@@ -3,7 +3,6 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgoImpl;
 import umons.algorithm.dominatingset.toDelete.Stats;
 import umons.algorithm.dominatingset.util.FileParser;
 import java.io.BufferedReader;

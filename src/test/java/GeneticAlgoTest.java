@@ -1,9 +1,8 @@
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.graph.Graph;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgoImpl;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgorithm;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplOne;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoUtil;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -24,14 +23,14 @@ public class GeneticAlgoTest {
         graph.addEdge(4,5);
         graph.addEdge(4,6);
 
-        /*GeneticAlgoImpl ga = new GeneticAlgoImpl();
+        /*GeneticAlgoImplOne ga = new GeneticAlgoImplOne();
         Set<Integer> mds = ga.run(graph,2).getMds();
         System.out.println(mds);*/
-        GeneticAlgoImpl ga = new GeneticAlgoImpl();
+        GeneticAlgoImplOne ga = new GeneticAlgoImplOne();
         Set<Integer> currentMds = Stream.of(1,3,4,5)
                                         .collect(Collectors.toCollection(HashSet::new));
         System.out.println(currentMds);
-        ga.minimizeSolution(graph,currentMds);
+        GeneticAlgoUtil.minimizeSolution(graph,currentMds);
         System.out.println(currentMds);
 
 

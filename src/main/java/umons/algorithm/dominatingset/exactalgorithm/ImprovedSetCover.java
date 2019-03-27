@@ -117,10 +117,10 @@ public class ImprovedSetCover extends TrivialSetCover {
      * maximum matching to find set-cover
      *
      * This method is executed whenever there is no set that contains more
-     * than 2 elements, to calculate the sect cover of such instance
-     * the EdmondsMatching can be used to get a solution in a polynomial time.
+     * than 2 elements, to calculate the set cover of such instance
+     * the Edmonds Matching Algorithm has been used to get a solution in a polynomial time.
      *
-     * the EdmondsMatching implementation was get from
+     * the Edmonds Matching implementation was get from
      *
      *
      *

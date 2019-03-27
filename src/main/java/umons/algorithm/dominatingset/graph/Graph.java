@@ -260,9 +260,7 @@ public class Graph {
         if (!getGraphVertices().contains(v))
             throw new NoSuchElementException();
 
-        if (this.adj.get(v).size()==0)
-            return true;
-        return false;
+        return this.adj.get(v).size() == 0;
 
     }
     /**
