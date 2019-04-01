@@ -6,7 +6,6 @@ import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.toDelete.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -185,7 +184,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
          */
         Set<Integer> listOfZeroDegreeVertices = getZeroDegreeVertices(graph);
         if (listOfZeroDegreeVertices.size() > 0) {
-            Graph gPrime = graph.removeVertex(listOfZeroDegreeVertices);
+            Graph gPrime = graph.removeVertices(listOfZeroDegreeVertices);
             Set<Integer> newX = /*set of vertices that has at least 3 neighbours*/
                     X.stream()
                      .filter(x -> !listOfZeroDegreeVertices.contains(x))
@@ -229,7 +228,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
             Set<Integer> vertices = new HashSet<>();
             vertices.add(v.getId());
             vertices.add(w);
-            gPrime = graph.removeVertex(vertices);
+            gPrime = graph.removeVertices(vertices);
             Set<Integer> closedNeighborsOfw = graph.getClosedNeighbors(w);
             newX =  X.stream()
                     .filter(x->!closedNeighborsOfw.contains(x))
@@ -297,7 +296,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
         //C1
         vertices.add(v.getId());
         vertices.add(u1);
-        Graph gPrime = graph.removeVertex(vertices);
+        Graph gPrime = graph.removeVertices(vertices);
         Set<Integer> closedNeighborsOfu1 = graph.getClosedNeighbors(u1);
         Set<Integer> newX =  X.stream()
                               .filter(x->!closedNeighborsOfu1.contains(x))
@@ -307,7 +306,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
 
         //C2        
         vertices.add(u2);
-        gPrime = graph.removeVertex(vertices);
+        gPrime = graph.removeVertices(vertices);
         newX =  X.stream()
                  .filter(x->x!=u1 && x!=u2)
                  .collect(Collectors.toCollection(HashSet::new));
@@ -317,7 +316,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
         // case C.3
         vertices = new HashSet<>();
         vertices.add(v.getId());
-        gPrime = graph.removeVertex(vertices);
+        gPrime = graph.removeVertices(vertices);
         newX = new HashSet<>();
         newX.addAll(X);
         Set<Integer> d3 = mdsOfrArbitraryGraph(gPrime, newX);
@@ -340,7 +339,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
         // case D.1
         vertices.add(u1);
         vertices.add(v.getId());
-        Graph gPrime = graph.removeVertex(vertices);
+        Graph gPrime = graph.removeVertices(vertices);
         Set<Integer> closedNeighborsOfu1 = graph.getClosedNeighbors(u1);
         Set<Integer>  newX =  X.stream()
                                .filter(x->!closedNeighborsOfu1.contains(x))
@@ -350,7 +349,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
 
         //case D2
         vertices.add(u2);
-        gPrime = graph.removeVertex(vertices);
+        gPrime = graph.removeVertices(vertices);
         newX =  X.stream()
                  .filter(x->x!=u1 && x!=u2&& x!=v.getId())
                  .collect(Collectors.toCollection(HashSet::new));
@@ -361,7 +360,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
         vertices = new HashSet<>();
         vertices.add(v.getId());
         vertices.add(u2);
-        gPrime = graph.removeVertex(vertices);
+        gPrime = graph.removeVertices(vertices);
         Set<Integer> closedNeighborsOfu2 = graph.getClosedNeighbors(u2);
         newX =  X.stream()
                  .filter(x->!closedNeighborsOfu2.contains(x))

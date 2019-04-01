@@ -11,7 +11,6 @@ import java.util.*;
 
 public class GeneticAlgoImplTwo extends GeneticAlgorithm {
 
-
     /**
      *
      * @param graph
@@ -26,7 +25,7 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
         popInitialisation(graph, biMap, individuals);
         TreeSetPopulation population = new TreeSetPopulation(individuals);
         int gen=0;
-        int maxGen = 1000;
+        int maxGen = 10000;
         do{
             evolve(graph, biMap,population );
             if (population.getIndividuals().first().getFitness() == knownDominatingNumber){
@@ -36,7 +35,19 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
         }while (gen++ < maxGen || knownDominatingNumber == -1 );
         double end = System.currentTimeMillis();
         Stats.numberOfGraphs++;
-        return new Result(individuals.first().mdsFrom(biMap),end-start);
+        return new Result(population.getIndividuals().first().mdsFrom(biMap),end-start);
+    }
+
+    /**
+     *
+     * @param graph
+     * @param knowDominNumber
+     * @param individuals
+     * @return
+     */
+    @Override
+    public Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals ) {
+        return null;
     }
 
 
@@ -63,7 +74,7 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
             parentTwo = it.next();
             child = crossOver(parentOne,parentTwo);
             applyMutation(child, p_Mutation);
-            currentDS = GeneticAlgoUtil.repairSolution(graph,child,map);
+            currentDS = GeneticAlgoUtil.heuristicRepair(graph,child,map);
             GeneticAlgoUtil.minimizeSolution(graph, currentDS);
             child.setDS(GeneticAlgoUtil.getBackRealIndices(currentDS,map));
             child.computeFitness();
@@ -74,7 +85,7 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
             set2.add(treeSetPopulation.getIndividuals().pollFirst());
         }
         treeSetPopulation.setIndividuals(set2);
-        System.out.println(treeSetPopulation.getIndividuals().first().getFitness());
+       System.out.println(treeSetPopulation.getIndividuals().first().getFitness());
     }
 
 

@@ -11,7 +11,7 @@ import java.util.*;
 public class Individual implements Comparable<Individual>{
     /**
      *  Each individual has a size,a fitness value and
-     *  a byte array that represent the equivalent mds
+     *  a byte array that represents the equivalent mds
      */
     private byte[] genes;
     private int size;
@@ -19,9 +19,28 @@ public class Individual implements Comparable<Individual>{
 
 
     /**
-     * Default class constructor
+     * Class constructor
+     *
+     * Create a new Individual with the given size.
+     * @param size
      */
-    Individual(){this.genes = new byte[1];}
+    public Individual( int size ) {
+        this.size = size;
+        this.genes = new byte[size];
+    }
+
+
+    /**
+     * Class constructor
+     *
+     * Create a new Individual with the given values.
+
+     */
+    public Individual(byte[] _genes ) {
+        this.size = _genes.length;
+        this.genes = Arrays.copyOf(_genes,_genes.length);
+    }
+
 
     /**
      * Class constructor
@@ -29,9 +48,9 @@ public class Individual implements Comparable<Individual>{
      *
      *
      * @param size the size of the individual
-     * @param prob the probability to add a vertex to the dominating Set
-     *             in the context of the genomes of an individual,
-     *             it is equivalent to making an index equal to 1
+     * @param prob the probability to add a vertex to the dominating set.
+     *             In the context of the genomes of an individual,
+     *             it is equivalent to make a cell equal to 1.
      *
      */
     public Individual( int size, double prob) {
@@ -41,7 +60,7 @@ public class Individual implements Comparable<Individual>{
     }
 
     /**
-     *  This method initialize the created individual
+     *  This method initialize this individual.
      *
      *
      * @param prob
@@ -62,18 +81,6 @@ public class Individual implements Comparable<Individual>{
             }
         }
     }
-
-
-    /**
-     * Class constructor
-     * Create a new Individual with the given size
-     * @param size
-     */
-    public Individual( int size ) {
-        this.size = size;
-        this.genes = new byte[size];
-    }
-
 
 
     /**
@@ -105,7 +112,7 @@ public class Individual implements Comparable<Individual>{
     }
 
     /**
-     * edit the individual such that it represent
+     * Edit the individual such that it represents
      * the dominatingSet passed as parameter
      *
      * @param DS To be reviewed
@@ -157,12 +164,12 @@ public class Individual implements Comparable<Individual>{
     }
 
     /**
-     *  This method compute the fitness value of this Individual.
-     *  This value is equal to the dominating Set represented by
+     *  This method compute the fitness value of this individual.
+     *  This value is equal to the dominating set size represented by
      *  this individual.
      *
-     * Technically this vakue is equivalent to the number of 1
-     * inn the genes array.
+     * Technically this value is equivalent to the number of 1
+     * in the genes array.
      *
      */
     public void computeFitness() {
@@ -203,16 +210,6 @@ public class Individual implements Comparable<Individual>{
         return this.getFitness()-o.getFitness();
     }
 
-    /**
-     *
-     * @param i
-     * @return
-     */
-    public static Individual ofFitness( int i ) {
-        Individual individual= new Individual();
-        individual.seFitness(i);
-        return  individual;
-    }
 
     /**
      *

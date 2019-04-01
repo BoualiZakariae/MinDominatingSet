@@ -11,6 +11,7 @@ import java.util.*;
  */
 public class TreeSetPopulation extends Population {
 
+
     private TreeSet<Individual> individuals;
 
     /**
@@ -22,6 +23,7 @@ public class TreeSetPopulation extends Population {
         this.individuals = individuals;
     }
 
+
     @Override
     public int size() {
         return this.individuals.size();
@@ -32,10 +34,23 @@ public class TreeSetPopulation extends Population {
         return individuals.first().getSize();
     }
 
+    @Override
+    public Individual getFittest() {
+        return this.individuals.first();
+    }
+
+    /**
+     *
+     * @return
+     */
     public TreeSet<Individual> getIndividuals() {
         return individuals;
     }
 
+    /**
+     *
+     * @param individuals
+     */
     public void setIndividuals( TreeSet<Individual> individuals ) {
         this.individuals = individuals;
     }

@@ -2,8 +2,9 @@ package umons.algorithm.dominatingset.heuristics.GeneticAlgo;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplTwo;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgorithm;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.*;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.TwoPointsCrossOver;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.SwapMutation;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.File;
@@ -14,16 +15,14 @@ import java.util.Map;
 
 public class GeneticAlgoMain {
 
-    /**
-     *
-     */
+
     static Map<String,Integer> hugesGraphs = new HashMap<>();
     static {
-        //  hugesGraphs.put("gplus_200.col",19);
-        //  hugesGraphs.put("gplus_500.col",42);
-        //  hugesGraphs.put("gplus_2000.col",170);
+        //hugesGraphs.put("gplus_200.col",19);
+         // hugesGraphs.put("gplus_500.col",42);
+        hugesGraphs.put("gplus_2000.col",170);
         //  hugesGraphs.put("pokec_500.col",16);
-        hugesGraphs.put("pokec_2000.col",75);
+     //   hugesGraphs.put("pokec_2000.col",75);
         //  hugesGraphs.put("gplus_10000.col",861);
         //  hugesGraphs.put("gplus_20000.col",1716);
         //  hugesGraphs.put("pokec_10000.col",413);
@@ -45,10 +44,16 @@ public class GeneticAlgoMain {
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
             File file = new File(classloader.getResource(grapheName).getFile());
             Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-            GeneticAlgorithm heuristic = new GeneticAlgoImplTwo();
+            /*GeneticAlgorithm heuristic = new GeneticAlgoImplOne();
             Result mds = heuristic.run(hugeGraph,knownMdsSize);
+            */
+            GeneticAlgorithm heuristicTwo = new GeneticAlgoImplTwo();
+            heuristicTwo.setCrossOverStrategy(new TwoPointsCrossOver());
+            heuristicTwo.setMutationStrategy(new SwapMutation());
+            Result mdsTwo = heuristicTwo.run(hugeGraph,knownMdsSize);
+            //   System.out.println(mds.getMds().size()+" in "+(mds.getTime())+" sec");
+            System.out.println(mdsTwo.getMds().size()+" in "+(mdsTwo.getTime())+" sec");
 
-            System.out.println(mds.getMds().size()+" in "+(mds.getTime())+" sec");
             System.out.println();
         }
     }

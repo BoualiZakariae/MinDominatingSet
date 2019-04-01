@@ -44,11 +44,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
     public GeneticAlgoImplOne( int populationSize , int maxNumGeneration, double p_Ds,
                                double p_CrossOver, double p_Mutation, double p_Heuristic,
                                double  p_Better ) {
-        this.populationSize = populationSize;
-        this.maxNumGeneration=maxNumGeneration;
-        this.p_Ds= p_Ds;
-        this.p_CrossOver=p_CrossOver;
-        this.p_Mutation=p_Mutation;
+        super(populationSize,maxNumGeneration,p_Ds,p_CrossOver,p_Mutation);
         this.p_Heuristic=p_Heuristic;
         this.p_Better=p_Better;
     }
@@ -72,54 +68,100 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
     public Result run( Graph graph , int knownDominatingNumber) {
         double start = System.currentTimeMillis();
         BiMap<Integer, Integer> biMap = genesToVerticesMapping(graph);
-        List<Individual> individuals = new ArrayList<>();
-        popInitialisation(graph, biMap, individuals);
-        ArrayListPopulation population = new ArrayListPopulation(individuals);
-        Individual best = individuals.get(0),child;
+        ArrayListPopulation population = createPopulation(graph, biMap);
+        Individual best = population.getFittest(),newChild;
         int gen=0,F = best.getFitness();
-        double random ;
+        Set<Integer> currentDS;
         do{
-            random = new Random().nextDouble();
-            if(random < p_CrossOver)
-                child = evolve(population,random);
-            else
-                child = population.generateRandomIndividual(population.getIndividualSize(), p_Ds);
-            Set<Integer> currentDS;
-            if(random < p_Heuristic){
-                currentDS = GeneticAlgoUtil.repairSolution(graph,child,biMap);
-            }
-            else{
-                currentDS = GeneticAlgoUtil.randomRepair(graph,child,biMap);
-            }
+            newChild = generateChild(population);
+            currentDS = repairSolution(graph, biMap, newChild);
             GeneticAlgoUtil.minimizeSolution(graph, currentDS);
-            child.setDS(GeneticAlgoUtil.getBackRealIndices(currentDS,biMap));
-            child.computeFitness();
-            if (population.isUnique(child)){
-                population.replaceWorstBy(child);
-                if(child.getFitness()<F){
-                    System.out.println("best fitness found "+child.getFitness());
-                    F = child.getFitness();
-                    best = child;
+            newChild.setDS(GeneticAlgoUtil.getBackRealIndices(currentDS,biMap));
+            newChild.computeFitness();
+            if (population.isUnique(newChild)){
+                population.replaceWorstBy(newChild);
+                if(newChild.getFitness() < F){
+                    System.out.println("new best fitness found "+newChild.getFitness());
+                    F = newChild.getFitness();
+                    best = newChild;
                 }
                 gen++;
             }
         }while (gen < maxNumGeneration && (knownDominatingNumber == -1  ||  best.getFitness() != knownDominatingNumber));
         double end = System.currentTimeMillis();
+        System.out.println("nombre d'iteration dans lalgo1: "+gen);
         Stats.numberOfGraphs++;
         return new Result(best.mdsFrom(biMap),end-start);
+    }
+
+    /**
+     *
+     * @param graph
+     * @param biMap
+     * @param newChild
+     * @return
+     */
+    private Set<Integer> repairSolution( Graph graph, BiMap<Integer, Integer> biMap, Individual newChild) {
+        Set<Integer> currentDS;
+        Random random = new Random();
+        if(random.nextDouble() < p_Heuristic)
+            currentDS = GeneticAlgoUtil.heuristicRepair(graph, newChild, biMap);
+        else
+            currentDS = GeneticAlgoUtil.randomRepair(graph, newChild, biMap);
+        return currentDS;
+    }
+
+    /**
+     *
+     * @param population
+     * @return
+     */
+    private Individual generateChild( ArrayListPopulation population) {
+        Random random = new Random();
+        Individual newChild;
+        if(random.nextDouble() < p_CrossOver)
+            newChild = evolve(population);
+        else
+            newChild = population.generateRandomIndividual(p_Ds);
+        return newChild;
+    }
+
+    @Override
+    public Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals ) {
+        return null;
+    }
+
+    /**
+     *
+     * @param graph
+     * @param biMap
+     * @return
+     */
+    private ArrayListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
+        List<Individual> individuals = new ArrayList<>();
+        popInitialisation(graph, biMap, individuals);
+        return new ArrayListPopulation(individuals);
     }
 
 
     /**
      * Whenever this method is called, a new child is created
+     * and returned.
      *
      * @param pop
-     * @param random
      * @return
      */
-    public Individual evolve( ArrayListPopulation pop , double random ) {
-        Individual fittestOne = pop.getFittest(random, p_Better);
-        Individual fittestTwo = pop.getSecondFittest(fittestOne, p_Better, random);
+    public Individual evolve( ArrayListPopulation pop  ) {
+        Individual fittestOne, fittestTwo;
+        Random random = new Random();
+        if (random.nextDouble() > p_Better)
+            fittestOne = pop.getRandomIndividual();
+        else
+            fittestOne = pop.getFittest();
+        if (random.nextDouble() > p_Better)
+            fittestTwo = pop.getRandomIndividual(fittestOne);
+        else
+            fittestTwo = pop.getSecondFittest(fittestOne);
         Individual child = crossOver(fittestOne, fittestTwo);
         applyMutation(child, p_Mutation);
         return child;

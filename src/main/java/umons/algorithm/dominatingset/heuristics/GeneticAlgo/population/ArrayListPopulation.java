@@ -38,14 +38,9 @@ public class ArrayListPopulation extends Population {
 
     /**
      *
-     * @param random
-     * @param pBetter
      * @return
      */
-    public Individual getFittest(double random, double pBetter ) {
-        int randomIndex = new Random().nextInt(individuals.size());
-        if (random > pBetter)
-            return this.individuals.get(randomIndex);
+    public Individual getFittest() {
         return this.individuals
                 .stream()
                 .parallel()
@@ -53,17 +48,24 @@ public class ArrayListPopulation extends Population {
                 .get();
     }
 
+
+    /**
+     *
+     * @return
+     */
+    public Individual getRandomIndividual(){
+        int randomIndex = new Random().nextInt(individuals.size());
+            return individuals.get(randomIndex);
+    }
+
+
+
     /**
      *
      * @param fittest
-     * @param prob
-     * @param random
      * @return
      */
-    public Individual getSecondFittest( Individual fittest, double prob, double random ) {
-        int randomIndex = new Random().nextInt(individuals.size());
-        if (random > prob)
-            return individuals.get(randomIndex);
+    public Individual getSecondFittest( Individual fittest ) {
         return individuals.stream()
                 .parallel()
                 .filter(s -> s.getFitness() <= fittest.getFitness())
@@ -101,5 +103,21 @@ public class ArrayListPopulation extends Population {
      */
     public List<Individual> getIndividuals() {
         return individuals;
+    }
+
+    /**
+     *
+     * @param fittestOne
+     * @return a random individual from the population that is not equal
+     *         to the given individual
+     */
+    public Individual getRandomIndividual( Individual fittestOne ) {
+        Individual secondFittest;
+        do {
+            int randomIndex = new Random().nextInt(individuals.size());
+            secondFittest = individuals.get(randomIndex);
+        }while(secondFittest.equals(fittestOne)==true);
+
+        return secondFittest;
     }
 }

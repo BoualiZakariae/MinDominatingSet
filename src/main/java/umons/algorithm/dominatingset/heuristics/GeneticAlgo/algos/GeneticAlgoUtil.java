@@ -11,6 +11,8 @@ import java.util.*;
 
 /**
  *
+ * This class contains helper methods for the genetic algorithm.
+ *
  */
 public class GeneticAlgoUtil {
 
@@ -49,7 +51,7 @@ public class GeneticAlgoUtil {
      * @param map
      * @return
      */
-    public static Set<Integer> repairSolution( Graph graph, Individual individual, BiMap<Integer, Integer> map ) {
+    public static Set<Integer> heuristicRepair( Graph graph, Individual individual, BiMap<Integer, Integer> map ) {
         Set<Integer> currentDS      = new HashSet<>();
         Set<Integer> setToDominate  = new HashSet<>();
         for (Integer key :graph.getAdj().keySet()) {
@@ -61,8 +63,8 @@ public class GeneticAlgoUtil {
         if (remainingSet.size()==0)
             return currentDS ;
         Set<Integer> graphVertices = new HashSet<>(graph.getAdj().keySet());
-        Set<Integer> dominatedVertices = umons.algorithm.dominatingset.util.Util.setMinus(graphVertices,remainingSet);
-        Graph nonDominatedSubGraph = graph.removeVertex(dominatedVertices);
+        Set<Integer> dominatedVertices = Util.setMinus(graphVertices,remainingSet);
+        Graph nonDominatedSubGraph = graph.removeVertices(dominatedVertices);
         Set<Integer> mdsOfRemainingSet = new Greedy().run(nonDominatedSubGraph).getMds();
         currentDS.addAll(mdsOfRemainingSet);
         return currentDS ;
@@ -85,10 +87,11 @@ public class GeneticAlgoUtil {
                 currentDS.add(key);
         }
         boolean dominated = false;
-        int ran ;
+        Random random =new Random();
+        int ran;
         while (!dominated){
             do{
-                ran = new Random().nextInt(child.getSize());
+                ran = random.nextInt(child.getSize());
             }
             while (currentDS.contains(map.get(ran)));
             currentDS.add(map.get(ran));
