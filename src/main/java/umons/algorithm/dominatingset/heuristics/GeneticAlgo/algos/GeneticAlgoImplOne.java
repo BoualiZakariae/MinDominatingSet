@@ -4,7 +4,7 @@ import com.google.common.collect.BiMap;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individual;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.ArrayListPopulation;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.ListPopulation;
 import umons.algorithm.dominatingset.toDelete.Stats;
 
 import java.util.*;
@@ -68,7 +68,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
     public Result run( Graph graph , int knownDominatingNumber) {
         double start = System.currentTimeMillis();
         BiMap<Integer, Integer> biMap = genesToVerticesMapping(graph);
-        ArrayListPopulation population = createPopulation(graph, biMap);
+        ListPopulation population = createPopulation(graph, biMap);
         Individual best = population.getFittest(),newChild;
         int gen=0,F = best.getFitness();
         Set<Integer> currentDS;
@@ -116,7 +116,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param population
      * @return
      */
-    private Individual generateChild( ArrayListPopulation population) {
+    private Individual generateChild( ListPopulation population) {
         Random random = new Random();
         Individual newChild;
         if(random.nextDouble() < p_CrossOver)
@@ -137,10 +137,10 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param biMap
      * @return
      */
-    private ArrayListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
+    private ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
         List<Individual> individuals = new ArrayList<>();
         popInitialisation(graph, biMap, individuals);
-        return new ArrayListPopulation(individuals);
+        return new ListPopulation(individuals);
     }
 
 
@@ -151,7 +151,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param pop
      * @return
      */
-    public Individual evolve( ArrayListPopulation pop  ) {
+    public Individual evolve( ListPopulation pop  ) {
         Individual fittestOne, fittestTwo;
         Random random = new Random();
         if (random.nextDouble() > p_Better)
