@@ -19,8 +19,8 @@ public class GeneticAlgoMain {
     static Map<String,Integer> hugesGraphs = new HashMap<>();
     static {
         //hugesGraphs.put("gplus_200.col",19);
-         // hugesGraphs.put("gplus_500.col",42);
-        hugesGraphs.put("gplus_2000.col",170);
+         hugesGraphs.put("gplus_500.col",42);
+        //hugesGraphs.put("gplus_2000.col",170);
         //  hugesGraphs.put("pokec_500.col",16);
      //   hugesGraphs.put("pokec_2000.col",75);
         //  hugesGraphs.put("gplus_10000.col",861);
@@ -44,16 +44,9 @@ public class GeneticAlgoMain {
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
             File file = new File(classloader.getResource(grapheName).getFile());
             Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-            /*GeneticAlgorithm heuristic = new GeneticAlgoImplOne();
-            Result mds = heuristic.run(hugeGraph,knownMdsSize);
-            */
-            GeneticAlgorithm heuristicTwo = new GeneticAlgoImplTwo();
-            heuristicTwo.setCrossOverStrategy(new TwoPointsCrossOver());
-            heuristicTwo.setMutationStrategy(new SwapMutation());
+            GeneticAlgorithm heuristicTwo = new GeneticAlgoImplOne();
             Result mdsTwo = heuristicTwo.run(hugeGraph,knownMdsSize);
-            //   System.out.println(mds.getMds().size()+" in "+(mds.getTime())+" sec");
             System.out.println(mdsTwo.getMds().size()+" in "+(mdsTwo.getTime())+" sec");
-
             System.out.println();
         }
     }

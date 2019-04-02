@@ -1,18 +1,24 @@
 package umons.algorithm.dominatingset.heuristics.GeneticAlgo.population;
 
 /**
+ *  This abstract class represents the population used
+ *  in the genetic algorithm.
  *
+ *  This class exposes the methods that should be implemented by the subclasses.
+ *  every subclasses can choose the fittest data structure.
  */
 public abstract class Population {
-    /**
-     *
-     * @return the size of this population
-     */
-    public abstract int size();
 
     /**
      *
-     * @return the size of the individuals in this population
+     * @return the size of this population.
+     */
+    public abstract int size();
+
+
+    /**
+     *
+     * @return the size of the individuals in this population.
      */
     public abstract int getIndividualSize();
 
@@ -22,10 +28,9 @@ public abstract class Population {
      *
      *  Technically, the best individual is the one that have the min fitness value.
      *
-     * @return the best individual of this population
+     * @return the best individual of this population.
      */
     public abstract Individual getFittest();
-
 
 
     /**
