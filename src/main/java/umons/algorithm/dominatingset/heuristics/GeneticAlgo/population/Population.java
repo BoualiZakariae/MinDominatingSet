@@ -5,7 +5,7 @@ package umons.algorithm.dominatingset.heuristics.GeneticAlgo.population;
  *  in the genetic algorithm.
  *
  *  This class exposes the methods that should be implemented by the subclasses.
- *  every subclasses can choose the fittest data structure.
+ *  every subclasses can choose the fittest data structure to use.
  */
 public abstract class Population {
 

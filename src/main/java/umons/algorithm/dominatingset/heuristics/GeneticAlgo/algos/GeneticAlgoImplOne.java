@@ -19,7 +19,7 @@ import java.util.*;
  */
 public class GeneticAlgoImplOne extends GeneticAlgorithm {
 
-    private double  p_Heuristic = 0.8;//probability for using heuristic to repair a solution
+    private double  p_Heuristic = 0.6;//probability for using heuristic to repair a solution
     private double  p_Better = 0.8;//probability for picking the best individual to be selected as a parent
 
     public GeneticAlgoImplOne() {}
@@ -101,7 +101,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param newChild
      * @return
      */
-    private Set<Integer> repairSolution( Graph graph, BiMap<Integer, Integer> biMap, Individual newChild) {
+    Set<Integer> repairSolution( Graph graph, BiMap<Integer, Integer> biMap, Individual newChild) {
         Set<Integer> currentDS;
         Random random = new Random();
         if(random.nextDouble() < p_Heuristic)
@@ -116,7 +116,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param population
      * @return
      */
-    private Individual generateChild( ListPopulation population) {
+    Individual generateChild( ListPopulation population) {
         Random random = new Random();
         Individual newChild;
         if(random.nextDouble() < p_CrossOver)
@@ -137,11 +137,24 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param biMap
      * @return
      */
-    private ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
+     ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
         List<Individual> individuals = new ArrayList<>();
         popInitialisation(graph, biMap, individuals);
         return new ListPopulation(individuals);
     }
+
+    /**
+     *
+     * @param graph
+     * @param biMap
+     * @return
+     */
+    ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap, List list ) {
+        popInitialisation(graph, biMap, list);
+        return new ListPopulation(list);
+    }
+
+
 
 
     /**

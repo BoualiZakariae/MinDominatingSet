@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * This class implements the GreedyRandom algorithm
  */
-public class GreedyRandom extends Greedy {
+public class GreedyRandom extends Greedy implements mdsAlgorithm{
 
     /**
      *

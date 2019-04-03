@@ -22,11 +22,10 @@ public class GeneticAlgoUtil {
      *  the dominating set size by removing some vertices without
      *  affecting the domination property.
      *
-     *  todo: improving the algorithm complexity
      *  @param graph
      *  @param currentDS
      */
-    public static void minimizeSolution( Graph graph, Set<Integer> currentDS ) {
+    public static void minimizeSolution( Graph graph, Set<Integer> currentDS  ) {
         Iterator<Integer> it = currentDS.iterator();
         Set<Integer> newDS;
         while (it.hasNext()){
@@ -77,7 +76,7 @@ public class GeneticAlgoUtil {
      * On the paper, this operation is called a random repair operation.
      *
      * @param graph  the graph instance.
-     * @param child  the individual that don't represent a valis mds solution.
+     * @param child  the individual that don't represent a valid mds solution.
      * @param map    a map data structure that store the real vertices values.
      * @return       a set of integer that represents a valid mds solution of the given graph instance.
      */

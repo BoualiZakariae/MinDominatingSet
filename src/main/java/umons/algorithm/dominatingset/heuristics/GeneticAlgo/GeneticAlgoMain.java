@@ -3,6 +3,9 @@ package umons.algorithm.dominatingset.heuristics.GeneticAlgo;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.*;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.OnePointCrossOver;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.TwoPointsCrossOver;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.UniformCrossOver;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.File;
@@ -17,13 +20,13 @@ public class GeneticAlgoMain {
     static Map<String,Integer> hugesGraphs = new HashMap<>();
     static {
         //hugesGraphs.put("gplus_200.col",19);
-         hugesGraphs.put("gplus_500.col",42);
-        //hugesGraphs.put("gplus_2000.col",170);
+        //hugesGraphs.put("gplus_500.col",42);
+       //  hugesGraphs.put("gplus_2000.col",170);
         //  hugesGraphs.put("pokec_500.col",16);
-     //   hugesGraphs.put("pokec_2000.col",75);
-        //  hugesGraphs.put("gplus_10000.col",861);
+        //   hugesGraphs.put("pokec_2000.col",75);
+          hugesGraphs.put("gplus_10000.col",861);
         //  hugesGraphs.put("gplus_20000.col",1716);
-        //  hugesGraphs.put("pokec_10000.col",413);
+      //    hugesGraphs.put("pokec_10000.col",413);
         //  hugesGraphs.put("pokec_20000.col",921);
         //  hugesGraphs.put("pokec_50000.col",2706);
     }
@@ -42,7 +45,9 @@ public class GeneticAlgoMain {
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
             File file = new File(classloader.getResource(grapheName).getFile());
             Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-            GeneticAlgorithm heuristicTwo = new GeneticAlgoImplOne();
+            GeneticAlgorithm heuristicTwo = new GeneticAlgoImplThree();
+            heuristicTwo.setCrossOverStrategy(new UniformCrossOver());
+            System.out.println("UniformCrossOver()+ ImplThree");
             Result mdsTwo = heuristicTwo.run(hugeGraph,knownMdsSize);
             System.out.println(mdsTwo.getMds().size()+" in "+(mdsTwo.getTime())+" sec");
             System.out.println();

@@ -65,6 +65,18 @@ public class Individual implements Comparable<Individual>{
     }
 
     /**
+     * class constructor.
+     * create an individual based on the given dominating set
+     * @param ds
+     * @param size
+     */
+    public Individual(int size, Set<Integer> ds) {
+        this.size =size;
+        this.genes = new byte[size];
+        setDS(ds);
+    }
+
+    /**
      *  This method initialize this individual.
      *
      * @param prob

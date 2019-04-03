@@ -83,16 +83,20 @@ public abstract class GeneticAlgorithm {
 
 
     /**
-     * Initialisation of the first population
+     * Initialisation of the first population.
+     * When the collection of individuals is empty, this method
+     * create a population of individuals with size equal to the populationSize value defined in this class.
+     * As the collection could be not empty, meaning that it has already some individuals, this method add more
+     * individuals to reach the populationSize value .
      *
      * @return an initialized population where each individual is a valid dominating Set.
      */
     void popInitialisation( Graph graph, BiMap<Integer, Integer> biMap, Collection<Individual> individuals ) {
+        int remainingIndividuals = getRemainingIndividualsSize(individuals);
         Individual individual;
-        int individualSize = graph.size();
         Set<Integer> currentDS;
-        for (int i=0; i< this.populationSize; i++){
-            individual = new Individual(individualSize, p_Ds);
+        for (int i=0; i< remainingIndividuals; i++){
+            individual = new Individual(graph.size(), p_Ds);
             currentDS = GeneticAlgoUtil.heuristicRepair(graph, individual, biMap);
             GeneticAlgoUtil.minimizeSolution(graph, currentDS);//minimize the given solution
             individual.setDS(GeneticAlgoUtil.getBackRealIndices(currentDS, biMap));
@@ -100,6 +104,20 @@ public abstract class GeneticAlgorithm {
             individuals.add(individual);
         }
 
+    }
+
+    /**
+     *
+     * @param individuals
+     * @return
+     */
+    private int getRemainingIndividualsSize( Collection<Individual> individuals ) {
+        int remainingIndividuals = this.populationSize;
+        if(individuals.size()!=0)
+        {
+            remainingIndividuals -= individuals.size();
+        }
+        return remainingIndividuals;
     }
 
     /**

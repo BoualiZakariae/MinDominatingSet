@@ -47,6 +47,13 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
      */
     @Override
     public Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals ) {
+        double start = System.currentTimeMillis();
+        BiMap<Integer, Integer> biMap = genesToVerticesMapping(graph);
+        TreeSet<Individual> individualsSet = new TreeSet<>(individuals);
+
+
+
+
         return null;
     }
 
