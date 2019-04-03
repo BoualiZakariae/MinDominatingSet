@@ -9,8 +9,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * *This class implements the GreedyRandom algorithm
-
+ * This class implements the GreedyRandom algorithm
  */
 public class GreedyRandom extends Greedy {
 

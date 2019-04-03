@@ -13,10 +13,8 @@ import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individua
 import java.util.*;
 
 /**
- *  This abstract class represents the main variables, methods used
- *  by the child class.
- *
- *
+ *  This abstract class defines the defaults parameters of the genetic algorithm,
+ *  and the methods that should be implemented by the concrete classes.
  *
  */
 public abstract class GeneticAlgorithm {
@@ -29,11 +27,11 @@ public abstract class GeneticAlgorithm {
     double  p_Ds = 0.3;//probability of adding a vertex to a dominating set
     double  p_CrossOver = 0.7;//probability of cross over
     double  p_Mutation = 0.02;//probability for mutation
-    CrossOverStrategy crossOverStrategy = new UniformCrossOver();//strategie of crossover
-    MutationStrategy mutationStrategy = new BitFlipMutation();
+    CrossOverStrategy crossOverStrategy = new UniformCrossOver();//default crossover strategy
+    MutationStrategy mutationStrategy = new BitFlipMutation();//default mutation strategy
 
     /**
-     *  Default constructor,whenever called the instances
+     *  Default constructor, whenever called the instances
      *  variables get their default values.
      */
     GeneticAlgorithm(){}
@@ -41,14 +39,14 @@ public abstract class GeneticAlgorithm {
     /**
      *  Parametrized constructor
      *
-     *  This constructor give the caller the possibility to choose the
+     *  This constructor give the caller the possibility to choose
      *  the desired parameters.
      *
-     * @param populationSize
-     * @param maxNumGeneration
-     * @param p_ds
-     * @param p_crossOver
-     * @param p_mutation
+     * @param populationSize    the population size.
+     * @param maxNumGeneration  the number of iterations of the genetic algorithm.
+     * @param p_ds              the probability rate to add a vertex to the dominating Set.
+     * @param p_crossOver       the probability rate to do a crossover operation on a given iteration.
+     * @param p_mutation        the probability rate to do a mutation operation on a given iteration.
      */
     public GeneticAlgorithm( int populationSize, int maxNumGeneration, double p_ds, double p_crossOver, double p_mutation ) {
         this.populationSize = populationSize;
@@ -61,18 +59,19 @@ public abstract class GeneticAlgorithm {
 
     /**
      *  Call the genetic algorithm on the given graph instance,
-     *  Stop the algorithm whenever the mds size is equal to the given
-     *  knowDominNumber.
+     *  stop the algorithm whenever the mds size is equal to the given
+     *  knowDominNumber value.
      *
-     * @param graph
-     * @param knowDominNumber
-     * @return
+     * @param graph             the graph instance on which this genetic algorithm will be applied.
+     * @param knowDominNumber   the minimum dominating set size of the given graph instance.
+     * @return                  a Result object containing the mds set and the time taken by this algorithm to compute it.
      */
     public abstract Result run( Graph graph, int knowDominNumber );
 
+
     /**
-     * Given a collection of individual, run the genetic algorithm
-     * to evolve those individuals to a better solution.
+     * todo : Given a collection of individual, run the genetic algorithm
+     * to evolve those individuals for a better solutions.
      *
      *
      * @param graph
@@ -81,8 +80,6 @@ public abstract class GeneticAlgorithm {
      * @return
      */
     public abstract Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals );
-
-
 
 
     /**
@@ -123,10 +120,10 @@ public abstract class GeneticAlgorithm {
      *
      *
      * @param child
-     * @param p_Mutation
+     * @param pMutation
      */
-    void applyMutation( Individual child, double p_Mutation ) {
-        this.mutationStrategy.applyMutation(child,p_Mutation);
+    void applyMutation( Individual child, double pMutation ) {
+        this.mutationStrategy.applyMutation(child,pMutation);
     }
 
 

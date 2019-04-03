@@ -11,19 +11,20 @@ import java.util.*;
 
 /**
  *
- * This class contains helper methods for the genetic algorithm.
+ * This class contains helper methods for the genetics algorithms.
  *
  */
 public class GeneticAlgoUtil {
 
+
     /**
-     * Given a dominating set solution, this method try to minimize
-     *  the ds size by removing vertices,
-     *  without affecting the domination property.
+     *  Given a dominating set solution, this method try to minimize
+     *  the dominating set size by removing some vertices without
+     *  affecting the domination property.
      *
      *  todo: improving the algorithm complexity
-     * @param graph
-     * @param currentDS
+     *  @param graph
+     *  @param currentDS
      */
     public static void minimizeSolution( Graph graph, Set<Integer> currentDS ) {
         Iterator<Integer> it = currentDS.iterator();
@@ -40,16 +41,15 @@ public class GeneticAlgoUtil {
     }
 
     /**
-     *    *
-     * @param individual
-     * @return
      *
-     * Heuristic repair
+     * Given an individual that does not represents a valid mds solution,
+     * this method run the greedy algorithm to add more vertices to dominate
+     * the given graph instance. On the paper, this operation is called a heuristic repair operation.
      *
-     * @param graph
-     * @param individual
-     * @param map
-     * @return
+     * @param graph         the graph instance.
+     * @param individual    the individual that don't represent a valis mds solution.
+     * @param map           a map data structure that store the real vertices values.
+     * @return              a set of integer that represents a valid mds solution of the given graph instance.
      */
     public static Set<Integer> heuristicRepair( Graph graph, Individual individual, BiMap<Integer, Integer> map ) {
         Set<Integer> currentDS      = new HashSet<>();
@@ -72,11 +72,14 @@ public class GeneticAlgoUtil {
 
 
     /**
+     * Given an individual that does not represents a valid mds solution,
+     * this method add more vertices randomly to the invalid solution represented by the given individual.
+     * On the paper, this operation is called a random repair operation.
      *
-     * @param graph
-     * @param child
-     * @param map
-     * @return
+     * @param graph  the graph instance.
+     * @param child  the individual that don't represent a valis mds solution.
+     * @param map    a map data structure that store the real vertices values.
+     * @return       a set of integer that represents a valid mds solution of the given graph instance.
      */
     static Set<Integer> randomRepair( Graph graph, Individual child, BiMap<Integer, Integer> map ) {
         Set<Integer> currentDS      = new HashSet<>();
@@ -117,8 +120,10 @@ public class GeneticAlgoUtil {
     }
 
     /**
-     *  helper method to print individuals fitness
-     * @param individuals
+     * A helper method to print individuals fitness
+     * used for testing purpose.
+     *
+     * @param individuals the list of individuals.
      */
     public static void printIndividualsSize( List<Individual> individuals ) {
         for (Individual ind:individuals) {
