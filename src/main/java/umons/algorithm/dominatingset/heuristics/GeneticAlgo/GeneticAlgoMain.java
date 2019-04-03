@@ -3,8 +3,6 @@ package umons.algorithm.dominatingset.heuristics.GeneticAlgo;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.*;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.TwoPointsCrossOver;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.SwapMutation;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.File;

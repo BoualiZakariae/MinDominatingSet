@@ -4,7 +4,7 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.BitSwapMutation;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.BitFlipMutation;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.CrossOverStrategy;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.MutationStrategy;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.UniformCrossOver;
@@ -30,7 +30,7 @@ public abstract class GeneticAlgorithm {
     double  p_CrossOver = 0.7;//probability of cross over
     double  p_Mutation = 0.02;//probability for mutation
     CrossOverStrategy crossOverStrategy = new UniformCrossOver();//strategie of crossover
-    MutationStrategy mutationStrategy = new BitSwapMutation();
+    MutationStrategy mutationStrategy = new BitFlipMutation();
 
     /**
      *  Default constructor,whenever called the instances

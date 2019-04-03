@@ -5,16 +5,21 @@ import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individua
 import java.util.Random;
 
 /**
+ * This class implements the crossover strategy interface.
+ * This class defines a two-point crossover operation.
  *
  */
 public class TwoPointsCrossOver implements CrossOverStrategy {
+
+
     /**
-     *
-     * @param parentOne
-     * @param parentTwo
-     * @return
+     *  This method apply a two-point crossover operation on the given parents,
+     *  to produce a child individual.
+     *  @param parentOne the first individual as a first parent.
+     *  @param parentTwo the second individual as a second parent.
+     *  @return  a child individual made by a two-point crossOver operation on the parents individuals.
      */
-    public Individual crossOver( Individual parentOne, Individual parentTwo ){
+     public Individual crossOver( Individual parentOne, Individual parentTwo ){
         Individual child = new Individual(parentOne.getSize());
         int randomOne = new Random().nextInt(child.getSize());
         int randomTwo;

@@ -48,7 +48,7 @@ public class CrossOverOperation {
     @Test
     void swapMutation(){
         System.out.println(parentOne);
-        mutationStrategy = new SwapMutation();
+        mutationStrategy = new BitSwapMutation();
         mutationStrategy.applyMutation(parentOne,0.2);
         System.out.println(parentOne);
     }

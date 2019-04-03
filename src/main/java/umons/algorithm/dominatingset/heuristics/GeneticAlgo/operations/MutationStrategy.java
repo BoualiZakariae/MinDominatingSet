@@ -5,15 +5,19 @@ import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individua
 import java.util.Random;
 
 /**
- *
+ * This interface defines the mutation operation.
  */
 public interface MutationStrategy {
+
+
     /**
+     * Apply the mutation operation on the given Individual
+     * with the given mutation rate .
      *
-     * @param child
-     * @param p_Mutation
+     * @param child     the individual to which the mutation is applied.
+     * @param pMutation the mutation rate.
      */
-    public void applyMutation( Individual child, double p_Mutation );
+    public void applyMutation( Individual child, double pMutation );
 }
 
 
