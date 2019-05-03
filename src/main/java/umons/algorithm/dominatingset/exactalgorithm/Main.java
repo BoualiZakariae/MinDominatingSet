@@ -19,7 +19,7 @@ public class Main {
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\XPRIME.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
     // public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\3degreeVertexbug.txt";
-     public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
+     private static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\g24.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\badResult.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\two.txt";
@@ -33,15 +33,19 @@ public class Main {
         int arg =2;
         mdsAlgorithm exactAlgo ;
         if (arg == 1){
+            System.out.println("ArbitraryGraph");
             exactAlgo = new ArbitraryGraph();
             runExactAlgo(exactAlgo,pathToHugeFile);
         }else if (arg == 2){
+            System.out.println("AtMostDegreeThree");
             exactAlgo = new AtMostDegreeThree();
             runExactAlgo(exactAlgo,pathToHugeFile);
         }else if (arg == 3){
+            System.out.println("TrivialSetCover");
             exactAlgo = new TrivialSetCover();
             runExactAlgo(exactAlgo,pathToHugeFile);
         }else if (arg == 4){
+            System.out.println("ImprovedSetCover");
             exactAlgo = new ImprovedSetCover();
             runExactAlgo(exactAlgo,pathToHugeFile);
         }
@@ -55,7 +59,7 @@ public class Main {
      * the arbitraryGraphAlgo.run(g) method return the time taken and the size found
      * the mds size is checked if it is the correct mds size of the graph instance
      */
-    public static void runExactAlgo( mdsAlgorithm algo, String pathToHugeFile){
+    private static void runExactAlgo( mdsAlgorithm algo, String pathToHugeFile ){
         int incorrect=0;
         BufferedReader reader;
         Graph g=null;

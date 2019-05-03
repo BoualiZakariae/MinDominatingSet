@@ -41,6 +41,17 @@ public class GreedyRandom extends Greedy implements mdsAlgorithm{
         return -1;
     }
 
+    /**
+     *
+     * @param ds
+     * @return
+     */
+    private Set<Integer>  minimizeSolution(Set<Integer> ds){
+        return null;
+    }
+
+
+
     @Override
     public Result run( Graph graph ) {
         return super.run(graph);

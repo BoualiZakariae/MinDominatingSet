@@ -137,7 +137,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param biMap
      * @return
      */
-     ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
+    private ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
         List<Individual> individuals = new ArrayList<>();
         popInitialisation(graph, biMap, individuals);
         return new ListPopulation(individuals);
@@ -164,18 +164,55 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      * @param pop
      * @return
      */
-    public Individual evolve( ListPopulation pop  ) {
-        Individual fittestOne, fittestTwo;
+    private Individual evolve( ListPopulation pop ) {
+        Individual [] pool = new Individual[4];
         Random random = new Random();
+        Set<Integer> intSet = new HashSet<>();
+        while (intSet.size() < 4) {
+            intSet.add(random.nextInt(populationSize));
+        }
+
+        Iterator<Integer> it = intSet.iterator();
+        int index=0;
+        while (it.hasNext()) {
+            Integer randomIndex =it.next();
+            pool[index++]=pop.getIndividuals().get(randomIndex);
+        }
+        Individual fittestInPoolOne;
+        Individual notFittestInPoolOne;
+        if (pool[0].getFitness() < pool[1].getFitness()){
+            fittestInPoolOne=pool[0];
+            notFittestInPoolOne=pool[1];
+        }else{
+            fittestInPoolOne=pool[1];
+            notFittestInPoolOne=pool[0];
+        }
+
+        Individual fittestInPoolTwo;
+        Individual notFittestInPoolTwo;
+        if (pool[2].getFitness() < pool[3].getFitness()){
+            fittestInPoolTwo=pool[2];
+            notFittestInPoolTwo=pool[3];
+        }else{
+            fittestInPoolTwo=pool[3];
+            notFittestInPoolTwo=pool[2];
+        }
+
+
+        Individual parentOne;
+        Individual parentTwo;
+
         if (random.nextDouble() > p_Better)
-            fittestOne = pop.getRandomIndividual();
+            parentOne = notFittestInPoolOne;
         else
-            fittestOne = pop.getFittest();
+            parentOne = fittestInPoolOne;
+
         if (random.nextDouble() > p_Better)
-            fittestTwo = pop.getRandomIndividual(fittestOne);
+            parentTwo = notFittestInPoolTwo;
         else
-            fittestTwo = pop.getSecondFittest(fittestOne);
-        Individual child = crossOver(fittestOne, fittestTwo);
+            parentTwo = fittestInPoolTwo;
+
+        Individual child = crossOver(parentOne, parentTwo);
         applyMutation(child, p_Mutation);
         return child;
     }

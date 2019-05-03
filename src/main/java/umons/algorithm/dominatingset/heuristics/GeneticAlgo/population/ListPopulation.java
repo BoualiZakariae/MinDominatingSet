@@ -135,7 +135,7 @@ public class ListPopulation extends Population {
         do {
             int randomIndex = new Random().nextInt(individuals.size());
             secondFittest = individuals.get(randomIndex);
-        }while(secondFittest.equals(fittestOne)==true);
+        }while(secondFittest.equals(fittestOne));
 
         return secondFittest;
     }

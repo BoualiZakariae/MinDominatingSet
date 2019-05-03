@@ -5,7 +5,6 @@ import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.toDelete.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -49,7 +48,7 @@ public class TrivialSetCover implements mdsAlgorithm {
      * @param U the set of elements to cover
      * @return  a list of indices that match the list of sets that covers U
      */
-    protected static List<Integer> trivialAlgo(List<List<Integer>> s, List<Integer> U) {
+    static List<Integer> trivialAlgo( List<List<Integer>> s, List<Integer> U ) {
         // base case
         if (s.isEmpty()) {
             if (U.isEmpty()) {
@@ -73,8 +72,7 @@ public class TrivialSetCover implements mdsAlgorithm {
         // Branch 2: we discard S
         List<Integer> C2=null;
         sPrime = new ArrayList<>();
-        UPrime = new ArrayList<>();
-        UPrime.addAll(U);
+        UPrime = new ArrayList<>(U);
         indicesMap = new HashMap<>();
         discardS(s, indexOfS, sPrime, indicesMap);
         C2 = trivialAlgo(sPrime, UPrime);
@@ -98,7 +96,7 @@ public class TrivialSetCover implements mdsAlgorithm {
      *                   this map will be reused when returning from the recursive calls.
      *
      */
-    protected static void takeS( List<List<Integer>> s, int indexOfS, List<List<Integer>> sPrime, HashMap<Integer, Integer> indicesMap ) {
+    static void takeS( List<List<Integer>> s, int indexOfS, List<List<Integer>> sPrime, HashMap<Integer, Integer> indicesMap ) {
         int j = 0;
         for (int i = 0; i < s.size(); i++) {
             if (i != indexOfS) {
@@ -124,7 +122,7 @@ public class TrivialSetCover implements mdsAlgorithm {
      *                   this map will be used when returning from the recursive call
      *
      */
-    protected static void discardS( List<List<Integer>> s, int indexOfS, List<List<Integer>> sPrime, HashMap<Integer, Integer> indicesMap ) {
+    static void discardS( List<List<Integer>> s, int indexOfS, List<List<Integer>> sPrime, HashMap<Integer, Integer> indicesMap ) {
         int j = 0;
         for (int i = 0; i < s.size(); i++) {
             if (i != indexOfS) {
@@ -143,7 +141,7 @@ public class TrivialSetCover implements mdsAlgorithm {
      * @param g the {@link Graph} data structure
      * @return  the list of elements to cover
      */
-    protected  static List<Integer> initialisationOfU(Graph g) {
+    static List<Integer> initialisationOfU( Graph g ) {
         return IntStream.range(0,g.size())
                         .boxed()
                         .collect(Collectors.toCollection(ArrayList::new));
@@ -155,7 +153,7 @@ public class TrivialSetCover implements mdsAlgorithm {
      *
      * @param g the {@link Graph} data structure
      */
-    protected static void subSetsInitialisation( Graph g) {
+    static void subSetsInitialisation( Graph g ) {
         IntStream.range(0,g.size())
                  .forEach(i-> g.getAdj().get(i).add(i));
     }

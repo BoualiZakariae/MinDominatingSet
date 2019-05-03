@@ -11,8 +11,8 @@ public class Stats {
     public static long numberOfGraphs = 0;
     public static long incorrectResult = 0;
     public static long correctResult = 0;
-    public static double fullTime; //fullTime of the instances processing
-    static HashMap<Integer,double[]> statsMap = new HashMap<>();// ordre->total(mdsSize,time,numberOfgraphs)
+    private static double fullTime; //fullTime of the instances processing
+    private static HashMap<Integer,double[]> statsMap = new HashMap<>();// ordre->total(mdsSize,time,numberOfgraphs)
 
 
     public static void addStatistic( Graph g, double mdsSize,double time ) {

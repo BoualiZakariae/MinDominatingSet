@@ -55,8 +55,8 @@ public class Util {
      * @param index
      * @param r
      */
-    public static void combination(int arr[], int data[], int start,
-            int end, int index, int r, ArrayList<int[]> al) {
+    private static void combination( int arr[], int data[], int start,
+                                     int end, int index, int r, ArrayList<int[]> al ) {
         if (index == r) {
             int[] new_combo = new int[r];
             for (int j = 0; j < r; j++) {
@@ -200,10 +200,10 @@ public class Util {
         if (C1 == null && C2 == null) {
             return null;
         }
-        if (C1 == null && C2 != null) {
+        if (C1 == null) {
             return C2;
         }
-        if (C2 == null && C1 != null) {
+        if (C2 == null) {
             return C1;
         }
         if (C1.size() < C2.size()) {
@@ -244,10 +244,9 @@ public class Util {
         UndirectedGraph G = new UndirectedGraph();
         u.forEach(i->G.addNode(i));//creating vertices
        // System.out.println("U "+u);
-        for (int i=0; i<s.size(); i++){
-            List<Integer> S = s.get(i);
+        for (List<Integer> S : s) {
             if (S.size() == 2)
-                G.addEdge(S.get(0),S.get(1));
+                G.addEdge(S.get(0), S.get(1));
         }
         return G;
     }
@@ -321,9 +320,9 @@ public class Util {
 
 
 
-    public static String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
+    private static String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
 
-    public static void writeToFile( List<Graph> listOfGraphs ) throws IOException {
+    private static void writeToFile( List<Graph> listOfGraphs ) throws IOException {
 
         BufferedWriter writer;
         writer = new BufferedWriter(new FileWriter(pathToNewFileFormat));

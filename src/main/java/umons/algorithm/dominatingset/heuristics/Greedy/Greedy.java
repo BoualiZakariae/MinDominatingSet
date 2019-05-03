@@ -20,7 +20,7 @@ public class Greedy implements mdsAlgorithm {
      * if it is already covered
      */
     HashMap<Integer, Integer> weights ;
-    HashMap<Integer, Boolean> covered ;
+    private HashMap<Integer, Boolean> covered ;
 
     /**
      * Class constructor
@@ -35,7 +35,7 @@ public class Greedy implements mdsAlgorithm {
      * this value indicate wich vertex can cover
      * the maximum of  vertices
      */
-    protected int getMax() {
+    private int getMax() {
         return this.weights.entrySet()
                 .stream()
                 .max(Comparator.comparingInt(Map.Entry::getValue))
@@ -51,7 +51,7 @@ public class Greedy implements mdsAlgorithm {
      *
      * this vertex should have the maximum weight
      */
-    protected int chooseVertex() {
+    int chooseVertex() {
      //   System.out.println("it should be never called");
         int M = getMax();
        // System.out.print("the maxim of uncovered  elements is "+ M);
@@ -74,7 +74,7 @@ public class Greedy implements mdsAlgorithm {
      * @param g
      * @param v
      */
-    protected void adjustWeights( Graph g, int v ) {
+    private void adjustWeights( Graph g, int v ) {
         weights.replace(v, 0);
         for (Integer vj : g.getAdj().get(v)) {
             if (weights.get(vj) > 0) {

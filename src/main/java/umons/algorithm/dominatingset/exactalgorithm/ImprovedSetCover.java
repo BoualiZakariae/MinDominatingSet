@@ -26,14 +26,14 @@ public class ImprovedSetCover extends TrivialSetCover {
      *  This array holds for every element in U
      *  how much it occurs in the set of Set
      */
-    static int[] frequencyArray;
+    private static int[] frequencyArray;
 
     /**
      * Counting the frequency of the elements
      *
      * @param s
      */
-    static void countElementsFrequency(List<List<Integer>> s) {
+    private static void countElementsFrequency( List<List<Integer>> s ) {
         s.stream()
          .flatMap(List::stream)
          .forEach(i -> frequencyArray[i]+=1);
@@ -45,7 +45,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the index of the set with an element that has frequencyArray one
      */
-    static int getTheSingletonSetIndex( List<List<Integer>> s, List<Integer> U) {
+    private static int getTheSingletonSetIndex( List<List<Integer>> s, List<Integer> U ) {
 
         Optional<Integer> singleton = U.stream()
                                        .filter(i -> frequencyArray[i] == 1)
@@ -67,7 +67,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the set cover of U
      */
-    static List<Integer> reductionRuleOne( List<List<Integer>> s, List<Integer> U) {
+    private static List<Integer> reductionRuleOne( List<List<Integer>> s, List<Integer> U ) {
         countElementsFrequency(s);
         // base case
         if (s.isEmpty()) {
@@ -94,7 +94,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param s the set of set
      * @param U the set of elements to cover
      * @return the set cover of U
-     */    static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U) {
+     */    private static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U ) {
         for (int i = 0; i < s.size(); i++) {
             for (int j = 0; j < s.size(); j++) {
                 if (i != j) {
@@ -128,7 +128,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the set cover of U
      */
-     static List<Integer> reductionRuleThree( List<List<Integer>> s, List<Integer> U) {
+     private static List<Integer> reductionRuleThree( List<List<Integer>> s, List<Integer> U ) {
         int S = Util.getMaximumSet(s);
         if (s.get(S).size() <= 2) {
             UndirectedGraph graph = Util.createTheGraph(U,s);
@@ -148,7 +148,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the set cover of U
      */
-    static List<Integer> Algo3MSC( List<List<Integer>> s, List<Integer> U) {
+    private static List<Integer> Algo3MSC( List<List<Integer>> s, List<Integer> U ) {
         if (s.isEmpty())
             return new ArrayList<>();
 

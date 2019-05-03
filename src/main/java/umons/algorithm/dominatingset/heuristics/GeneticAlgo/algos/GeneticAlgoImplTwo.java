@@ -66,7 +66,7 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
      * @param map
      * @param treeSetPopulation
      */
-    public void evolve( Graph graph, BiMap<Integer, Integer> map,TreeSetPopulation treeSetPopulation ) {
+    void evolve( Graph graph, BiMap<Integer, Integer> map, TreeSetPopulation treeSetPopulation ) {
         int index=0;
         Iterator<Individual> it = treeSetPopulation.getIndividuals().iterator();
         int half= treeSetPopulation.getIndividuals().size()/2;

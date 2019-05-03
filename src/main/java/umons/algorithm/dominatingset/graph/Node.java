@@ -18,6 +18,7 @@ public class Node {
 
     public Node() {}
 
+
     /**
      * Class constructor
      *
@@ -39,5 +40,6 @@ public class Node {
     public int getId() {
         return id;
     }
+
 
 }

@@ -104,7 +104,7 @@ public class FileParser {
      * @param line2
      * @return
      */
-    public static Graph createGraph( String line1 , String line2) {
+    private static Graph createGraph( String line1, String line2 ) {
         String[] result1 = line1.split("\\s");
         int n = Integer.parseInt(result1[0]);
         int edgesNumber = Integer.parseInt(result1[1]);
@@ -132,7 +132,7 @@ public class FileParser {
      * @param g
      * @param matrix
      */
-    public static void createEdges( Graph g, String matrix) {
+    private static void createEdges( Graph g, String matrix ) {
         char[] matrixArray = matrix.toCharArray();
         int u = 0, j = 1, k = 0;
         for (int len = g.size() - 1; len > 0; len--) {
@@ -153,7 +153,7 @@ public class FileParser {
      * @param g
      * @return
      */
-    public static String createTriangleUpFormat(Graph g){
+    private static String createTriangleUpFormat( Graph g ){
         StringBuilder sb = new StringBuilder();
         int size = g.size();
         for (int i=0;i< size-1;i++)
@@ -170,8 +170,8 @@ public class FileParser {
     }
 
 
-    public static String pathTomax3degreeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\max3degree.txt";
-    public static String maxDegreeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\triangle.txt";
+    private static String pathTomax3degreeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\max3degree.txt";
+    private static String maxDegreeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\triangle.txt";
 
 
     public static void main( String[] args ) throws IOException {

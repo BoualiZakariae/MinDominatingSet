@@ -12,8 +12,6 @@ import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
 import umons.algorithm.dominatingset.toDelete.Stats;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class GeneticAlgoImplFour extends GeneticAlgoImplOne {
 
@@ -47,7 +45,7 @@ public class GeneticAlgoImplFour extends GeneticAlgoImplOne {
         return new Result(best.mdsFrom(biMap),end-start);
     }
 
-    public static List<Individual> getGreedyIndividuals( Graph graph ) {
+    private static List<Individual> getGreedyIndividuals( Graph graph ) {
         Set<Individual> individuals = new HashSet<>();
         mdsAlgorithm greedy;
         Result res;

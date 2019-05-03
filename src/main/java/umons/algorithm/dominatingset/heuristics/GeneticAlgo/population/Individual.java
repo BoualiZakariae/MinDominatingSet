@@ -83,7 +83,7 @@ public class Individual implements Comparable<Individual>{
      */
     private void initialisation( double prob ) {
         boolean flag = false;
-        while (flag == false) {/* this flag is used to be sure that at least one genome is different than 0*/
+        while (!flag) {/* this flag is used to be sure that at least one genome is different than 0*/
             int index = 0;
             Random random=new Random();
             double ran ;

@@ -7,17 +7,14 @@ import umons.algorithm.dominatingset.util.DFS;
 import umons.algorithm.dominatingset.toDelete.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
 /**
  *
  *
- * This Class implements the part 5 "Graphs of maximum degree three" in the
+ * This Class implements the part 5 "Graphs of maximum degree three" from the
  * paper : Exact (exponential) algorithms for the dominating set problem
  *
  */
@@ -27,7 +24,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     /**
      *
      * The first vertex in a component means a vertex that has only one neighbour.
-     * We deal with this concept when we manage path or cycle.
+     * We deal with this concept when we manage paths or cycles.
      *
      * @param g         a {@link Graph} data structure
      * @param component a connected component
@@ -49,10 +46,11 @@ public class AtMostDegreeThree implements mdsAlgorithm {
      * @param y   a vertex of {@code g}
      * @param y2  a vertex that is a neighbor of the y vertex
      * @param x   a vertex that is a neighbor of the y vertex
+     *
      * @return  the third neighbor of the vertex y
      *          this neighbor should not be the vertex y2, nor the vertex x.
      */
-    public static int getThirdNeighborOf(int y, Graph g, int y2, int x) {
+    private static int getThirdNeighborOf( int y, Graph g, int y2, int x ) {
         return g.getAdj().get(y).stream()
                 .filter(u->u != y2 && u != x)
                 .findFirst().get();
@@ -63,10 +61,11 @@ public class AtMostDegreeThree implements mdsAlgorithm {
      * @param y  a vertex of g
      * @param g  a {@link Graph} data structure
      * @param x  a vertex that is a neighbor of the y vertex
+     *
      * @return   the second neighbor of the vertex y
      *           this neighbor should not be the vertex  x
      */
-    public static int getSecondNeighborOf(int y, Graph g, int x) {
+    private static int getSecondNeighborOf( int y, Graph g, int x ) {
 
         Set<Integer> neighborsSet = g.getAdj().get(y);
         Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
@@ -82,10 +81,11 @@ public class AtMostDegreeThree implements mdsAlgorithm {
      *
      * @param w  a vertex in the graph g
      * @param v  a vertex in the graph g that is adjacent to w
+     *
      * @return   the next element of v knowing that w is the predecessor
-     *           of v in some path
+     *           of v in some path.
      */
-    public static int getNextElement(int w, int v, Graph g) {
+    private static int getNextElement( int w, int v, Graph g ) {
         Set<Integer> neighborsSet = g.getAdj().get(v);
         Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
         int neighbour1 = neighbors[0];
@@ -176,6 +176,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
      * @param component
      * @param g  : a graph data structure
      * @param mds
+     *
      * if the component is a graph of 3 vertex then add vertex that has two neighbors to the mds solution
      */
     private static void mdsFrom3vertexComponent(List<Integer> component, Graph g, Set<Integer> mds) {
@@ -223,7 +224,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
      * @param v  a vertex
      * @return   the two neighbors of the vertex v
      */
-    public static int[] getTwoNeighborsOf(Graph g, int v) {
+    private static int[] getTwoNeighborsOf( Graph g, int v ) {
         Set<Integer> neighborsSet = g.getAdj().get(v);
         Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
         int y1 = neighbors[0];
@@ -246,49 +247,73 @@ public class AtMostDegreeThree implements mdsAlgorithm {
      * @param g  Graph with vertices at most degree 3
      * @return   the mds of this graph g
      */
-    static Set<Integer> mdsOfGraphMaxDegreeThree(Graph g) {
-        Node x = g.getNeighborOf3DegreeVertex(); // x is the neighbor of a 3 degree vertex, with min degree
+    private static Set<Integer> mdsOfGraphMaxDegreeThree( Graph g ) {
+        List<Node> listOfNeighbors = g.getNeighborsOf3DegreeVertices();
+        List<Set<Integer>> listOfMds = new ArrayList<>();
+
         // base case
-        if (x == null) { // no vertex with degree 3
+        if (listOfNeighbors.size() == 0) { // no vertex with degree 3
             return mdsFromConnectedComponents(g);
         }
-        // case 1
-        if (x.getDegree() == 1) {
-            return degreeOneVertexCase(g, x);/*case1.A and 1.B*/
-        } // case 2
-        if (x.getDegree() == 2) {
-            int[] twoNeighborsOfx = getTwoNeighborsOf(g, x.getId());
-            int y1 = twoNeighborsOfx[0];
-            int y2 = twoNeighborsOfx[1];
-            // case 2.1
-            if (Util.areAdjacent(g, y1, y2)) {
-                if (g.getDegreeOf(y2) == 2)
-                    return case2_1_1(g, y1, y2, x);
-                if (g.getDegreeOf(y2) == 3)
-                    return case2_1_2(g, y1, x, y2);
 
-            } // case 2.2
-            // y1 and y2 not adjacent?
-            if (g.getDegreeOf(y2) == 1) {
-                Set<Integer> neighborsOfX = g.getClosedNeighbors(x.getId());
-                Graph gPrime = g.removeVertices(neighborsOfX);
-                Set<Integer> D0 = mdsOfGraphMaxDegreeThree(gPrime);
-                D0.add(x.getId());
-                return D0;
-            }
-            if (g.getDegreeOf(y2) == 2)
-                return case2_2_1(g, y1, x, y2);
-            if (g.getDegreeOf(y2) == 3)
-                return case2_2_2(g, y1, x, y2);
-        }
-        if (x.getDegree() >= 3) {//not presented in the paper
+        //minDegreeNeighbor
+        Node x =listOfNeighbors.stream()
+                                .min(Comparator.comparingInt(n-> n.getDegree()))
+                                .get();
+        if(x.getDegree()>2 ){
+            //not presented in the paper, the case where every vertex in the graph is degree three
             return caseXisdegreeThree(g, x);
+
         }
-        return null;
+        //there exists one or more vertex with degree three
+        for (int i=0; i < listOfNeighbors.size(); i++){
+            x = listOfNeighbors.get(i);
+            Set<Integer> mds ;
+            switch (x.getDegree()){
+                case (1) :  mds = degreeOneVertexCase(g,x);/*case1.A and 1.B*/
+                            listOfMds.add(mds);
+                            break;
+
+                case (2) :  mds = degreeTwoVertexCase(g,x);/*case 2*/
+                            listOfMds.add(mds);
+                            break;
+            }
+        }
+        return listOfMds.stream()
+                        .min(Comparator.comparing(Set::size))
+                        .get();
+    }
+
+    private static Set<Integer> degreeTwoVertexCase( Graph g, Node x ) {
+
+        int[] twoNeighborsOfx = getTwoNeighborsOf(g, x.getId());
+        int y1 = twoNeighborsOfx[0];
+        int y2 = twoNeighborsOfx[1];
+        // case 2.1
+        if (Util.areAdjacent(g, y1, y2)) {
+            if (g.getDegreeOf(y2) == 2)
+                return case2_1_1(g, y1, y2, x);
+            if (g.getDegreeOf(y2) == 3)
+                return case2_1_2(g, y1, x, y2);
+
+        } // case 2.2
+        // y1 and y2 not adjacent?
+        if (g.getDegreeOf(y2) == 1) {//maybenotpresented in the paper todo
+            Set<Integer> neighborsOfX = g.getClosedNeighbors(x.getId());
+            Graph gPrime = g.removeVertices(neighborsOfX);
+            Set<Integer> D0 = mdsOfGraphMaxDegreeThree(gPrime);
+            D0.add(x.getId());
+            return D0;
+        }
+        if (g.getDegreeOf(y2) == 2)
+            return case2_2_1(g, y1, x, y2);
+        if (g.getDegreeOf(y2) == 3)
+            return case2_2_2(g, y1, x, y2);
+        return null;//to be deleted todo
     }
 
     /**
-     * TO BE REVIEUWED
+     * TOdo BE REVIEWED because of the lemma condition
      * @param g  : a graph data structure
      * @param x
      * @return
@@ -310,8 +335,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
         // add y1
         Set<Integer> neighborsOfY1 = g.getClosedNeighbors(y1);
-        Set<Integer> vertices = new HashSet<>();
-        vertices.addAll(neighborsOfY1);
+        Set<Integer> vertices = new HashSet<>(neighborsOfY1);
         gPrime = g.removeVertices(vertices);
         Set<Integer> currentMds = mdsOfGraphMaxDegreeThree(gPrime);
         currentMds.add(y1);
@@ -329,8 +353,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
         // add y2 only
         Set<Integer> neighborsOfY2 = g.getClosedNeighbors(y2);
-        vertices = new HashSet<>();
-        vertices.addAll(neighborsOfY2);
+        vertices = new HashSet<>(neighborsOfY2);
         gPrime = g.removeVertices(vertices);
         currentMds = mdsOfGraphMaxDegreeThree(gPrime);
         currentMds.add(y2);
@@ -349,8 +372,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
         // add y3 only
         Set<Integer> neighborsOfY3 = g.getClosedNeighbors(y3);
-        vertices = new HashSet<>();
-        vertices.addAll(neighborsOfY3);
+        vertices = new HashSet<>(neighborsOfY3);
         gPrime = g.removeVertices(vertices);
         currentMds = mdsOfGraphMaxDegreeThree(gPrime);
         currentMds.add(y3);
@@ -599,8 +621,6 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         }
     }
 
-
-
     /**
      * Case A,B.1 and B.2
      *
@@ -628,7 +648,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         // add y-z1 to the ArbitraryGraph
         Set<Integer> neighborsOfZ1 = g.getClosedNeighbors(z1);
         Set<Integer> vertices;
-        Set<Integer> D2 = null,D3=null,D4=null;
+        Set<Integer> D2 = null,D3=null;
         if (neighborsOfZ1.size()>3){
             vertices =  neighborsOfZ1.stream()
                     .filter(v -> !neighborsOfY.contains(v))
@@ -653,7 +673,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D3.add(z2);
         }
 
-        return Util.minOfTheSet(D1,D2,D3,D4);
+        return Util.minOfTheSet(D1,D2,D3);
 
     }
 

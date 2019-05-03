@@ -22,7 +22,7 @@ public class HeuristicsMain {
 
 
     static String [] mediumGraphs = {"fpsol2.col"};
-    static String [] googleGraphs = {"gplus_50000.col"};
+    private static String [] googleGraphs = {"gplus_50000.col"};
     //"gplus_10000.col","gplus_20000.col",    "pokec_10000.col","pokec_20000.col" ,"pokec_2000.col"
     static String [] pokecGraphs = {"pokec_50000.col"};
     public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";

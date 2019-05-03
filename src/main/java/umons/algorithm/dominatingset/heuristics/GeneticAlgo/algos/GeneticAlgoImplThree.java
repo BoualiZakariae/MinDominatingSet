@@ -12,11 +12,7 @@ import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
 import umons.algorithm.dominatingset.toDelete.Stats;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class GeneticAlgoImplThree extends GeneticAlgoImplTwo {
 
@@ -44,7 +40,7 @@ public class GeneticAlgoImplThree extends GeneticAlgoImplTwo {
 
     }
 
-     public static TreeSet<Individual> getGreedyIndividuals( Graph graph ) {
+     private static TreeSet<Individual> getGreedyIndividuals( Graph graph ) {
          mdsAlgorithm greedy;
          Result res;
          Individual indiv;

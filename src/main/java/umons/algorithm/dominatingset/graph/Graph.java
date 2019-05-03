@@ -116,6 +116,31 @@ public class Graph {
             return null;
         }
     }
+
+
+    public List<Node> getNeighborsOf3DegreeVertices() {
+        List<Node> nodes = new ArrayList<>();
+        Node minDegreeNode = null;
+        for (Integer key:adj.keySet()) {
+            if (getAdj().get(key).size() == 3){
+                Set<Integer> neighborsSet = getAdj().get(key);
+                Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
+                int neighbor1 = neighbors[0];
+                int neighbor2 = neighbors[1];
+                int neighbor3 = neighbors[2];
+                minDegreeNode = minDegreeVertex(neighbor1, neighbor2, neighbor3);
+                nodes.add(minDegreeNode);
+            }
+        }
+        return nodes;
+    }
+
+
+
+
+
+
+
     /**
      *
      * @param vertex1  the first vertex.
@@ -173,8 +198,7 @@ public class Graph {
             {
                 newGraph.addVertex(currentVertex);
                 Set<Integer> neighbors = this.adj.get(currentVertex);
-                Set<Integer> newNeighbors = new HashSet<>();
-                newNeighbors.addAll(neighbors);
+                Set<Integer> newNeighbors = new HashSet<>(neighbors);
                 newNeighbors.removeAll(vertices);
                 newGraph.getAdj().get(currentVertex).addAll(newNeighbors);
             }
@@ -190,8 +214,7 @@ public class Graph {
     public Set<Integer> getOpenNeighbors(int v) {
         if (!getGraphVertices().contains(v))
             throw new NoSuchElementException();
-        Set<Integer> openNeighbors = new HashSet<>();
-        openNeighbors.addAll(getAdj().get(v));
+        Set<Integer> openNeighbors = new HashSet<>(getAdj().get(v));
         return openNeighbors;
     }
 

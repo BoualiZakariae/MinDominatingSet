@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 public class DimacFormatReader {
 
 
-    public static final String directoryPathFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\instances";
+    private static final String directoryPathFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\instances";
     public static final String results = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\result.txt";
 
 

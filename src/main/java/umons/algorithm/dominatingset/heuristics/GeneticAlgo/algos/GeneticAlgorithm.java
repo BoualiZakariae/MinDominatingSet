@@ -27,8 +27,8 @@ public abstract class GeneticAlgorithm {
     double  p_Ds = 0.3;//probability of adding a vertex to a dominating set
     double  p_CrossOver = 0.7;//probability of cross over
     double  p_Mutation = 0.02;//probability for mutation
-    CrossOverStrategy crossOverStrategy = new UniformCrossOver();//default crossover strategy
-    MutationStrategy mutationStrategy = new BitFlipMutation();//default mutation strategy
+    private CrossOverStrategy crossOverStrategy = new UniformCrossOver();//default crossover strategy
+    private MutationStrategy mutationStrategy = new BitFlipMutation();//default mutation strategy
 
     /**
      *  Default constructor, whenever called the instances
@@ -48,7 +48,7 @@ public abstract class GeneticAlgorithm {
      * @param p_crossOver       the probability rate to do a crossover operation on a given iteration.
      * @param p_mutation        the probability rate to do a mutation operation on a given iteration.
      */
-    public GeneticAlgorithm( int populationSize, int maxNumGeneration, double p_ds, double p_crossOver, double p_mutation ) {
+    GeneticAlgorithm( int populationSize, int maxNumGeneration, double p_ds, double p_crossOver, double p_mutation ) {
         this.populationSize = populationSize;
         this.maxNumGeneration = maxNumGeneration;
         this.p_Ds = p_ds;

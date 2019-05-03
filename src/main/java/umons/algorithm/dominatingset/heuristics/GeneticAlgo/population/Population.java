@@ -20,7 +20,7 @@ public abstract class Population {
      *
      * @return the size of the individuals in this population.
      */
-    public abstract int getIndividualSize();
+    protected abstract int getIndividualSize();
 
 
     /**
@@ -42,8 +42,7 @@ public abstract class Population {
      * @return a random individual
      */
     public Individual generateRandomIndividual(double p_prob ) {
-        Individual individual = new Individual(getIndividualSize(), p_prob);
-        return individual;
+        return new Individual(getIndividualSize(), p_prob);
     }
 
 
