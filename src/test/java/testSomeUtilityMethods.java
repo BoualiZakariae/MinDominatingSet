@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -8,9 +9,40 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class testSomeUtilityMethods {
+
+
+
+
+
+    @Test
+    public void testContainement(){
+        Set<Integer> setOne = IntStream.of(0,1,4,3)
+                                       .boxed()
+                                       .collect(Collectors.toCollection(HashSet::new));
+
+        Set<Integer> setTwo = IntStream.of(0,1,4,5)
+                .boxed()
+                .collect(Collectors.toCollection(HashSet::new));
+
+        Assertions.assertEquals(true,testSets(setOne,setTwo));
+
+    }
+
+    private boolean testSets( Set<Integer> setOne, Set<Integer> setTwo ) {
+        int counter=0;
+        for (int x: setOne){
+            if (setTwo.contains(x))
+                counter++;
+        }
+        return counter > 2;
+    }
 
 
     @Test

@@ -15,6 +15,7 @@ public class Util {
    // private static File FILE_Path = new File("C:\\Users\\bouali\\Desktop\\test\\XPRIME.txt");
      private static File FILE_Path = new File("C:\\Users\\bouali\\Desktop\\instances");
 
+
     /**
      *
      * @param sets
@@ -31,29 +32,16 @@ public class Util {
 
     /**
      *
-     * @return the list that has the min size
-     */
-    public static Set<Integer> minOf(Set<Integer> set1, Set<Integer> set2) {
-        if (set1.size()>set2.size())
-            return set2;
-        return set1;
-
-    }
-
-    /**
-     *
      * @param arr
-     * @param n
      * @param r
      * @return
      */
-    public static ArrayList<int[]> getCombinations(int arr[], int n, int r) {
+    public static ArrayList<int[]> getCombinations(int arr[], int r) {
         ArrayList<int[]> lists = new ArrayList<>();
         lists = combinations(arr, r, 0, new int[r],lists);
         return lists;
 
     }
-
 
     /**
      *
@@ -207,9 +195,6 @@ public class Util {
 
 
 
-    public static Graph createGraph(Path path){
-        return null;
-    }
 
     /**
      * create a graph G

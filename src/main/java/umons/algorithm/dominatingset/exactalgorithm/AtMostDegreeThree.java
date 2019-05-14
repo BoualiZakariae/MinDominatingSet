@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 
 /**
- *
+ *  @Author B.Zakariae
  *
  * This Class implements the part 5 "Graphs of maximum degree three" from the
  * paper : Exact (exponential) algorithms for the dominating set problem
@@ -40,7 +40,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     }
 
     /**
-     *
+     *  Return the third neighbor of the vertex y.
      *
      *
      * @param g   a {@link Graph} data structure
@@ -59,6 +59,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     }
 
     /**
+     *  Return the second neighbor of the vertex y.
      *
      * @param y  a vertex of g
      * @param g  a {@link Graph} data structure
@@ -79,7 +80,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
 
     /**
-     *
+     *  Return the successor of the vertex v.
      *
      * @param w  a vertex in the graph g
      * @param v  a vertex in the graph g that is adjacent to w
@@ -100,13 +101,13 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
     /**
      *
-     * This method calculate the minimum dominating set from
-     * the path {@code component} and inject the solution to the
-     * {@code mds} variable.
+     *  Calculate the minimum dominating set from
+     *  the path {@code component} and inject the solution to the
+     *  {@code mds} variable.
      *
-     * @param component  a connected component in the graph g
-     * @param g          a graph data structure
-     * @param mds        the set that will hold the  minimum dominating
+     *  @param component  a connected component in the graph g
+     *  @param g          a graph data structure
+     *  @param mds        the set that will hold the  minimum dominating
      *                   set solution
      */
     private static void mdsFromPathComponent(List<Integer> component, Set<Integer> mds, Graph g) {
@@ -138,9 +139,9 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     }
 
     /**
-     * This method calculate the minimum dominating set from
-     * the cycle {@code component} and inject the solution to the
-     * {@code mds} variable.
+     *  Calculate the minimum dominating set from
+     *  the cycle {@code component} and inject the solution to the
+     *  {@code mds} variable.
      *
      *
      * @param component  a cycle component in the graph g
@@ -175,9 +176,11 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
     /**
      *
-     * @param component
-     * @param g  : a graph data structure
-     * @param mds
+     *  Calculate the mds of a graph of three vertices.
+     *
+     *  @param component
+     *  @param g  : a graph data structure
+     *  @param mds
      *
      * if the component is a graph of 3 vertex then add vertex that has two neighbors to the mds solution
      */
@@ -220,7 +223,8 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
     /**
      *
-     *
+     *  Return an int array that contains the two neighbors of the vertex v.
+     *  The first neighbor in the array should be  with degree three.
      *
      * @param g  a graph data structure
      * @param v  a vertex
@@ -265,7 +269,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             //not presented in the paper, the case where every vertex in the graph is degree three
             return caseXisdegreeThree(g, x);
         }
-
+        //iterating over all cases
         for(Node node : listOfNeighbors  ){
             Set<Integer> mds ;
             switch (node.getDegree()){
@@ -284,10 +288,12 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
 
     /**
+     *  This method represents the case 2.
+     *  Return the mds of G from a degree two vertex.
      *
-     * @param g
-     * @param x
-     * @return
+     *  @param g    a graph data structure
+     *  @param x    the x vertex with {d(x)=2}
+     *  @return     the mds of G from a degree two vertex.
      */
     private static Set<Integer> degreeTwoVertexCase( Graph g, Node x ) {
 
@@ -295,7 +301,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         int y1 = twoNeighborsOfx[0];
         int y2 = twoNeighborsOfx[1];
         // case 2.1
-        if (Graph.areAdjacent(g, y1, y2)) {
+        if (g.areAdjacent(y1, y2)) {
             if (g.getDegreeOf(y2) == 2)
                 return case2_1_1(g, y1, y2, x);
             if (g.getDegreeOf(y2) == 3)
@@ -324,10 +330,12 @@ public class AtMostDegreeThree implements mdsAlgorithm {
 
 
     /**
-     * TOdo BE REVIEWED because of the lemma condition
-     * @param g  : a graph data structure
-     * @param x
-     * @return
+     *  This method represents the case where every vertices in the graph is degree three.
+     *  Return the mds of G from a degree three vertex.
+     *  todo to be reviewed for retesting
+     *  @param g    a graph data structure
+     *  @param x    the x vertex with {d(x)=3}
+     *  @return     the mds of G from a degree two vertex.
      */
     private static Set<Integer> caseXisdegreeThree(Graph g, Node x) {
 
@@ -374,7 +382,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         D4.add(y3);
 
         Set<Integer> vertices = new HashSet<>();
-        if (g.getDegreeOf(z11)==3  && !openNeigborintersection(g.getClosedNeighbors(z11), neighborsOfY1))
+        if (!openNeigborintersection(g.getClosedNeighbors(z11), neighborsOfY1))
         {
             vertices.addAll(neighborsOfY1);
             vertices.addAll(g.getClosedNeighbors(z11));
@@ -384,7 +392,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D5.add(z11);
         }
 
-        if (g.getDegreeOf(z12)==3 && !openNeigborintersection(g.getClosedNeighbors(z12), neighborsOfY1))
+        if (!openNeigborintersection(g.getClosedNeighbors(z12), neighborsOfY1))
         {
             vertices = new HashSet<>();
             vertices.addAll(neighborsOfY1);
@@ -395,7 +403,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D6.add(z12);
         }
 
-        if (g.getDegreeOf(z21)==3 && !openNeigborintersection(g.getClosedNeighbors(z21), neighborsOfY2))
+        if (!openNeigborintersection(g.getClosedNeighbors(z21), neighborsOfY2))
         {
             vertices = new HashSet<>();
             vertices.addAll(neighborsOfY2);
@@ -406,7 +414,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D7.add(z21);
         }
 
-        if (g.getDegreeOf(z22)==3 && !openNeigborintersection(g.getClosedNeighbors(z22), neighborsOfY2))
+        if (!openNeigborintersection(g.getClosedNeighbors(z22), neighborsOfY2))
         {
             vertices = new HashSet<>();
             vertices.addAll(neighborsOfY2);
@@ -417,7 +425,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D8.add(z22);
         }
 
-        if (g.getDegreeOf(z31)==3 && !openNeigborintersection(g.getClosedNeighbors(z31), neighborsOfY3))
+        if (!openNeigborintersection(g.getClosedNeighbors(z31), neighborsOfY3))
         {
             vertices = new HashSet<>();
             vertices.addAll(neighborsOfY3);
@@ -428,7 +436,7 @@ public class AtMostDegreeThree implements mdsAlgorithm {
             D9.add(z31);
         }
 
-       if (g.getDegreeOf(z32)==3 && !openNeigborintersection(g.getClosedNeighbors(z32), neighborsOfY3))
+       if (!openNeigborintersection(g.getClosedNeighbors(z32), neighborsOfY3))
         {
             vertices = new HashSet<>();
             vertices.addAll(neighborsOfY3);
@@ -442,13 +450,18 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         return Util.minOfTheSet(D1,D2,D3,D4,D5,D6,D7,D8,D9,D10);
     }
 
+
     /**
+     *  This method represents the case 2.2.2
+     *  where d(x)=2 and (y1 and y2 are not adjacent)
+     *  Return the mds of G from a degree two vertex.
      *
-     * @param g  : a graph data structure
-     * @param x
-     * @param y1
-     * @param y2
-     * @return
+     *
+     * @param g     graph data structure
+     * @param x     the x vertex with {d(x)=2}
+     * @param y1    neighbor of x with {d(y1)=3}
+     * @param y2    neighbor of x with {d(y2)=3}
+     * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_2_2(Graph g, int y1, Node x, int y2) {
         int z11 = getSecondNeighborOf(y1, g, x.getId());
@@ -529,13 +542,18 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         return Util.minOfTheSet(D1,D2,D3,D4,D5,D6,D7);
     }
 
+
     /**
+     *  This method represents the case 2.2.1
+     *  where d(x)=2 and (y1 and y2 are not adjacent)
+     *  Return the mds of G from a degree two vertex.
      *
-     * @param g  : a graph data structure
-     * @param x
-     * @param y1
-     * @param y2
-     * @return
+     *
+     * @param g     graph data structure
+     * @param x     the x vertex with {d(x)=2}
+     * @param y1    neighbor of x with {d(y1)=3}
+     * @param y2    neighbor of x with {d(y2)=2}
+     * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_2_1(Graph g, int y1, Node x, int y2) {
         int z11 = getSecondNeighborOf(y1, g, x.getId());
@@ -592,12 +610,16 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     }
 
     /**
+     *  This method represents the case 2.1.2
+     *  where d(x)=2 and (y1 and y2 are  adjacent)
+     *  Return the mds of G from a degree two vertex.
      *
-     * @param g  : a graph data structure
-     * @param x
-     * @param y1
-     * @param y2
-     * @return
+     *
+     * @param g     graph data structure
+     * @param x     the x vertex with {d(x)=2}
+     * @param y1    neighbor of x with {d(y1)=3}
+     * @param y2    neighbor of x with {d(y2)=3}
+     * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_1_2(Graph g, int y1, Node x, int y2) {
         int z1 = getThirdNeighborOf(y1, g, y2, x.getId());
@@ -641,12 +663,16 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     }
 
     /**
+     *  This method represents the case 2.1.1
+     *  where d(x)=2 and (y1 and y2 are adjacent)
+     *  Return the mds of G from a degree two vertex.
      *
-     * @param g  : a graph data structure
-     * @param x
-     * @param y1
-     * @param y2
-     * @return
+     *
+     * @param g     graph data structure
+     * @param x     the x vertex with {d(x)=2}
+     * @param y1    neighbor of x with {d(y1)=3}
+     * @param y2    neighbor of x with {d(y2)=2}
+     * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_1_1(Graph g, int y1, int y2, Node x) {
         //only y1 in ArbitraryGraph
@@ -673,13 +699,14 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         }
     }
 
+
     /**
-     * Case A,B.1 and B.2
+     *  This method represents the case Case A,B.1 and B.2.
+     *  Return the mds of G from a degree one vertex.
      *
-     *
-     * @param g  : a graph data structure
-     * @param x
-     * @return
+     *  @param g    a graph data structure
+     *  @param x    the x vertex with {d(x)=1}
+     *  @return     the mds of G from a degree one vertex.
      */
     private static Set<Integer> degreeOneVertexCase(Graph g, Node x) {
         Set<Integer> neighborsSet = g.getAdj().get(x.getId());
@@ -730,15 +757,16 @@ public class AtMostDegreeThree implements mdsAlgorithm {
     }
 
     /**
+     *  Test if the two sets contains more than 3 common elements.
      *
-     * @param uNeighbors
-     * @param vNeighbors
-     * @return true if the two given set share more than one neighbor.
+     * @param setOne
+     * @param setTwo
+     * @return true if the two given set share more than 3 common elements.
      */
-    public static boolean openNeigborintersection(Set<Integer> uNeighbors, Set<Integer> vNeighbors ) {
+    public static boolean openNeigborintersection(Set<Integer> setOne, Set<Integer> setTwo ) {
         int counter=0;
-        for (int x: uNeighbors){
-            if (vNeighbors.contains(x))
+        for (int x: setOne){
+            if (setTwo.contains(x))
                 counter++;
         }
         return counter > 2;

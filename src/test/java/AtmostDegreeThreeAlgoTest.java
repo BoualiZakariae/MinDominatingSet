@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-public class AtmostThreeDegreeVertexAlgoTest
+public class AtmostDegreeThreeAlgoTest
 {
 
     AtMostDegreeThree algo = new AtMostDegreeThree();

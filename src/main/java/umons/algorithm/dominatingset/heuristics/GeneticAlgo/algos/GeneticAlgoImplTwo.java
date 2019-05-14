@@ -11,14 +11,27 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
-
+/**
+ *
+ * A second genetic algorithm implementation for solving the minimum dominating set problem
+ *
+ * This Algo implementation is based on the GeneticAlgoImplOne.
+ *
+ */
 public class GeneticAlgoImplTwo extends GeneticAlgorithm {
 
     /**
+     * The main genetic algorithm method
      *
-     * @param graph
+     * @param graph the given graph.
      * @param knownDominatingNumber
-     * @return
+     *              the known minimum dominating Set size
+     *              for the given graph.
+     *              When this value equal to -1, it means that the mds
+     *              number is unknown for this graph.
+     *              Knowing the mds size help to stop the algorithm.
+     *
+     * @return      the dominating set and the time taken to compute it.
      */
     @Override
     public Result run( Graph graph, int knownDominatingNumber ) {
@@ -42,29 +55,13 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
         return new Result(population.getIndividuals().first().mdsFrom(biMap),end-start);
     }
 
+
+
     /**
+     * whenever this method is called, new individuals are created to integrate the population
+     * On every call 25% of the population are replaced by new individuals.
      *
-     * @param graph
-     * @param knowDominNumber
-     * @param individuals
-     * @return
-     */
-    @Override
-    public Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals ) {
-        double start = System.currentTimeMillis();
-        BiMap<Integer, Integer> biMap = genesToVerticesMapping(graph);
-        TreeSet<Individual> individualsSet = new TreeSet<>(individuals);
-
-
-
-
-        return null;
-    }
-
-
-    /**
-     * whenever this method is called, a new individuals are created to replace
-     * the half of the current population
+     * the new individuals replace the worst individuals.
      *
      * @param graph
      * @param map

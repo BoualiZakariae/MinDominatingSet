@@ -71,19 +71,6 @@ public abstract class GeneticAlgorithm {
 
 
     /**
-     * todo : Given a collection of individual, run the genetic algorithm
-     * to evolve those individuals for a better solutions.
-     *
-     *
-     * @param graph
-     * @param knowDominNumber
-     * @param individuals
-     * @return
-     */
-    public abstract Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals );
-
-
-    /**
      * Initialisation of the first population.
      * When the collection of individuals is empty, this method
      * create a population of individuals with size equal to the populationSize value defined in this class.

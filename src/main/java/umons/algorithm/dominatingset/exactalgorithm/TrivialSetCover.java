@@ -145,10 +145,6 @@ public class TrivialSetCover implements mdsAlgorithm {
         return g.getAdj().keySet()
                          .stream()
                          .collect(Collectors.toCollection(ArrayList::new));
-//
-//        return IntStream.range(0,g.size())
-//                        .boxed()
-//                        .collect(Collectors.toCollection(ArrayList::new));
     }
 
 
@@ -157,7 +153,6 @@ public class TrivialSetCover implements mdsAlgorithm {
      * @param g the {@link Graph} data structure
      */
     static void subSetsInitialisation( Graph g ) {
-
         for (int key: g.getAdj().keySet())
             g.getAdj().get(key).add(key);
     }

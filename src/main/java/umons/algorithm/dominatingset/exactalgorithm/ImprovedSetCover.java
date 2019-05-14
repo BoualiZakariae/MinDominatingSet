@@ -23,11 +23,8 @@ import java.util.stream.IntStream;
 public class ImprovedSetCover extends TrivialSetCover {
 
     /**
-     *  This array holds for every element in U
-     *  how much it occurs in the set of Set
+     *  This map holds the frequency of each element
      */
-    //private static int[] frequencyArray;
-
     private static HashMap<Integer, Integer> frequencyArray ;
 
     /**

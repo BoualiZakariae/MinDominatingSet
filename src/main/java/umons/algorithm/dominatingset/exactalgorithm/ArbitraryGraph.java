@@ -14,12 +14,14 @@ import java.util.stream.Collectors;
 
 
 /**
- * 
+ *
+ * @Author B.Zakariae
+ *
  * This Class implements the part 3 :"An exact algorithm for the arbitrary graph"
  *
  * from the paper : Exact (exponential) algorithms for the dominating set problem
  *
- * @Author Z.Bouali
+ *
  *
  **/
 public class ArbitraryGraph implements mdsAlgorithm {
@@ -106,7 +108,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
         }
         //loop on all subset and get the min dominating set
        myloopToBreak: for (int currentSubsetSize = 1; currentSubsetSize <= maxMdsSize; currentSubsetSize++) {
-                            ArrayList<int[]> combinations = Util.getCombinations(V, graph.size(), currentSubsetSize);
+                            ArrayList<int[]> combinations = Util.getCombinations(V, currentSubsetSize);
                             for (int[] combination : combinations) {
                                 if (isDominating(graph, combination, X) && combination.length < minMdsSize) {
                                     currentMds = combination;
@@ -154,14 +156,13 @@ public class ArbitraryGraph implements mdsAlgorithm {
     static Set<Integer> mdsOfrArbitraryGraph(Graph graph, Set<Integer> X) {
         if (X.isEmpty())
             return new HashSet<>();
-        Optional<Node> v = graph.getVetexOfDegreeOneOrTwo();
+        Optional<Node> v = graph.getVertexOfDegreeOneOrTwo();
         if (!v.isPresent())//degree 0 or degree  >=3
             return baseCase(graph, X);
         if (v.get().getDegree() == 1)
             return mdsFromDegreeOneVertex(X, v.get(), graph);
          else
             return mdsFromDegreeTwoVertex(X, v.get(), graph);
-
     }
 
 
@@ -214,9 +215,9 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @return       the minimum dominating set of X from a one degree vertex
      */
     static Set<Integer> mdsFromDegreeOneVertex(Set<Integer> X, Node v, Graph graph) {
-        Graph gPrime;//G'
+        Graph gPrime;
         Set<Integer> newX ;
-        Set<Integer> dPrime;//D'
+        Set<Integer> dPrime;
         if (!X.contains(v.getId())){// v in V - X, case A
             gPrime = graph.removeVertex(v.getId());
             newX = X.stream()

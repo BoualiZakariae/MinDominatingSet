@@ -121,7 +121,6 @@ public class GreedyRev implements mdsAlgorithm {
 
         while (v != -1) {
             D.remove(v);
-            //System.out.println("removed vertex "+v);
             adjustWeights(D, v, g);
             v = chooseVertex(g,D, v1, start);
         }

@@ -89,17 +89,24 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
             }
         }while (gen < maxNumGeneration && (knownDominatingNumber == -1  ||  best.getFitness() != knownDominatingNumber));
         double end = System.currentTimeMillis();
-        System.out.println("nombre d'iteration dans lalgo1: "+gen);
         Stats.numberOfGraphs++;
         return new Result(best.mdsFrom(biMap),end-start);
     }
 
     /**
+     *  Repair a solution to be valid.
+     *  depending on some probability, the method choose between
+     *  a heuristic repair and a random repair.
      *
-     * @param graph
-     * @param biMap
-     * @param newChild
-     * @return
+     *  Repairing an invalid solution means adding more vertices to the solution until
+     *  that the mds dominate the graph.
+     *
+     *
+     * @param graph     the graph to dominate.
+     * @param biMap     a map that hold pairing values between indiviual indices -> Set values.
+     * @param newChild  the child individual that represent an invalid solution.
+     *
+     * repair the solution found in the newChild individual.
      */
     Set<Integer> repairSolution( Graph graph, BiMap<Integer, Integer> biMap, Individual newChild) {
         Set<Integer> currentDS;
@@ -112,9 +119,12 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
     }
 
     /**
+     *  Generate and return a new individual to integrate the population.
+     * depending on some probability, the method create a new individual by selection->mutation->crossover
+     * or generate a randomly new individual.
      *
-     * @param population
-     * @return
+     * @param population the curent population
+     * @return a new child
      */
     Individual generateChild( ListPopulation population) {
         Random random = new Random();
@@ -126,16 +136,14 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
         return newChild;
     }
 
-    @Override
-    public Result run( Graph graph, int knowDominNumber, Collection<Individual> individuals ) {
-        return null;
-    }
+
 
     /**
+     *  Create and initialise a new population.
      *
-     * @param graph
-     * @param biMap
-     * @return
+     * @param graph     the graph that should be dominated
+     * @param biMap     a map that hold pairing values between individual indices -> Set values.
+     * @return   a new population.
      */
     private ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap ) {
         List<Individual> individuals = new ArrayList<>();
@@ -143,26 +151,19 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
         return new ListPopulation(individuals);
     }
 
-    /**
-     *
-     * @param graph
-     * @param biMap
-     * @return
-     */
-    ListPopulation createPopulation( Graph graph, BiMap<Integer, Integer> biMap, List list ) {
-        popInitialisation(graph, biMap, list);
-        return new ListPopulation(list);
-    }
-
-
-
 
     /**
      * Whenever this method is called, a new child is created
      * and returned.
+     *  2 pools of individuals are created.
+     *  each pool contains 2 randomly chosen individuals.
      *
-     * @param pop
-     * @return
+     *  the best individual from each pool is selected as a parent.
+     *  the new child is created from those two parents.
+     *
+     *
+     * @param pop   the current population.
+     * @return a new child to integrate the population.
      */
     private Individual evolve( ListPopulation pop ) {
         Individual [] pool = new Individual[4];

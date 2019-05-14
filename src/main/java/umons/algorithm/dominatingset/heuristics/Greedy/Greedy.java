@@ -32,8 +32,8 @@ public class Greedy implements mdsAlgorithm {
 
     /**
      * @return the the maximum weight of the graph
-     * this value indicate wich vertex can cover
-     * the maximum of  vertices
+     * this value indicate which vertex can cover
+     * the maximum number of vertices
      */
     private int getMax() {
         return this.weights.entrySet()
@@ -62,15 +62,14 @@ public class Greedy implements mdsAlgorithm {
                 .filter(entry -> entry.getValue() == M)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toCollection(ArrayList::new));
-       // System.out.println("the list of possible vertices to take " +set);
         return  set.get(new Random().nextInt(set.size()));
     }
 
 
     /**
      * adjustWeights implementation for the greedy algorithm
-     * After adding a vertex to the dominating Set, an adjustement
-     * of weight should be done on the vertices caracteristics
+     * After adding a vertex to the dominating Set, an adjustment
+     * of weight should be done on the vertices characteristics
      * @param g
      * @param v
      */
@@ -111,7 +110,6 @@ public class Greedy implements mdsAlgorithm {
         Set<Integer> D = new HashSet<>();
         //initialisation
         for (Integer key : graph.getAdj().keySet()) {
-           // System.out.println("degreeOf key "+key +" is"+graph.getDegreeOf(key));
             weights.put(key, 1 + graph.getDegreeOf(key));
             covered.put(key, false);
         }

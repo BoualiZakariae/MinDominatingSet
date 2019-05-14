@@ -16,6 +16,8 @@ public interface mdsAlgorithm {
 
     /**
      * run the exact algorithm on the specified graph instance
+     * and return a Result object that contains the solution.
+     *
      *
      * @param graph the graph instance
      * @return      a Result object that contains the solution
