@@ -13,9 +13,9 @@ import java.util.*;
 public class Graph {
 
     /**
-     * n:    represents the number of vertices of this Graph
-     * m:    represents the number of edges of this Graph
-     * adj:  represents the adjacency  list of this Graph
+     * n:    represents the number of vertices of this Graph.
+     * m:    represents the number of edges of this Graph.
+     * adj:  represents the adjacency  list of this Graph.
      **/
     private int n;
     private int m;
@@ -25,7 +25,7 @@ public class Graph {
     /**
      * Class constructor
      *
-     * @param n the number of vertices
+     * @param n the number of vertices.
      */
     public Graph(int n) {
         this.n = n;
@@ -36,8 +36,8 @@ public class Graph {
     /**
      * Class constructor
      *
-     * @param n the number of vertices
-     * @param m the number of edges
+     * @param n the number of vertices.
+     * @param m the number of edges.
      */
     public Graph(int n, int m) {
         this.n = n;
@@ -45,11 +45,22 @@ public class Graph {
         this.adj = new HashMap<>();
     }
 
+    /**
+     *
+     * @param g
+     * @param y1
+     * @param y2
+     * @return  true if y1 and y2 are adjacent, false otherwise
+     */
+    public static boolean areAdjacent(Graph g, int y1, int y2) {
+        return g.getAdj().get(y1).contains(y2);
+    }
+
 
     /**
      *
      *
-     * @return  an optional object that may or may not contains a node that is degree 1 or 2
+     * @return  an optional object that may or may not contains a node that is degree 1 or 2.
      *
      */
     public Optional<Node> getVetexOfDegreeOneOrTwo() {
@@ -64,7 +75,7 @@ public class Graph {
     /**
      * Add the vertex {@code v} to this graph only if {@code v} is not already present.
      *
-     * @param v  the vertex to be added
+     * @param v  the vertex to be added.
      */
     public void addVertex(Integer v){
         this.adj.putIfAbsent(v,new HashSet<>());
@@ -74,7 +85,7 @@ public class Graph {
     /**
      *  Add the set {@code vertices} to this graph.
      *
-     *  @param vertices    the set of vertices to be added to the graph
+     *  @param vertices    the set of vertices to be added to the graph.
      */
     public void addVertices( int... vertices ) {
         for (int v : vertices) {
@@ -87,7 +98,7 @@ public class Graph {
      *
      * @return the neighbor of a 3 degree vertex.
      *
-     * this neighbor should have the min degree
+     * This neighbor should have the min degree
      *
      * between the neighbors of the 3 degree vertex.
      *
@@ -116,11 +127,42 @@ public class Graph {
             return null;
         }
     }
+
+
+    /**
+     *  as this algorithm can find duplicate nodes,
+     *  the set datastructure help to avoid duplicate node
+     * @return
+     */
+    public Set<Node> getNeighborsOf3DegreeVertices() {
+        Set<Node> nodes = new HashSet<>();
+        Node minDegreeNode = null;
+        for (Integer key:adj.keySet()) {
+            if (getAdj().get(key).size() == 3){
+                Set<Integer> neighborsSet = getAdj().get(key);
+                Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
+                int neighbor1 = neighbors[0];
+                int neighbor2 = neighbors[1];
+                int neighbor3 = neighbors[2];
+                minDegreeNode = minDegreeVertex(neighbor1, neighbor2, neighbor3);
+                /*Todo to be reviewed*/
+                nodes.add(minDegreeNode);
+            }
+        }
+        return nodes;
+    }
+
+
+
+
+
+
+
     /**
      *
-     * @param vertex1  the first vertex
-     * @param vertex2  the second vertex
-     * @param vertex3  the third vertex
+     * @param vertex1  the first vertex.
+     * @param vertex2  the second vertex.
+     * @param vertex3  the third vertex.
      *
      * @return the min degree vertex between {@code vertex1}, {@code vertex2} and {@code vertex3}
      */
@@ -145,7 +187,7 @@ public class Graph {
      * Removing {@code v} from the graph will result
      * on removing every edge that was linked to v.
      *
-     * @param v   the vertex to remove
+     * @param v   the vertex to remove.
      * @return    a new graph that does not contains {@code v}.
      */
     public Graph removeVertex(int v) {
@@ -154,7 +196,7 @@ public class Graph {
 
         Set<Integer> vertices = new HashSet<>();
         vertices.add(v);
-        return removeVertex(vertices);
+        return removeVertices(vertices);
     }
 
     /**
@@ -163,7 +205,7 @@ public class Graph {
      * @param vertices   the set of vertices to remove
      * @return           a new graph that does not contains the vertices set
      */
-    public Graph removeVertex(Set<Integer> vertices) {
+    public Graph removeVertices( Set<Integer> vertices) {
         Graph newGraph = new Graph(n - vertices.size());
         for(Map.Entry<Integer, Set<Integer>> pair : adj.entrySet()){
             int currentVertex =pair.getKey();
@@ -173,8 +215,7 @@ public class Graph {
             {
                 newGraph.addVertex(currentVertex);
                 Set<Integer> neighbors = this.adj.get(currentVertex);
-                Set<Integer> newNeighbors = new HashSet<>();
-                newNeighbors.addAll(neighbors);
+                Set<Integer> newNeighbors = new HashSet<>(neighbors);
                 newNeighbors.removeAll(vertices);
                 newGraph.getAdj().get(currentVertex).addAll(newNeighbors);
             }
@@ -190,8 +231,7 @@ public class Graph {
     public Set<Integer> getOpenNeighbors(int v) {
         if (!getGraphVertices().contains(v))
             throw new NoSuchElementException();
-        Set<Integer> openNeighbors = new HashSet<>();
-        openNeighbors.addAll(getAdj().get(v));
+        Set<Integer> openNeighbors = new HashSet<>(getAdj().get(v));
         return openNeighbors;
     }
 
@@ -260,9 +300,7 @@ public class Graph {
         if (!getGraphVertices().contains(v))
             throw new NoSuchElementException();
 
-        if (this.adj.get(v).size()==0)
-            return true;
-        return false;
+        return this.adj.get(v).size() == 0;
 
     }
     /**
@@ -277,7 +315,7 @@ public class Graph {
     }
 
     public int size() {
-        return this.n;
+        return this.adj.size();
     }
     public Set<Integer> getGraphVertices(){
          return this.adj.keySet();

@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
@@ -39,67 +40,43 @@ public class Util {
 
     }
 
-
     /**
      *
-     * https://www.geeksforgeeks.org/print-all-possible-combinations-of-r-elements-in-a-given-array-of-size-n/
-     *   arr[]  ---> Input Array
-     *   data[] ---> Temporary array to store current combination
-     *   start & end ---> Staring and Ending indexes in arr[]
-     *   index  ---> Current index in data[]
-     *    r ---> Size of a combination to be printed *
-     * @param arr
-     * @param data
-     * @param start
-     * @param end
-     * @param index
-     * @param r
-     */
-    public static void combination(int arr[], int data[], int start,
-            int end, int index, int r, ArrayList<int[]> al) {
-        if (index == r) {
-            int[] new_combo = new int[r];
-            for (int j = 0; j < r; j++) {
-                new_combo[j] = data[j];
-            }
-            al.add(new_combo);
-            return;
-        }
-        for (int i = start; i <= end && end - i + 1 >= r - index; i++) {
-            data[index] = arr[i];
-            combination(arr, data, i + 1, end, index + 1, r, al);
-        }
-    }
-
-
-    /**
-     *  //arr from 0 to N
-     *    //n equal to N
-     *    //r subset size
      * @param arr
      * @param n
      * @param r
      * @return
      */
     public static ArrayList<int[]> getCombinations(int arr[], int n, int r) {
-        int data[] = new int[r];
-        ArrayList<int[]> al = new ArrayList<>();
-        combination(arr, data, 0, n - 1, 0, r, al);
-        return al;
-    }
+        ArrayList<int[]> lists = new ArrayList<>();
+        lists = combinations(arr, r, 0, new int[r],lists);
+        return lists;
 
+    }
 
 
     /**
      *
-     * @param g
-     * @param y1
-     * @param y2
-     * @return  true if y1 and y2 are adjacent, false otherwise
+     * @param arr
+     * @param len
+     * @param startPosition
+     * @param result
+     * @param subsets
+     * @return
      */
-    public static boolean areAdjacent(Graph g, int y1, int y2) {
-        return g.getAdj().get(y1).contains(y2);
+    public static ArrayList<int[]> combinations(int[] arr, int len, int startPosition, int[] result, ArrayList<int[]> subsets){
+        if (len == 0){
+            subsets.add(Arrays.copyOf(result,result.length));
+            return subsets;
+        }
+        for (int i = startPosition; i <= arr.length-len; i++){
+            result[result.length - len] = arr[i];
+            combinations(arr, len-1, i+1, result, subsets);
+        }
+        return subsets;
     }
+
+
 
     /**
      *
@@ -157,9 +134,7 @@ public class Util {
      * @return true if Q Contains all element of P
      */
     public static boolean isSubset(Collection<Integer> P, Collection<Integer> Q) {
-        if (Q.containsAll(P))
-            return true;
-       return false;
+        return Q.containsAll(P);
     }
 
 
@@ -202,10 +177,10 @@ public class Util {
         if (C1 == null && C2 == null) {
             return null;
         }
-        if (C1 == null && C2 != null) {
+        if (C1 == null) {
             return C2;
         }
-        if (C2 == null && C1 != null) {
+        if (C2 == null) {
             return C1;
         }
         if (C1.size() < C2.size()) {
@@ -246,10 +221,9 @@ public class Util {
         UndirectedGraph G = new UndirectedGraph();
         u.forEach(i->G.addNode(i));//creating vertices
        // System.out.println("U "+u);
-        for (int i=0; i<s.size(); i++){
-            List<Integer> S = s.get(i);
+        for (List<Integer> S : s) {
             if (S.size() == 2)
-                G.addEdge(S.get(0),S.get(1));
+                G.addEdge(S.get(0), S.get(1));
         }
         return G;
     }
@@ -289,13 +263,6 @@ public class Util {
      * @param args
      **/
     public static void main(String[] args) throws IOException {
-       /* ArrayList<int[]> ar = getCombinations(new int[]{1,2,3,4}, 4, 4);
-        for (int i = 0; i < ar.size(); i++) {
-            int[] list = ar.get(i);
-            for (int l :list) {
-                System.out.print(l+" ");
-            }
-            System.out.println();*/
 
         Graph g = new Graph(3);
         g.addVertex(1);
@@ -323,9 +290,9 @@ public class Util {
 
 
 
-    public static String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
+    private static String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
 
-    public static void writeToFile( List<Graph> listOfGraphs ) throws IOException {
+    private static void writeToFile( List<Graph> listOfGraphs ) throws IOException {
 
         BufferedWriter writer;
         writer = new BufferedWriter(new FileWriter(pathToNewFileFormat));

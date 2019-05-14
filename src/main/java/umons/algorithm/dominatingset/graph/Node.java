@@ -1,6 +1,8 @@
 package umons.algorithm.dominatingset.graph;
 
 
+import java.util.Objects;
+
 /**
  *
  * This Class represents a vertex in the Graph.
@@ -17,6 +19,7 @@ public class Node {
     private int degree;
 
     public Node() {}
+
 
     /**
      * Class constructor
@@ -40,4 +43,17 @@ public class Node {
         return id;
     }
 
+
+    @Override
+    public boolean equals( Object obj ) {
+        if (!(obj instanceof Node))
+            return false;
+        Node theOtherNode = (Node)obj;
+        return this.id == theOtherNode.id && this.degree == theOtherNode.degree;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id,this.degree);
+    }
 }

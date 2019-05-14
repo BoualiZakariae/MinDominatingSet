@@ -2,7 +2,7 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.EdmondsMatching;
 import umons.algorithm.dominatingset.util.UndirectedGraph;
 import umons.algorithm.dominatingset.util.Util;
@@ -26,17 +26,19 @@ public class ImprovedSetCover extends TrivialSetCover {
      *  This array holds for every element in U
      *  how much it occurs in the set of Set
      */
-    static int[] frequencyArray;
+    //private static int[] frequencyArray;
+
+    private static HashMap<Integer, Integer> frequencyArray ;
 
     /**
      * Counting the frequency of the elements
      *
      * @param s
      */
-    static void countElementsFrequency(List<List<Integer>> s) {
+    private static void countElementsFrequency( List<List<Integer>> s ) {
         s.stream()
          .flatMap(List::stream)
-         .forEach(i -> frequencyArray[i]+=1);
+         .forEach(i -> frequencyArray.replace(i,frequencyArray.get(i)+1));
     }
 
     /**
@@ -45,10 +47,10 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the index of the set with an element that has frequencyArray one
      */
-    static int getTheSingletonSetIndex( List<List<Integer>> s, List<Integer> U) {
+    private static int getTheSingletonSetIndex( List<List<Integer>> s, List<Integer> U ) {
 
         Optional<Integer> singleton = U.stream()
-                                       .filter(i -> frequencyArray[i] == 1)
+                                       .filter(i -> frequencyArray.get(i) == 1)
                                        .findFirst();
         if (!singleton.isPresent())
             return -1;
@@ -67,7 +69,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the set cover of U
      */
-    static List<Integer> reductionRuleOne( List<List<Integer>> s, List<Integer> U) {
+    private static List<Integer> reductionRuleOne( List<List<Integer>> s, List<Integer> U ) {
         countElementsFrequency(s);
         // base case
         if (s.isEmpty()) {
@@ -94,7 +96,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param s the set of set
      * @param U the set of elements to cover
      * @return the set cover of U
-     */    static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U) {
+     */    private static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U ) {
         for (int i = 0; i < s.size(); i++) {
             for (int j = 0; j < s.size(); j++) {
                 if (i != j) {
@@ -117,10 +119,10 @@ public class ImprovedSetCover extends TrivialSetCover {
      * maximum matching to find set-cover
      *
      * This method is executed whenever there is no set that contains more
-     * than 2 elements, to calculate the sect cover of such instance
-     * the EdmondsMatching can be used to get a solution in a polynomial time.
+     * than 2 elements, to calculate the set cover of such instance
+     * the Edmonds Matching Algorithm has been used to get a solution in a polynomial time.
      *
-     * the EdmondsMatching implementation was get from
+     * the Edmonds Matching implementation was get from
      *
      *
      *
@@ -128,7 +130,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the set cover of U
      */
-     static List<Integer> reductionRuleThree( List<List<Integer>> s, List<Integer> U) {
+     private static List<Integer> reductionRuleThree( List<List<Integer>> s, List<Integer> U ) {
         int S = Util.getMaximumSet(s);
         if (s.get(S).size() <= 2) {
             UndirectedGraph graph = Util.createTheGraph(U,s);
@@ -148,7 +150,7 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param U the set of elements to cover
      * @return the set cover of U
      */
-    static List<Integer> Algo3MSC( List<List<Integer>> s, List<Integer> U) {
+    private static List<Integer> Algo3MSC( List<List<Integer>> s, List<Integer> U ) {
         if (s.isEmpty())
             return new ArrayList<>();
 
@@ -182,7 +184,7 @@ public class ImprovedSetCover extends TrivialSetCover {
         double start = System.currentTimeMillis();
         subSetsInitialisation(graph);//s
         List<Integer> U = initialisationOfU(graph);
-        frequencyArray = new int[graph.size()];//frequency element
+        frequencyArray =  initialiseFrequencyArray(graph);
         List<List<Integer>> s =  graph.getAdj().values().stream()
                 .map(ArrayList::new)
                 .collect(Collectors.toList());
@@ -191,6 +193,13 @@ public class ImprovedSetCover extends TrivialSetCover {
         Stats.numberOfGraphs++;
         return new Result(new HashSet<>(list),end-start);
     }
+
+    private HashMap<Integer,Integer> initialiseFrequencyArray(Graph g) {
+        frequencyArray =new HashMap<>();//frequency element;
+        for(int v:g.getAdj().keySet())
+            frequencyArray.put(v,0);
+        return frequencyArray;
+        }
 
 
     public static void main( String[] args ) {

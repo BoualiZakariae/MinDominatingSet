@@ -1,8 +1,6 @@
 package umons.algorithm.dominatingset.toDelete;
 
 import umons.algorithm.dominatingset.graph.Graph;
-import umons.algorithm.dominatingset.heuristics.HeuristicsMain;
-import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.*;
 import java.nio.file.Files;

@@ -9,12 +9,9 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * *This class implements the GreedyRandom algorithm
-
+ * This class implements the GreedyRandom algorithm
  */
-public class GreedyRandom extends Greedy {
-
-    private HashMap<Integer, Double> probabilities ;
+public class GreedyRandom extends Greedy implements mdsAlgorithm{
 
     /**
      *
@@ -29,13 +26,13 @@ public class GreedyRandom extends Greedy {
         int sumOfWeights = weights.values()
                                  .stream()
                                  .reduce(0,Integer::sum);
-        probabilities = new HashMap<>();
+        HashMap<Integer, Double> probabilities = new HashMap<>();
         for (Integer key:weights.keySet()) {
             probabilities.put(key, weights.get(key)* 1.0 / sumOfWeights);
         }
         double cumulativeSum = 0;
         double r = new Random().nextDouble();
-        for (Integer key:probabilities.keySet()) {
+        for (Integer key: probabilities.keySet()) {
             cumulativeSum += probabilities.get(key);
             if (cumulativeSum >= r) {
                 return key;
@@ -43,6 +40,17 @@ public class GreedyRandom extends Greedy {
         }
         return -1;
     }
+
+    /**
+     *
+     * @param ds
+     * @return
+     */
+    private Set<Integer>  minimizeSolution(Set<Integer> ds){
+        return null;
+    }
+
+
 
     @Override
     public Result run( Graph graph ) {

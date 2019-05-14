@@ -2,13 +2,14 @@ package umons.algorithm.dominatingset.heuristics;
 
 import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.GeneticAlgoImpl;
+import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplOne;
 import umons.algorithm.dominatingset.heuristics.Greedy.Greedy;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRandom;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
 import umons.algorithm.dominatingset.util.FileParser;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -22,14 +23,14 @@ public class HeuristicsMain {
 
 
     static String [] mediumGraphs = {"fpsol2.col"};
-    static String [] googleGraphs = {"gplus_50000.col"};
+    private static String [] googleGraphs = {"gplus_50000.col"};
     //"gplus_10000.col","gplus_20000.col",    "pokec_10000.col","pokec_20000.col" ,"pokec_2000.col"
     static String [] pokecGraphs = {"pokec_50000.col"};
     public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
 
 
 
-    public static void main( String[] args ) throws IOException {
+    public static void main( String[] args ) {
          ClassLoader classloader = Thread.currentThread().getContextClassLoader();
          for (String grapheName: googleGraphs) {
             System.out.println(grapheName);
@@ -40,7 +41,7 @@ public class HeuristicsMain {
 }
 
     public static void heuristicsrun(Graph hugeGraph){
-       System.out.println("greedy");
+        System.out.println("greedy");
         double start = System.currentTimeMillis();
         mdsAlgorithm heuristic = new Greedy();
         Set<Integer> mds = heuristic.run(hugeGraph).getMds();
@@ -67,14 +68,14 @@ public class HeuristicsMain {
 
 
 
-    public static void geneticRun() throws IOException {
+    public static void geneticRun() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         System.out.println("geneticAlgo");
         double start = System.currentTimeMillis();
         String grapheName = "gplus_200.col";
         File file = new File(classloader.getResource(grapheName).getFile());
         Graph hugeGraph = FileParser.createGraphFromDimacsFormat(file);
-        GeneticAlgoImpl heuristic = new GeneticAlgoImpl();
+        GeneticAlgoImplOne heuristic = new GeneticAlgoImplOne();
         System.out.println("    public static final int     POPULATION_SIZE = 100;\n" +
                 "    public static final int     MAX_GEN = 20000;//number of iteration\n" +
                 "    public static final double  P_DS = 0.3;\n" +

@@ -16,7 +16,6 @@ public class DFS {
      */
     private List<List<Integer>> listOfCompenents = new ArrayList<>();
     private Map<Integer,Boolean> visited ;
-    private int n;
     Map<Integer, Set<Integer>> adj;
 
     /**
@@ -24,7 +23,6 @@ public class DFS {
      * @param n
      */
     public DFS(int n){
-        this.n = n;
         visited = new HashMap<>();
     }
 
@@ -41,7 +39,7 @@ public class DFS {
         }
         List<Integer> component ;
         for (Integer key:adjMap.keySet()) {
-            if (visited.get(key)==false){
+            if (!visited.get(key)){
                 component = new ArrayList<>();
                 DFS(key,component);
                 listOfCompenents.add(component);

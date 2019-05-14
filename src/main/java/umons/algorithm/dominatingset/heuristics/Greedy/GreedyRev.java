@@ -3,7 +3,7 @@ package umons.algorithm.dominatingset.heuristics.Greedy;
 import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -17,12 +17,11 @@ public class GreedyRev implements mdsAlgorithm {
 
     /**
      * each vertex in the graph has an integer value that
-     * indicate how much time it can be covered and a boolean
+     * indicate how much time it can be covered, and a boolean
      * value that indicate if it is uniquely covered
      */
     private HashMap<Integer, Integer> coveredBy ;
     private HashMap<Integer, Boolean> uniquely ;
-    private List<Integer> V;
     private int n;
 
     /**
@@ -44,7 +43,7 @@ public class GreedyRev implements mdsAlgorithm {
      * After removing this vertex from the dominating set D, D will still be a dominating set
      *
      **/
-    public  int chooseVertex(Graph g,Set<Integer> D, List<Integer> V, int start) {
+    private int chooseVertex( Graph g, Set<Integer> D, List<Integer> V, int start ) {
         while (start < n && (!D.contains(V.get(start)) ||  uniquely.get(V.get(start)))) {
             start++;
         }
@@ -70,7 +69,7 @@ public class GreedyRev implements mdsAlgorithm {
      * adjustWeights implementation for the greedy algorithm
      *
      */
-     public  void adjustWeights(Set<Integer> D, int v, Graph g) {
+    private void adjustWeights( Set<Integer> D, int v, Graph g ) {
         int oldValue = coveredBy.get(v);
         coveredBy.replace(v, oldValue - 1);
 
@@ -104,13 +103,12 @@ public class GreedyRev implements mdsAlgorithm {
         double startTime = System.currentTimeMillis();
         int start = 0;
         n=g.size();
-        Set<Integer> D = new HashSet<>();
-        V = g.getAdj().keySet()
-                      .stream()
-                      .collect(Collectors.toCollection(ArrayList::new));
-        V.sort((arg0, arg1) -> g.getDegreeOf(arg0) - g.getDegreeOf(arg1));
+        List<Integer> v1 = g.getAdj().keySet()
+                .stream()
+                .sorted(( arg0, arg1 ) -> g.getDegreeOf(arg0) - g.getDegreeOf(arg1))
+                .collect(Collectors.toCollection(ArrayList::new));
 
-        D.addAll(V);
+        Set<Integer> D = new HashSet<>(v1);
         for (int key: g.getAdj().keySet() ) {
             coveredBy.put(key,1 + g.getDegreeOf(key));
             if (coveredBy.get(key) == 1)
@@ -119,13 +117,13 @@ public class GreedyRev implements mdsAlgorithm {
                 uniquely.put(key,false);
         }
 
-        int v = chooseVertex(g,D, V, start);
+        int v = chooseVertex(g,D, v1, start);
 
         while (v != -1) {
             D.remove(v);
             //System.out.println("removed vertex "+v);
             adjustWeights(D, v, g);
-            v = chooseVertex(g,D, V, start);
+            v = chooseVertex(g,D, v1, start);
         }
         double end = System.currentTimeMillis();
         Stats.numberOfGraphs++;

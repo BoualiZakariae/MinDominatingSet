@@ -24,7 +24,7 @@ public class TestUtilities {
         return sb.toString();
     }
 
-    public static int getMinNumber(String word) {
+    private static int getMinNumber( String word ) {
         int min;
         if (word.length() % 3 == 0) {
             min = word.length() / 3;
