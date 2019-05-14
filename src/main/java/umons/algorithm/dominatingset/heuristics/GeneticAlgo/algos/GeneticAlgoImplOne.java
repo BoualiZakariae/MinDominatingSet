@@ -5,7 +5,7 @@ import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individual;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.ListPopulation;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 
 import java.util.*;
 
@@ -81,7 +81,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
             if (population.isUnique(newChild)){
                 population.replaceWorstBy(newChild);
                 if(newChild.getFitness() < F){
-                    System.out.println("new best fitness found "+newChild.getFitness());
+                   // System.out.println("new best fitness found "+newChild.getFitness());
                     F = newChild.getFitness();
                     best = newChild;
                 }
@@ -197,11 +197,8 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
             fittestInPoolTwo=pool[3];
             notFittestInPoolTwo=pool[2];
         }
-
-
         Individual parentOne;
         Individual parentTwo;
-
         if (random.nextDouble() > p_Better)
             parentOne = notFittestInPoolOne;
         else
@@ -211,7 +208,6 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
             parentTwo = notFittestInPoolTwo;
         else
             parentTwo = fittestInPoolTwo;
-
         Individual child = crossOver(parentOne, parentTwo);
         applyMutation(child, p_Mutation);
         return child;

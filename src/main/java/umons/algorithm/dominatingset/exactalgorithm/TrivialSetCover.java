@@ -2,7 +2,7 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
 import java.util.ArrayList;
@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  *
@@ -142,20 +141,25 @@ public class TrivialSetCover implements mdsAlgorithm {
      * @return  the list of elements to cover
      */
     static List<Integer> initialisationOfU( Graph g ) {
-        return IntStream.range(0,g.size())
-                        .boxed()
-                        .collect(Collectors.toCollection(ArrayList::new));
+
+        return g.getAdj().keySet()
+                         .stream()
+                         .collect(Collectors.toCollection(ArrayList::new));
+//
+//        return IntStream.range(0,g.size())
+//                        .boxed()
+//                        .collect(Collectors.toCollection(ArrayList::new));
     }
 
 
     /**
      * This method initialise the set of set
-     *
      * @param g the {@link Graph} data structure
      */
     static void subSetsInitialisation( Graph g ) {
-        IntStream.range(0,g.size())
-                 .forEach(i-> g.getAdj().get(i).add(i));
+
+        for (int key: g.getAdj().keySet())
+            g.getAdj().get(key).add(key);
     }
 
 

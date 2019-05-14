@@ -3,34 +3,52 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.FileParser;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 /**
- *
+ *This class run the different implemented algoriths on a given graph
  *
  *
  */
 public class Main {
 
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\XPRIME.txt";
-    //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
-    // public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\3degreeVertexbug.txt";
-     private static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";
+     //   public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\instances";
+    //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\3degreeVertexbug.txt";
+       private static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\maxDegreeThree.txt";//
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\g24.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\badResult.txt";
     //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\two.txt";
-    //public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\triangle.txt";
+    //  public static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\triangle.txt";
+     //private static String pathToHugeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\lastGraphErrorFile.txt";
 
     /**
+     *
+     * the command line to run this program is  java mds --type parameter1 --path parameter2 .
+     * where the parameter1 is the  algorytm type
+     *       1 : to luanch the arbitraryAlgo
+     *       2 : to luanch the AtmosthreeDegree
+     *       3 : to luanch the trivialAlgo
+     *       4 : to luanch the improvedSetcover.
+     *
+     * and the parameter2 is the path to the graph instance.
+     *
+     *
+     * the representation of the grapohes file to be run by those algorithm should be
+     *
+     *
+     *
+     *
      *
      * @param args
      */
     public static void main( String[] args ) {
-        int arg =2;
+        int arg = 2;
         mdsAlgorithm exactAlgo ;
         if (arg == 1){
             System.out.println("ArbitraryGraph");
@@ -75,7 +93,7 @@ public class Main {
                 mds = algo.run(g);
                 if (mds.getMds().size() != Integer.parseInt(res[2])){
                     incorrect++;
-                    System.out.println(g+" "+line+" AlgoFound"+mds.getMds().size());
+                    System.out.println(g+" "+line+" AlgoFound "+mds.getMds().size());
                 }
                 Stats.addStatistic(g,mds.getMds().size(),mds.getTime());
                 line = reader.readLine();

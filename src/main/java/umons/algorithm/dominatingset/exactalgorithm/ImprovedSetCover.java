@@ -2,7 +2,7 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.EdmondsMatching;
 import umons.algorithm.dominatingset.util.UndirectedGraph;
 import umons.algorithm.dominatingset.util.Util;
@@ -26,7 +26,9 @@ public class ImprovedSetCover extends TrivialSetCover {
      *  This array holds for every element in U
      *  how much it occurs in the set of Set
      */
-    private static int[] frequencyArray;
+    //private static int[] frequencyArray;
+
+    private static HashMap<Integer, Integer> frequencyArray ;
 
     /**
      * Counting the frequency of the elements
@@ -36,7 +38,7 @@ public class ImprovedSetCover extends TrivialSetCover {
     private static void countElementsFrequency( List<List<Integer>> s ) {
         s.stream()
          .flatMap(List::stream)
-         .forEach(i -> frequencyArray[i]+=1);
+         .forEach(i -> frequencyArray.replace(i,frequencyArray.get(i)+1));
     }
 
     /**
@@ -48,7 +50,7 @@ public class ImprovedSetCover extends TrivialSetCover {
     private static int getTheSingletonSetIndex( List<List<Integer>> s, List<Integer> U ) {
 
         Optional<Integer> singleton = U.stream()
-                                       .filter(i -> frequencyArray[i] == 1)
+                                       .filter(i -> frequencyArray.get(i) == 1)
                                        .findFirst();
         if (!singleton.isPresent())
             return -1;
@@ -182,7 +184,7 @@ public class ImprovedSetCover extends TrivialSetCover {
         double start = System.currentTimeMillis();
         subSetsInitialisation(graph);//s
         List<Integer> U = initialisationOfU(graph);
-        frequencyArray = new int[graph.size()];//frequency element
+        frequencyArray =  initialiseFrequencyArray(graph);
         List<List<Integer>> s =  graph.getAdj().values().stream()
                 .map(ArrayList::new)
                 .collect(Collectors.toList());
@@ -191,6 +193,13 @@ public class ImprovedSetCover extends TrivialSetCover {
         Stats.numberOfGraphs++;
         return new Result(new HashSet<>(list),end-start);
     }
+
+    private HashMap<Integer,Integer> initialiseFrequencyArray(Graph g) {
+        frequencyArray =new HashMap<>();//frequency element;
+        for(int v:g.getAdj().keySet())
+            frequencyArray.put(v,0);
+        return frequencyArray;
+        }
 
 
     public static void main( String[] args ) {

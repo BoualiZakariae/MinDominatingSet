@@ -10,7 +10,8 @@ import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.MutationS
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.UniformCrossOver;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individual;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  *  This abstract class defines the defaults parameters of the genetic algorithm,

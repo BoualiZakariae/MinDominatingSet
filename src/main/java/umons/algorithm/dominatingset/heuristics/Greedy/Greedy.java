@@ -3,7 +3,7 @@ package umons.algorithm.dominatingset.heuristics.Greedy;
 import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 
 import java.util.*;
 import java.util.stream.Collectors;

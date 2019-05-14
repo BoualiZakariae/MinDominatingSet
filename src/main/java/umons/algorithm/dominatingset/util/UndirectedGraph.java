@@ -9,7 +9,8 @@ package umons.algorithm.dominatingset.util; /***********************************
  * a standard adjacency list and then duplicating the logic to ensure each
  * edge appears twice.
  */
-import java.util.*; // For HashMap, HashSet
+
+import java.util.*;
 
 public final class UndirectedGraph<T> implements Iterable<T> {
     /* A map from nodes in the graph to sets of outgoing edges.  Each

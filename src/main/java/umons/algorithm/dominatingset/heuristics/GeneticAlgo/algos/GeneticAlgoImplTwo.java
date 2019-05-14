@@ -5,9 +5,12 @@ import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individual;
 import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.TreeSetPopulation;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class GeneticAlgoImplTwo extends GeneticAlgorithm {
 
@@ -25,14 +28,15 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
         popInitialisation(graph, biMap, individuals);
         TreeSetPopulation population = new TreeSetPopulation(individuals);
         int gen=0;
-        int maxGen = 10000;
+        int maxGen = 10000;//10000
         do{
+           // System.out.println("gene "+gen);
             evolve(graph, biMap,population );
             if (population.getIndividuals().first().getFitness() == knownDominatingNumber){
                 System.out.println("we should break");
                 break;
             }
-        }while (gen++ < maxGen || knownDominatingNumber == -1 );
+        }while (gen++ < maxGen || knownDominatingNumber != -1 );
         double end = System.currentTimeMillis();
         Stats.numberOfGraphs++;
         return new Result(population.getIndividuals().first().mdsFrom(biMap),end-start);
@@ -92,7 +96,7 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
             set2.add(treeSetPopulation.getIndividuals().pollFirst());
         }
         treeSetPopulation.setIndividuals(set2);
-       System.out.println(treeSetPopulation.getIndividuals().first().getFitness());
+        System.out.println(treeSetPopulation.getIndividuals().first().getFitness());
     }
 
 

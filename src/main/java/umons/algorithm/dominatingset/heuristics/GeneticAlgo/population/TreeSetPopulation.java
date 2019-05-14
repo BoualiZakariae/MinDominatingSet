@@ -1,7 +1,7 @@
 
 package umons.algorithm.dominatingset.heuristics.GeneticAlgo.population;
 
-import java.util.*;
+import java.util.TreeSet;
 
 /**
  * This class represents a population for the genetic algorithm

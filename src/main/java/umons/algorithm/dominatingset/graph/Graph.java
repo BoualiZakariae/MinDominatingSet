@@ -45,6 +45,17 @@ public class Graph {
         this.adj = new HashMap<>();
     }
 
+    /**
+     *
+     * @param g
+     * @param y1
+     * @param y2
+     * @return  true if y1 and y2 are adjacent, false otherwise
+     */
+    public static boolean areAdjacent(Graph g, int y1, int y2) {
+        return g.getAdj().get(y1).contains(y2);
+    }
+
 
     /**
      *
@@ -118,8 +129,13 @@ public class Graph {
     }
 
 
-    public List<Node> getNeighborsOf3DegreeVertices() {
-        List<Node> nodes = new ArrayList<>();
+    /**
+     *  as this algorithm can find duplicate nodes,
+     *  the set datastructure help to avoid duplicate node
+     * @return
+     */
+    public Set<Node> getNeighborsOf3DegreeVertices() {
+        Set<Node> nodes = new HashSet<>();
         Node minDegreeNode = null;
         for (Integer key:adj.keySet()) {
             if (getAdj().get(key).size() == 3){
@@ -129,6 +145,7 @@ public class Graph {
                 int neighbor2 = neighbors[1];
                 int neighbor3 = neighbors[2];
                 minDegreeNode = minDegreeVertex(neighbor1, neighbor2, neighbor3);
+                /*Todo to be reviewed*/
                 nodes.add(minDegreeNode);
             }
         }
@@ -298,7 +315,7 @@ public class Graph {
     }
 
     public int size() {
-        return this.n;
+        return this.adj.size();
     }
     public Set<Integer> getGraphVertices(){
          return this.adj.keySet();

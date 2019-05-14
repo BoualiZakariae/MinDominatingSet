@@ -8,7 +8,8 @@ import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRandom;
 import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
 import umons.algorithm.dominatingset.util.FileParser;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -29,7 +30,7 @@ public class HeuristicsMain {
 
 
 
-    public static void main( String[] args ) throws IOException {
+    public static void main( String[] args ) {
          ClassLoader classloader = Thread.currentThread().getContextClassLoader();
          for (String grapheName: googleGraphs) {
             System.out.println(grapheName);
@@ -40,7 +41,7 @@ public class HeuristicsMain {
 }
 
     public static void heuristicsrun(Graph hugeGraph){
-       System.out.println("greedy");
+        System.out.println("greedy");
         double start = System.currentTimeMillis();
         mdsAlgorithm heuristic = new Greedy();
         Set<Integer> mds = heuristic.run(hugeGraph).getMds();
@@ -67,7 +68,7 @@ public class HeuristicsMain {
 
 
 
-    public static void geneticRun() throws IOException {
+    public static void geneticRun() {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         System.out.println("geneticAlgo");
         double start = System.currentTimeMillis();

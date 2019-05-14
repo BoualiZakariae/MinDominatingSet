@@ -110,7 +110,8 @@ package umons.algorithm.dominatingset.util;
  * O(n) contractions, because each contraction removes at least one node.  This
  * gives the algorithm a runtime of O(n^2 m).
  */
-import java.util.*; // For ArrayDeque, HashMap, HashSet, LinkedList
+
+import java.util.*;
 
 public final class EdmondsMatching {
     /**

@@ -14,7 +14,7 @@ util: some utility class used in this project
 
 
 
-Every Package contains a file.info that has more details about the package
+Every Package contains a file.info that has more details about the given package
 
 
 

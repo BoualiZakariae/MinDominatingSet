@@ -3,10 +3,13 @@ package umons.algorithm.dominatingset.exactalgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Node;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.toDelete.Stats;
+import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -102,16 +105,15 @@ public class ArbitraryGraph implements mdsAlgorithm {
             index++;
         }
         //loop on all subset and get the min dominating set
-        for (int i = 1; i <= maxMdsSize; i++) {
-            ArrayList<int[]> combinations = Util.getCombinations(V, graph.size(), i);
-            for (int[] combination : combinations) {
-                if (isDominating(graph, combination, X) && combination.length < minMdsSize) {
-                    currentMds = combination;
-                    minMdsSize = combination.length;
-                    break;
-                }
-            }
-        }
+       myloopToBreak: for (int currentSubsetSize = 1; currentSubsetSize <= maxMdsSize; currentSubsetSize++) {
+                            ArrayList<int[]> combinations = Util.getCombinations(V, graph.size(), currentSubsetSize);
+                            for (int[] combination : combinations) {
+                                if (isDominating(graph, combination, X) && combination.length < minMdsSize) {
+                                    currentMds = combination;
+                                    break myloopToBreak;
+                                }
+                            }
+                      }
 
         Set<Integer> al = new HashSet<>();
         if (currentMds != null) {
@@ -185,10 +187,9 @@ public class ArbitraryGraph implements mdsAlgorithm {
         Set<Integer> listOfZeroDegreeVertices = getZeroDegreeVertices(graph);
         if (listOfZeroDegreeVertices.size() > 0) {
             Graph gPrime = graph.removeVertices(listOfZeroDegreeVertices);
-            Set<Integer> newX = /*set of vertices that has at least 3 neighbours*/
-                    X.stream()
-                     .filter(x -> !listOfZeroDegreeVertices.contains(x))
-                     .collect(Collectors.toCollection(HashSet::new));
+            Set<Integer> newX = X.stream()  /*set of vertices that has at least 3 neighbours*/
+                                 .filter(x -> !listOfZeroDegreeVertices.contains(x))
+                                 .collect(Collectors.toCollection(HashSet::new));
             Set<Integer> mds = minDominatingSet(gPrime, newX);
             listOfZeroDegreeVertices.stream()
                     .filter(v->X.contains(v))
@@ -238,22 +239,6 @@ public class ArbitraryGraph implements mdsAlgorithm {
             return dPrime;
         }
     }
-
-
-
-    /**
-     * This method represent the case A and B in the paper.
-     *
-     * Return the mds of X from a degree one vertex,
-     * branching in the case A if v is not in X,
-     * branching in the case B otherwise.
-     *
-     *
-     * @param X      the set X to dominate
-     * @param v      the chosen vertex with degree one
-     * @param graph  a Graph data structure
-     * @return       the minimum dominating set of X from a one degree vertex
-     */
 
 
 
@@ -324,6 +309,9 @@ public class ArbitraryGraph implements mdsAlgorithm {
 
         return Util.minOfTheSet(d1,d2,d3);
     }
+
+
+
     /**
      * This method represents the case D, where
      * v is in X.
