@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
  * from the paper : Exact algorithms for dominating set.
  *                  Johan M.M. van Rooij, Hans L. Bodlaender
  *
- *
+ *   This algorithm represent the 'Algorithme amélioré' from the thesis.
  *@author bouali
  */
 public class ImprovedSetCover extends TrivialSetCover {
@@ -197,8 +197,4 @@ public class ImprovedSetCover extends TrivialSetCover {
             frequencyArray.put(v,0);
         return frequencyArray;
         }
-
-
-    public static void main( String[] args ) {
-    }
 }

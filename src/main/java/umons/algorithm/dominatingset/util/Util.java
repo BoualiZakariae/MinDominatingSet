@@ -3,10 +3,8 @@ package umons.algorithm.dominatingset.util;
 import umons.algorithm.dominatingset.graph.Graph;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
@@ -23,7 +21,7 @@ public class Util {
      */
     public static Set<Integer> minOfTheSet( Set<Integer>... sets) {
         return  Arrays.stream(sets)
-                      .filter(set->set!=null)
+                      .filter(Objects::nonNull)
                       .min(Comparator.comparingInt(Set::size))
                       .get();
     }
@@ -52,7 +50,7 @@ public class Util {
      * @param subsets
      * @return
      */
-    public static ArrayList<int[]> combinations(int[] arr, int len, int startPosition, int[] result, ArrayList<int[]> subsets){
+    private static ArrayList<int[]> combinations( int[] arr, int len, int startPosition, int[] result, ArrayList<int[]> subsets ){
         if (len == 0){
             subsets.add(Arrays.copyOf(result,result.length));
             return subsets;
@@ -204,7 +202,7 @@ public class Util {
      */
     public static UndirectedGraph createTheGraph( List<Integer> u, List<List<Integer>> s) {
         UndirectedGraph G = new UndirectedGraph();
-        u.forEach(i->G.addNode(i));//creating vertices
+        u.forEach(G::addNode);//creating vertices
        // System.out.println("U "+u);
         for (List<Integer> S : s) {
             if (S.size() == 2)
@@ -225,7 +223,7 @@ public class Util {
         while (iterator.hasNext()){
             Integer vertex = (Integer)iterator.next();
             Set<Integer> set = MM.edgesFrom(vertex);
-            List<Integer> newS = new ArrayList<Integer>();
+            List<Integer> newS = new ArrayList<>();
             if (!set.isEmpty()){
                 Integer neighbour;
                 neighbour= set.stream().findFirst().get();
@@ -274,12 +272,10 @@ public class Util {
     }
 
 
-
-    private static String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
-
     private static void writeToFile( List<Graph> listOfGraphs ) throws IOException {
 
         BufferedWriter writer;
+        String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
         writer = new BufferedWriter(new FileWriter(pathToNewFileFormat));
         for (Graph g : listOfGraphs){
             storeGraph(writer, g);
@@ -340,12 +336,9 @@ public class Util {
         Set<Integer> dominatedVertices = new HashSet<>();
         for (int x : dominatingSet) {
             Set<Integer> neighborsOfx = graph.getClosedNeighbors(x);
-            for (Integer e : neighborsOfx) {
-                dominatedVertices.add(e);
-            }
+            dominatedVertices.addAll(neighborsOfx);
         }
-        Set<Integer> remainingSet = setMinus(X,dominatedVertices);
-        return remainingSet;
+        return setMinus(X,dominatedVertices);
     }
 
     static class Edge {

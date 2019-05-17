@@ -191,8 +191,7 @@ public class Graph {
     public Set<Integer> getOpenNeighbors(int v) {
         if (!getGraphVertices().contains(v))
             throw new NoSuchElementException();
-        Set<Integer> openNeighbors = new HashSet<>(getAdj().get(v));
-        return openNeighbors;
+        return new HashSet<>(getAdj().get(v));
     }
 
     /**

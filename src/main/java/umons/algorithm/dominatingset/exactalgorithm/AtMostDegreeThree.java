@@ -17,8 +17,11 @@ import java.util.stream.Collectors;
  * This Class implements the part 5 "Graphs of maximum degree three" from the
  * paper : Exact (exponential) algorithms for the dominating set problem
  *
+ *
+ *    This algorithm represent the 'Algorithme spécial' from the thesis.
+ *
  */
-public class AtMostDegreeThree implements mdsAlgorithm {
+public class AtMostDegreeThree implements MdsAlgorithm {
 
 
     /**
@@ -788,15 +791,4 @@ public class AtMostDegreeThree implements mdsAlgorithm {
         Stats.numberOfGraphs++;
         return new Result(mds,end-start);
     }
-
-    /**
-     * testing the full algorithm
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-
-
-    }
-
 }

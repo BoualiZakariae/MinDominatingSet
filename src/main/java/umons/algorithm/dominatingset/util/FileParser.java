@@ -1,26 +1,21 @@
 package umons.algorithm.dominatingset.util;
 
 import umons.algorithm.dominatingset.exactalgorithm.ArbitraryGraph;
-import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
+import umons.algorithm.dominatingset.exactalgorithm.MdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.IntStream;
 
 /**
  * This class is responsible for parsing the files to a graph data structure format
  *
- * This class can parse 3 text file format
+ * This class can parse 3 file format
  *
- * The first is the iso format
- * The third for heuristics algortithms
+ * The first is the triangleUp file format
+ * The second is the dimacs file format
+ * The third is the houseOfGraphs file format
  *
  * and create as an output a Graph datastructure
  */
@@ -33,7 +28,7 @@ public class FileParser {
      * @param file
      * @return
      */
-    public static Graph create3RegularGraphs( File file) {
+    public static Graph createGraphsFromHouseOfGraphs( File file) {
         String [] graphName = file.getName()
                                   .replaceFirst("[.][^.]+$", "")//remove extension
                                   .split("_");
@@ -46,8 +41,8 @@ public class FileParser {
         IntStream.range(1,numberOfVertices+1)
                 .forEach(graph::addVertex);
         try {
-            String filestr= file.getName();
-            System.out.println(filestr);
+           // String filestr= file.getName();
+           // System.out.println(filestr);
             reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine())!=null && !line.equals(""))
@@ -69,15 +64,6 @@ public class FileParser {
 
 
 
-    /**
-     *
-     * @param path
-     * @return
-     * @throws IOException
-     */
-    public static Graph createGraphFromDimacsFormat( String path) {
-        return createGraphFromDimacsFormat(new File(path));
-    }
 
     /**
      *
@@ -130,9 +116,6 @@ public class FileParser {
         g.addVertex(v);
         g.addEdge(u, v);
     }
-
-
-
     /**
      *
      * @param n
@@ -150,33 +133,7 @@ public class FileParser {
         return graph;
     }
 
-    /**
-     *
-     * @param line1
-     * @param line2
-     * @return
-     */
-    private static Graph createGraph( String line1, String line2 ) {
-        String[] result1 = line1.split("\\s");
-        int n = Integer.parseInt(result1[0]);
-        int edgesNumber = Integer.parseInt(result1[1]);
-        Graph graph = new Graph(n);
-        for (int i=0;i<n;i++)
-        {
-            graph.addVertex(i);
-        }
-        if (line2.isEmpty() || line2==null)
-            return graph;
-        String[] result2 = line2.split("\\s\\s");
-        int counter =0;
-        for (String edge:result2 ) {
-            String[] vertices = edge.split("\\s");
-            int vertexOne = Integer.parseInt(vertices[0]);
-            int vertexTwo = Integer.parseInt(vertices[1]);
-            graph.addEdge(vertexOne,vertexTwo);
-        }
-        return graph;
-    }
+
 
     /**
      * creating the edges of the Graph g
@@ -200,67 +157,5 @@ public class FileParser {
         }
     }
 
-    /**
-     *
-     * @param g
-     * @return
-     */
-    private static String createTriangleUpFormat( Graph g ){
-        StringBuilder sb = new StringBuilder();
-        int size = g.size();
-        for (int i=0;i< size-1;i++)
-        {
-            for (int j=i+1;j<= size-1;j++)
-            {
-                if (g.getAdj().get(i).contains(j))
-                    sb.append("1");
-                else
-                    sb.append("0");
-            }
-        }
-        return  sb.toString();
-    }
 
-
-
-
-
-    private static String pathTomax3degreeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\max3degree.txt";
-    private static String maxDegreeFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\triangle.txt";
-
-
-    public static void main( String[] args ) throws IOException {
-
-        mdsAlgorithm atMostThreeDegreeAlgo = new ArbitraryGraph();
-        BufferedReader reader = new BufferedReader(new FileReader(pathTomax3degreeFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(maxDegreeFile));
-        Graph g=null;
-        String firstLine   =  reader.readLine();
-        String secondtLine =  reader.readLine();
-        while (firstLine != null) {
-            g = FileParser.createGraph(firstLine,secondtLine);
-            Result result = atMostThreeDegreeAlgo.run(g);
-            double time = result.getTime();
-            if (time == -1){
-                System.out.println("Bad result");
-                return;//if we hav bad mds size we stop
-            }
-
-            StringBuilder line = new StringBuilder("");
-            line.append(g.size())
-                .append(" ")
-                .append(createTriangleUpFormat(g))
-                .append(" ");
-            int mdsSize = result.getMds().size();
-            line.append(mdsSize).append("\n");
-
-            System.out.println(line);
-            writer.write(line.toString());
-            firstLine = reader.readLine();
-            secondtLine = reader.readLine();
-        }
-        reader.close();
-        System.out.println();
-        System.out.println("fin");
-    }
 }

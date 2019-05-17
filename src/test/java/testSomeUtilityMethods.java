@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -65,7 +63,7 @@ public class testSomeUtilityMethods {
     @Test
     public void testFileRessourceLoader() throws URISyntaxException, IOException {
         ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        File file = new File(loader.getResource("exacts/graph_968_26_8.lst").getFile());
+        File file = new File(loader.getResource("houseOfGraphs/graph_968_26_8.lst").getFile());
         System.out.println(file.getName());
 
 

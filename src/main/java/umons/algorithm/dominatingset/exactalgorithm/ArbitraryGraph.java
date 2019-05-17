@@ -21,10 +21,11 @@ import java.util.stream.Collectors;
  *
  * from the paper : Exact (exponential) algorithms for the dominating set problem
  *
+ *  This algorithm represent the 'Algorithme général' from the thesis.
  *
  *
  **/
-public class ArbitraryGraph implements mdsAlgorithm {
+public class ArbitraryGraph implements MdsAlgorithm {
 
     /**
      * Initialise and return the set X that should be dominated.
@@ -36,11 +37,10 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @return the set X
      */
     private static Set<Integer> initialisationOfX(Graph G) {
-        Set<Integer> X = G.getAdj()
+        return G.getAdj()
                           .keySet()
                           .stream()
                           .collect(Collectors.toCollection(HashSet::new));
-        return X;
     }
 
 
@@ -53,7 +53,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param X             set of vertices that should be dominated
      * @return              true if {@code dominatingSet} dominates X, false otherwise
      */
-    public static boolean isDominating(Graph graph, int[] dominatingSet, Set<Integer> X) {
+    private static boolean isDominating( Graph graph, int[] dominatingSet, Set<Integer> X ) {
         Set<Integer> dominatedVertices = new HashSet<>();
        for (int x : dominatingSet) {
            Set<Integer> neighborsOfx = graph.getClosedNeighbors(x);
@@ -92,7 +92,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param X
      * @return the mds for the base case where every vertex has at least 3 neighbors
      */
-    static Set<Integer> minDominatingSet(Graph graph, Set<Integer> X) {
+    private static Set<Integer> minDominatingSet( Graph graph, Set<Integer> X ) {
         if (X.isEmpty()) {
             return new HashSet<>();
         }
@@ -134,13 +134,12 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param graph  a {@link Graph} data structure
      * @return       all the vertices v where d(v)= 0
      */
-    static Set<Integer> getZeroDegreeVertices(Graph graph) {
-        Set<Integer> degZeroVertices = graph.getAdj()
+    private static Set<Integer> getZeroDegreeVertices( Graph graph ) {
+        return graph.getAdj()
                                             .keySet()
                                             .stream()
                                             .filter(i->graph.getAdj().get(i).isEmpty())
                                             .collect(Collectors.toCollection(HashSet::new));
-        return degZeroVertices;
 
     }
 
@@ -153,7 +152,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param X      the set X to dominate
      * @return       the minimum dominating set of the set X
      */
-    static Set<Integer> mdsOfrArbitraryGraph(Graph graph, Set<Integer> X) {
+    private static Set<Integer> mdsOfrArbitraryGraph( Graph graph, Set<Integer> X ) {
         if (X.isEmpty())
             return new HashSet<>();
         Optional<Node> v = graph.getVertexOfDegreeOneOrTwo();
@@ -175,7 +174,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param X      the set X to dominate
      * @return       the minimum dominating set of the set X
      */
-    static Set<Integer> baseCase(Graph graph, Set<Integer> X) {
+    private static Set<Integer> baseCase( Graph graph, Set<Integer> X ) {
         if (graph.allVerticesDegreeZero()) {
             Set<Integer> mds = new HashSet<>();
             mds.addAll(X);
@@ -214,7 +213,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param graph  a {@link Graph} data structure
      * @return       the minimum dominating set of X from a one degree vertex
      */
-    static Set<Integer> mdsFromDegreeOneVertex(Set<Integer> X, Node v, Graph graph) {
+    private static Set<Integer> mdsFromDegreeOneVertex( Set<Integer> X, Node v, Graph graph ) {
         Graph gPrime;
         Set<Integer> newX ;
         Set<Integer> dPrime;
@@ -254,7 +253,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param graph  a {@link Graph} data structure
      * @return       the minimum dominating set of X from a two degree vertex
      */
-    static Set<Integer> mdsFromDegreeTwoVertex(Set<Integer> X, Node v, Graph graph) {
+    private static Set<Integer> mdsFromDegreeTwoVertex( Set<Integer> X, Node v, Graph graph ) {
         int[] neighbors = Util.getNodes(graph.getAdj().get(v.getId()),2);
         int u1 = neighbors[0];
         int u2 = neighbors[1];
@@ -277,7 +276,7 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param u2     the second neighbor of v
      * @return       the minimum dominating set of X from a degree two vertex
      */
-    static Set<Integer> caseCFromDegreeTwoVertex(Node v, Graph graph, Set<Integer> X, int u1, int u2) {
+    private static Set<Integer> caseCFromDegreeTwoVertex( Node v, Graph graph, Set<Integer> X, int u1, int u2 ) {
         Set<Integer> vertices = new HashSet<>();
         //C1
         vertices.add(v.getId());
@@ -323,7 +322,8 @@ public class ArbitraryGraph implements mdsAlgorithm {
      * @param u1     the first  neighbor of v
      * @param u2     the second neighbor of v
      * @return       the minimum dominating set of X from a degree two vertex
-     */static Set<Integer> caseDFromDegreeTwoVertex(Node v, Graph graph, Set<Integer> X, int u1, int u2) {
+     */
+    private static Set<Integer> caseDFromDegreeTwoVertex( Node v, Graph graph, Set<Integer> X, int u1, int u2 ) {
         Set<Integer> vertices = new HashSet<>();
         // case D.1
         vertices.add(u1);
@@ -376,14 +376,5 @@ public class ArbitraryGraph implements mdsAlgorithm {
         double end = System.currentTimeMillis();
         Stats.numberOfGraphs++;
         return new Result(mds,end-start);
-    }
-
-
-    /**
-     * main method for testing purpose
-     * @param args
-     */
-    public static void main(String[] args) {
-
     }
 }

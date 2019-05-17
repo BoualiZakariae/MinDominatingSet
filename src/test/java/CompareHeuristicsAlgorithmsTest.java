@@ -1,14 +1,14 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
+import umons.algorithm.dominatingset.exactalgorithm.MdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplOne;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplTwo;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgorithm;
-import umons.algorithm.dominatingset.heuristics.Greedy.Greedy;
-import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRandom;
-import umons.algorithm.dominatingset.heuristics.Greedy.GreedyRev;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.algos.GeneticAlgoImplOne;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.algos.GeneticAlgoImplTwo;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.algos.GeneticAlgorithm;
+import umons.algorithm.dominatingset.heuristics.greedy.Greedy;
+import umons.algorithm.dominatingset.heuristics.greedy.GreedyRandom;
+import umons.algorithm.dominatingset.heuristics.greedy.GreedyRev;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public class CompareHeuristicsAlgorithmsTest {
 
     public static final String directoryPathFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\instances";
     private static List<Graph> listOfGraphs = new ArrayList();
-    private umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm mdsAlgorithm;
+    private MdsAlgorithm mdsAlgorithm;
     private Result result;
 
     /**
@@ -46,7 +46,7 @@ public class CompareHeuristicsAlgorithmsTest {
 
                       /*  if (p.toString().contains("fpso"))
                             System.out.println(p.toString());*/
-                        Graph hugeGraph = FileParser.createGraphFromDimacsFormat(p.toString());
+                        Graph hugeGraph = FileParser.createGraphFromDimacsFormat(new File(p.toString()));
                         listOfGraphs.add(hugeGraph);
                         System.out.println(hugeGraph.size());
 
@@ -61,7 +61,7 @@ public class CompareHeuristicsAlgorithmsTest {
             int min = Integer.MAX_VALUE;
             int counter=1;
             double start=0,end=0;
-            mdsAlgorithm heuristic;
+            MdsAlgorithm heuristic;
             Set<Integer> mds = null;
             Set<Integer> minMDS = null;
             while(counter++<10){

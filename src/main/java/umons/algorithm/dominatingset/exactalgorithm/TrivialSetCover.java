@@ -2,7 +2,6 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
-import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
 import java.util.ArrayList;
@@ -17,10 +16,11 @@ import java.util.stream.Collectors;
  * from the paper : Exact algorithms for dominating set.
  *                  Johan M.M. van Rooij, Hans L. Bodlaender
  *
+ * This algorithm represent the 'Algorithme trivial' from the thesis.
  *
  *@author bouali
  */
-public class TrivialSetCover implements mdsAlgorithm {
+public class TrivialSetCover implements MdsAlgorithm {
 
     /**
      * This utility method help to restore the real set indices
@@ -181,29 +181,6 @@ public class TrivialSetCover implements mdsAlgorithm {
         double end = System.currentTimeMillis();
         //Stats.numberOfGraphs++;
         return new Result(new HashSet<>(list),end-start);
-    }
-
-    /**
-     * Executing
-     *
-     * to run this Algo, we pass the the location file as arguments to the main method
-     * @param args
-     */
-    public static void main(String[] args) {
-
-
-    }
-
-    /**
-     * utility method
-     * @param graph
-     * @param mdsSize
-     */
-    public static void printErrors(Graph graph, int mdsSize){
-        System.out.println("error");
-        Stats.incorrectResult++;
-        System.out.println(graph.size() + " " + graph.toString() + " " + mdsSize);
-        System.out.println(graph);
     }
 
 }

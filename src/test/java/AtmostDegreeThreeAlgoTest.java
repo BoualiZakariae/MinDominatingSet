@@ -5,8 +5,6 @@ import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -202,7 +200,7 @@ public class AtmostDegreeThreeAlgoTest
 
         graph.addEdge(30,31);
 
-        mdsAlgorithm mdsAlgo = new AtMostDegreeThree();
+        MdsAlgorithm mdsAlgo = new AtMostDegreeThree();
         System.out.println("AtMostDegreeThree()");
         Result result = mdsAlgo.run(graph);
         System.out.println(result.getMds());
@@ -278,7 +276,7 @@ public class AtmostDegreeThreeAlgoTest
         graph.addEdge(19,21);
         graph.addEdge(20,21);
 
-        mdsAlgorithm mdsAlgo = new AtMostDegreeThree();
+        MdsAlgorithm mdsAlgo = new AtMostDegreeThree();
         System.out.println("AtMostDegreeThree()");
         Result result = mdsAlgo.run(graph);
         System.out.println(result.getMds());
@@ -400,7 +398,7 @@ public class AtmostDegreeThreeAlgoTest
 
 
 
-        mdsAlgorithm mdsAlgo = new AtMostDegreeThree();
+        MdsAlgorithm mdsAlgo = new AtMostDegreeThree();
         System.out.println("AtMostDegreeThree()");
         Result result = mdsAlgo.run(graph);
         System.out.println(result.getMds());
@@ -435,7 +433,7 @@ public class AtmostDegreeThreeAlgoTest
 
        String pathToRegularGraphsFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\HouseOfGraphes\\graph_3357_34_10.lst";
        FileParser fileParser = new FileParser();
-       graph = fileParser.create3RegularGraphs(new File(pathToRegularGraphsFile));
+       graph = fileParser.createGraphsFromHouseOfGraphs(new File(pathToRegularGraphsFile));
        Assertions.assertNotNull(graph);
 
    }
@@ -443,7 +441,7 @@ public class AtmostDegreeThreeAlgoTest
     @Test
     public void testPerformanceComparisonFive(){
 
-            mdsAlgorithm  mdsAlgo = new ImprovedSetCover();
+            MdsAlgorithm mdsAlgo = new ImprovedSetCover();
             System.out.println("new improvedSetCover)");
             System.out.println(graph);
             Result result = mdsAlgo.run(graph);
@@ -461,7 +459,7 @@ public class AtmostDegreeThreeAlgoTest
     @Test
     public void testPerformanceComparisonRegularGraphs(){
 
-        mdsAlgorithm mdsAlgo;
+        MdsAlgorithm mdsAlgo;
         Result result;
         double totalTimeAtmostThree=0, totalTimeGerneralGraph = 0;
         double totalMdsSzeAtmostThree=0, totalMdsSzeGerneralGraph = 0;
@@ -567,7 +565,7 @@ public class AtmostDegreeThreeAlgoTest
         graph.addEdge(37,35);
 
 
-        mdsAlgorithm mdsAlgo = new AtMostDegreeThree();
+        MdsAlgorithm mdsAlgo = new AtMostDegreeThree();
         System.out.println("AtMostDegreeThree()");
         Result result = mdsAlgo.run(graph);
         System.out.println(result.getMds());
