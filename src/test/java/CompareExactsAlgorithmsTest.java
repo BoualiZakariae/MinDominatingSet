@@ -1,11 +1,9 @@
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.exactalgorithm.ArbitraryGraph;
 import umons.algorithm.dominatingset.exactalgorithm.ImprovedSetCover;
 import umons.algorithm.dominatingset.exactalgorithm.TrivialSetCover;
-import umons.algorithm.dominatingset.exactalgorithm.mdsAlgorithm;
+import umons.algorithm.dominatingset.exactalgorithm.MdsAlgorithm;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.util.FileParser;
@@ -28,7 +26,7 @@ import java.util.stream.Stream;
 public class CompareExactsAlgorithmsTest {
 
     private static List<Graph> listOfGraphs = new ArrayList();
-    private  mdsAlgorithm mdsAlgorithm;
+    private MdsAlgorithm mdsAlgorithm;
     private Result result;
 
 
@@ -45,7 +43,7 @@ public class CompareExactsAlgorithmsTest {
         FileParser fileParser = new FileParser();
         files.forEach(
                 p-> {
-                    Graph graph = fileParser.create3RegularGraphs(new File(String.valueOf(p)));
+                    Graph graph = fileParser.createGraphsFromHouseOfGraphs(new File(String.valueOf(p)));
                     listOfGraphs.add(graph);
                     });
     }

@@ -46,14 +46,14 @@ public class Graph {
     }
 
     /**
+     *  Test if y1 and y2 are adjacent in this graph.
      *
-     * @param g
-     * @param y1
-     * @param y2
+     * @param y1    the first vetex
+     * @param y2    the second vertex
      * @return  true if y1 and y2 are adjacent, false otherwise
      */
-    public static boolean areAdjacent(Graph g, int y1, int y2) {
-        return g.getAdj().get(y1).contains(y2);
+    public boolean areAdjacent(int y1, int y2) {
+        return getAdj().get(y1).contains(y2);
     }
 
 
@@ -63,7 +63,7 @@ public class Graph {
      * @return  an optional object that may or may not contains a node that is degree 1 or 2.
      *
      */
-    public Optional<Node> getVetexOfDegreeOneOrTwo() {
+    public Optional<Node> getVertexOfDegreeOneOrTwo() {
         return  this.adj.keySet()
                         .stream()
                         .filter(key->adj.get(key).size()==1 || adj.get(key).size()==2)
@@ -94,40 +94,6 @@ public class Graph {
     }
 
 
-    /**
-     *
-     * @return the neighbor of a 3 degree vertex.
-     *
-     * This neighbor should have the min degree
-     *
-     * between the neighbors of the 3 degree vertex.
-     *
-     */
-    public Node getNeighborOf3DegreeVertex() {
-        boolean xDegreeThree = false;
-        Node minDegreeNode = null;
-        for (Integer key:adj.keySet()) {
-            if (getAdj().get(key).size() == 3){
-                Set<Integer> neighborsSet = getAdj().get(key);
-                Integer[] neighbors =  neighborsSet.toArray(new Integer[neighborsSet.size()]);
-                int neighbor1 = neighbors[0];
-                int neighbor2 = neighbors[1];
-                int neighbor3 = neighbors[2];
-                minDegreeNode = minDegreeVertex(neighbor1, neighbor2, neighbor3);
-                if (minDegreeNode.getDegree() == 3) {
-                    xDegreeThree = true;
-                    continue;
-                }
-                return minDegreeNode;
-            }
-        }
-        if (xDegreeThree) {
-            return minDegreeNode;
-        } else {
-            return null;
-        }
-    }
-
 
     /**
      *  as this algorithm can find duplicate nodes,
@@ -151,12 +117,6 @@ public class Graph {
         }
         return nodes;
     }
-
-
-
-
-
-
 
     /**
      *
@@ -231,8 +191,7 @@ public class Graph {
     public Set<Integer> getOpenNeighbors(int v) {
         if (!getGraphVertices().contains(v))
             throw new NoSuchElementException();
-        Set<Integer> openNeighbors = new HashSet<>(getAdj().get(v));
-        return openNeighbors;
+        return new HashSet<>(getAdj().get(v));
     }
 
     /**

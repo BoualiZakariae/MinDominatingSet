@@ -1,9 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individual;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.ListPopulation;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Population;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.population.Individual;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.population.ListPopulation;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.population.Population;
 
 import java.util.ArrayList;
 import java.util.List;

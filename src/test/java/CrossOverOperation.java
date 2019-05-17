@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.operations.*;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.population.Individual;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.operations.*;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.population.Individual;
 
 /**
  *

@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.graph.Graph;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoImplOne;
-import umons.algorithm.dominatingset.heuristics.GeneticAlgo.algos.GeneticAlgoUtil;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.algos.GeneticAlgoImplOne;
+import umons.algorithm.dominatingset.heuristics.geneticAlgo.algos.GeneticAlgoUtil;
 
 import java.util.HashSet;
 import java.util.Set;
