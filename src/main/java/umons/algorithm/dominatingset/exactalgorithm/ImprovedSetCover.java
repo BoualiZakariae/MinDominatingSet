@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
  * from the paper : Exact algorithms for dominating set.
  *                  Johan M.M. van Rooij, Hans L. Bodlaender
  *
- *   This algorithm represent the 'Algorithme amélioré' from the thesis.
+ *   This algorithm represent the 'Algorithme amélioré' in the thesis paper.
  *@author bouali
  */
 public class ImprovedSetCover extends TrivialSetCover {
@@ -40,9 +40,9 @@ public class ImprovedSetCover extends TrivialSetCover {
 
     /**
      *
-     * @param s the set of set
-     * @param U the set of elements to cover
-     * @return the index of the set with an element that has frequencyArray one
+     * @param s  the set of set
+     * @param U  the set of elements to cover
+     * @return   the index of the set with an element that has frequencyArray one
      */
     private static int getTheSingletonSetIndex( List<List<Integer>> s, List<Integer> U ) {
 
@@ -62,9 +62,9 @@ public class ImprovedSetCover extends TrivialSetCover {
     /**
      * This method apply the first reduction rule.
      *
-     * @param s the set of set
-     * @param U the set of elements to cover
-     * @return the set cover of U
+     * @param s     the set of set
+     * @param U     the set of elements to cover
+     * @return      the set cover of U
      */
     private static List<Integer> reductionRuleOne( List<List<Integer>> s, List<Integer> U ) {
         countElementsFrequency(s);
@@ -90,9 +90,9 @@ public class ImprovedSetCover extends TrivialSetCover {
     /**
      * This method apply the second reduction rule.
      *
-     * @param s the set of set
-     * @param U the set of elements to cover
-     * @return the set cover of U
+     * @param s     the set of set
+     * @param U     the set of elements to cover
+     * @return      the set cover of U
      */    private static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U ) {
         for (int i = 0; i < s.size(); i++) {
             for (int j = 0; j < s.size(); j++) {
@@ -123,9 +123,9 @@ public class ImprovedSetCover extends TrivialSetCover {
      *
      *
      *
-     * @param s the set of set
-     * @param U the set of elements to cover
-     * @return the set cover of U
+     * @param s  the set of set
+     * @param U  the set of elements to cover
+     * @return   the set cover of U
      */
      private static List<Integer> reductionRuleThree( List<List<Integer>> s, List<Integer> U ) {
         int S = Util.getMaximumSet(s);
@@ -143,9 +143,9 @@ public class ImprovedSetCover extends TrivialSetCover {
     /**
      * This method presents the main method of the improved set cover algorithm.
      *
-     * @param s the set of set
-     * @param U the set of elements to cover
-     * @return the set cover of U
+     * @param s  the set of set
+     * @param U  the set of elements to cover
+     * @return   the set cover of U
      */
     private static List<Integer> Algo3MSC( List<List<Integer>> s, List<Integer> U ) {
         if (s.isEmpty())
@@ -191,6 +191,11 @@ public class ImprovedSetCover extends TrivialSetCover {
         return new Result(new HashSet<>(list),end-start);
     }
 
+    /**
+     *
+     * @param g
+     * @return
+     */
     private HashMap<Integer,Integer> initialiseFrequencyArray(Graph g) {
         frequencyArray =new HashMap<>();//frequency element;
         for(int v:g.getAdj().keySet())

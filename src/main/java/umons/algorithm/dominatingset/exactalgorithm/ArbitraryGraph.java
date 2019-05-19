@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 
 /**
  *
- * @Author B.Zakariae
+ *
  *
  * This Class implements the part 3 :"An exact algorithm for the arbitrary graph"
  *
  * from the paper : Exact (exponential) algorithms for the dominating set problem
  *
- *  This algorithm represent the 'Algorithme général' from the thesis.
+ * This algorithm represent the 'Algorithme général' in the thesis.
  *
  *
  **/
@@ -38,9 +38,9 @@ public class ArbitraryGraph implements MdsAlgorithm {
      */
     private static Set<Integer> initialisationOfX(Graph G) {
         return G.getAdj()
-                          .keySet()
-                          .stream()
-                          .collect(Collectors.toCollection(HashSet::new));
+                .keySet()
+                .stream()
+                .collect(Collectors.toCollection(HashSet::new));
     }
 
 
@@ -86,7 +86,7 @@ public class ArbitraryGraph implements MdsAlgorithm {
 
 
     /**
-     * Return the mds from a base case where every vertex is degree zero or at least three
+     * Return the mds from a base case where every vertex is at least degree three.
      *
      * @param graph a {@link Graph} data structure
      * @param X
@@ -129,17 +129,17 @@ public class ArbitraryGraph implements MdsAlgorithm {
 
 
     /**
-     * Return the set of vertices that contains only the vertices with degree zero
+     * Return the set of vertices with degree zero
      *
      * @param graph  a {@link Graph} data structure
      * @return       all the vertices v where d(v)= 0
      */
     private static Set<Integer> getZeroDegreeVertices( Graph graph ) {
         return graph.getAdj()
-                                            .keySet()
-                                            .stream()
-                                            .filter(i->graph.getAdj().get(i).isEmpty())
-                                            .collect(Collectors.toCollection(HashSet::new));
+                    .keySet()
+                    .stream()
+                    .filter(i->graph.getAdj().get(i).isEmpty())
+                    .collect(Collectors.toCollection(HashSet::new));
 
     }
 
@@ -298,7 +298,7 @@ public class ArbitraryGraph implements MdsAlgorithm {
         Set<Integer> d2 = mdsOfrArbitraryGraph(gPrime, newX);
         d2.add(v.getId());
 
-        // case C.3
+        //C3
         vertices = new HashSet<>();
         vertices.add(v.getId());
         gPrime = graph.removeVertices(vertices);
@@ -345,7 +345,7 @@ public class ArbitraryGraph implements MdsAlgorithm {
         Set<Integer> d2 = mdsOfrArbitraryGraph(gPrime, newX);
         d2.add(v.getId());
 
-        //caseD3
+        //case D3
         vertices = new HashSet<>();
         vertices.add(v.getId());
         vertices.add(u2);

@@ -41,8 +41,6 @@ public class FileParser {
         IntStream.range(1,numberOfVertices+1)
                 .forEach(graph::addVertex);
         try {
-           // String filestr= file.getName();
-           // System.out.println(filestr);
             reader = new BufferedReader(new FileReader(file));
             String line;
             while ((line = reader.readLine())!=null && !line.equals(""))

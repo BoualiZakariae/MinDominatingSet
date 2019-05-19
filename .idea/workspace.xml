@@ -5,77 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff9584af-b495-474a-8eec-f216b4a1e2ff" name="Default" comment="refactoring of the whole project.&#10;unused code deleted.&#10;documentation of some classses.">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/Run.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/adjaMatrix/info.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/info.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/info.txt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MinDominatingSet.iml" afterPath="$PROJECT_DIR$/MinDominatingSet.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/Main.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/MainexactAlgo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/mdsAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/MdsAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/GeneticAlgoMain.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/GeneticAlgoMain.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/algos/GeneticAlgoImplOne.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplOne.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/algos/GeneticAlgoImplTwo.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplTwo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/algos/GeneticAlgoUtil.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoUtil.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/algos/GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/BitFlipMutation.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/BitFlipMutation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/BitSwapMutation.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/BitSwapMutation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/CrossOverStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/CrossOverStrategy.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/MutationStrategy.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/MutationStrategy.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/OnePointCrossOver.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/OnePointCrossOver.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/TwoPointsCrossOver.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/TwoPointsCrossOver.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/UniformCrossOver.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/UniformCrossOver.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/population/Individual.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/Individual.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/population/ListPopulation.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/ListPopulation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/population/Population.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/Population.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/population/TreeSetPopulation.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/TreeSetPopulation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/Greedy.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/Greedy.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRandom.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/GreedyRandom.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRev.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/GreedyRev.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/HeuristicsMain.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/HeuristicsMain.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplOne.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplOne.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgorithm.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/DimacFormatReader.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/DimacFormatReader.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/FileParser.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/FileParser.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_1049_30_8.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_1049_30_8.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_1237_29_9.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_1237_29_9.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_1246_26_8.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_1246_26_8.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_1284_32_8.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_1284_32_8.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_1391_24_8.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_1391_24_8.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_19959_30_9.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_19959_30_9.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_3345_34_9.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_3345_34_9.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_3347_34_9.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_3347_34_9.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_3357_34_10.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_3357_34_10.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_3359_34_10.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_3359_34_10.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_3365_36_10.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_3365_36_10.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_3367_36_10.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_3367_36_10.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/exacts/graph_968_26_8.lst" afterPath="$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_968_26_8.lst" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fpsol2.col" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/gplus_10000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_10000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/gplus_200.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_200.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/gplus_2000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_2000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/gplus_20000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_20000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/gplus_500.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_500.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/gplus_50000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_50000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/pokec_10000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/pokec_10000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/pokec_2000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/pokec_2000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/pokec_20000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/pokec_20000.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/pokec_500.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/pokec_500.col" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/heuristics/pokec_50000.col" afterPath="$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/pokec_50000.col" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AtmostDegreeThreeAlgoTest.java" afterPath="$PROJECT_DIR$/src/test/java/AtmostDegreeThreeAlgoTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CompareExactsAlgorithmsTest.java" afterPath="$PROJECT_DIR$/src/test/java/CompareExactsAlgorithmsTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CompareHeuristicsAlgorithmsTest.java" afterPath="$PROJECT_DIR$/src/test/java/CompareHeuristicsAlgorithmsTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CrossOverOperation.java" afterPath="$PROJECT_DIR$/src/test/java/CrossOverOperation.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GeneticAlgoTest.java" afterPath="$PROJECT_DIR$/src/test/java/GeneticAlgoTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ListPopulationTest.java" afterPath="$PROJECT_DIR$/src/test/java/ListPopulationTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testSomeUtilityMethods.java" afterPath="$PROJECT_DIR$/src/test/java/testSomeUtilityMethods.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/fpsol2.col" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.class" />
@@ -89,7 +27,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRev.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/Greedy/GreedyRev.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/heuristics/HeuristicsMain.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/toDelete/TestUtilities.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/toDelete/TestUtilities.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/DimacFormatReader.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/DimacFormatReader.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/DimacFormatReader.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/FileParser.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/FileParser.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util$Edge.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util$Edge.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util.class" afterPath="$PROJECT_DIR$/target/classes/umons/algorithm/dominatingset/util/Util.class" />
@@ -125,7 +63,18 @@
     <option name="groupByModuleGroups" value="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ArbitraryGraph.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -212,8 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/OnePointCrossOver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/TwoPointsCrossOver.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/operations/UniformCrossOver.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/algos/GeneticAlgoThree.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/population/Individual.java" />
@@ -236,7 +183,6 @@
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/algos/GeneticAlgoImplOne.java" />
         <option value="$PROJECT_DIR$/src/test/java/AtmostThreeDegreeVertexAlgoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" />
         <option value="$PROJECT_DIR$/src/main/resources/exacts/HouseOfGraphs/info.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/heuristics/Dimacs/info.txt" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -253,15 +199,18 @@
         <option value="$PROJECT_DIR$/src/test/java/PathGraphInstanceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/MainexactAlgo.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/HeuristicsMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/GeneticAlgoMain.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CompareHeuristicsAlgorithmsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/DimacFormatReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/GeneticAlgoMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
-        <option value="$PROJECT_DIR$/src/test/java/CompareHeuristicsAlgorithmsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplOne.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/FileParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/DimacFormatReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/Run.java" />
       </list>
     </option>
@@ -276,10 +225,9 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1489" />
-    <option name="y" value="-153" />
+    <option name="x" value="-122" />
     <option name="width" value="1296" />
-    <option name="height" value="696" />
+    <option name="height" value="687" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -315,7 +263,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -373,12 +320,24 @@
               <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="umons" type="462c0819:PsiDirectoryNode" />
+              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
+              <item name="dominatingset" type="462c0819:PsiDirectoryNode" />
+              <item name="exactalgorithm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
@@ -646,10 +605,10 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.testSomeUtilityMethods.testContainement" />
-        <item index="1" class="java.lang.String" itemvalue="Application.AtMostDegreeThree" />
-        <item index="2" class="java.lang.String" itemvalue="Application.MainexactAlgo" />
-        <item index="3" class="java.lang.String" itemvalue="Application.GeneticAlgoMain" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CompareHeuristicsAlgorithmsTest.testPerformanceGeneticAlgoTwo" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CompareHeuristicsAlgorithmsTest.testPerformanceGeneticAlgoTwo" />
+        <item index="2" class="java.lang.String" itemvalue="Application.AtMostDegreeThree" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MainexactAlgo" />
+        <item index="4" class="java.lang.String" itemvalue="Application.GeneticAlgoMain" />
       </list>
     </recent_temporary>
   </component>
@@ -749,6 +708,10 @@
       <workItem from="1557956998150" duration="10743000" />
       <workItem from="1558038241416" duration="7488000" />
       <workItem from="1558052047943" duration="19000" />
+      <workItem from="1558052679380" duration="332000" />
+      <workItem from="1558141448064" duration="2245000" />
+      <workItem from="1558267534204" duration="728000" />
+      <workItem from="1558268409584" duration="294000" />
     </task>
     <task id="LOCAL-00001" summary="bug resolved">
       <created>1552062022387</created>
@@ -849,7 +812,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="886702000" />
+    <option name="totallyTimeSpent" value="890301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -861,28 +824,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1272" y="-373" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1296" height="696" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07427938" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.635255" sideWeight="0.5042644" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42350334" sideWeight="0.50373137" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17849223" sideWeight="0.5010661" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8248337" sideWeight="0.49946696" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28935698" sideWeight="0.4989339" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5443459" sideWeight="0.49946696" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22283813" sideWeight="0.49626866" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42350334" sideWeight="0.50373137" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22547974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24271844" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5343681" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5343681" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -896,7 +860,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12760417" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21286032" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3037694" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -988,35 +952,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dimacs/mediumGraphs/david.col">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fpsol2.col" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/houseOfGraphs/graph_1049_30_8.lst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dimacs/hugeGraphs/gplus_500.col">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/houseOfGraphs/info.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/dimacs/info.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1039,31 +974,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dimacs/mediumGraphs/anna.col">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dimacs/mediumGraphs/anna.col" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/adjaMatrix/info.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/GreedyRandom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/GreedyRev.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2273">
-          <caret line="150" column="36" lean-forward="false" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1137,104 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12570">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="155" column="10" lean-forward="false" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/MdsAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1741">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1367">
-          <caret line="169" column="49" lean-forward="true" selection-start-line="169" selection-start-column="49" selection-end-line="169" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplTwo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/BitFlipMutation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/BitSwapMutation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/CrossOverStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/Individual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/ListPopulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1418">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/GeneticAlgoMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1242,73 +1059,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="186" column="8" lean-forward="false" selection-start-line="182" selection-start-column="7" selection-end-line="186" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CompareHeuristicsAlgorithmsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
           <caret line="48" column="88" lean-forward="false" selection-start-line="48" selection-start-column="88" selection-end-line="48" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/Population.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/TreeSetPopulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/Greedy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="147" column="36" lean-forward="true" selection-start-line="147" selection-start-column="36" selection-end-line="147" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplOne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-436">
-          <caret line="167" column="29" lean-forward="false" selection-start-line="167" selection-start-column="23" selection-end-line="167" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="66" column="78" lean-forward="false" selection-start-line="66" selection-start-column="78" selection-end-line="66" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/FileParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="100" column="35" lean-forward="false" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Stats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1333,14 +1087,227 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/AtMostDegreeThree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="767" column="49" lean-forward="false" selection-start-line="767" selection-start-column="26" selection-end-line="767" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ImprovedSetCover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="203" column="9" lean-forward="true" selection-start-line="203" selection-start-column="9" selection-end-line="203" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/TrivialSetCover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplOne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="205" column="40" lean-forward="false" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoImplTwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2127">
+          <caret line="158" column="45" lean-forward="true" selection-start-line="158" selection-start-column="45" selection-end-line="158" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/algos/GeneticAlgoUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-373">
+          <caret line="66" column="78" lean-forward="false" selection-start-line="66" selection-start-column="78" selection-end-line="66" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/BitFlipMutation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/BitSwapMutation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/CrossOverStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/MutationStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/operations/TwoPointsCrossOver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/Individual.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3144">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/ListPopulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1257">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/geneticAlgo/population/TreeSetPopulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/Greedy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="147" column="36" lean-forward="true" selection-start-line="147" selection-start-column="36" selection-end-line="147" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/GreedyRandom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/greedy/GreedyRev.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="150" column="36" lean-forward="false" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/DFS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/FileParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1223">
+          <caret line="43" column="10" lean-forward="false" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Stats.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/UndirectedGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3026">
+          <caret line="185" column="48" lean-forward="false" selection-start-line="185" selection-start-column="34" selection-end-line="185" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1971">
+          <caret line="201" column="28" lean-forward="false" selection-start-line="201" selection-start-column="28" selection-end-line="201" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="112" column="47" lean-forward="false" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/MdsAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/Run.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1597">
-          <caret line="141" column="38" lean-forward="true" selection-start-line="141" selection-start-column="38" selection-end-line="141" selection-end-column="38" />
+        <state relative-caret-position="17">
+          <caret line="93" column="7" lean-forward="false" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
           <folding>
             <element signature="docComment;method#runAlgoOnTriangleUp#0;class#Run#0" expanded="false" />
             <element signature="docComment;method#runGenticAlgoOnTriangleUp#0;class#Run#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/exactalgorithm/ArbitraryGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

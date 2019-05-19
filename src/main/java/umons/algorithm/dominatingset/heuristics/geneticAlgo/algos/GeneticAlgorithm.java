@@ -160,20 +160,10 @@ public abstract class GeneticAlgorithm  {
         this.crossOverStrategy = crossOverStrategy;
     }
 
-    /**
-     *
-     * @return
-     */
-    public CrossOverStrategy getCrossOverStrategy() {
-        return crossOverStrategy;
-    }
 
 
     public void setMutationStrategy( MutationStrategy mutationStrategy ) {
         this.mutationStrategy = mutationStrategy;
     }
 
-    public MutationStrategy getMutationStrategy() {
-        return mutationStrategy;
-    }
 }

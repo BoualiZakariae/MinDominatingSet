@@ -12,13 +12,12 @@ import java.util.stream.Collectors;
 
 
 /**
- *  @Author B.Zakariae
  *
  * This Class implements the part 5 "Graphs of maximum degree three" from the
  * paper : Exact (exponential) algorithms for the dominating set problem
  *
  *
- *    This algorithm represent the 'Algorithme spécial' from the thesis.
+ *  This algorithm represent the 'Algorithme spécial' in the thesis.
  *
  */
 public class AtMostDegreeThree implements MdsAlgorithm {
@@ -56,9 +55,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      */
     private static int getThirdNeighborOf( int y, Graph g, int y2, int x ) {
         return g.getAdj().get(y).stream()
-                .filter(u->u != y2 && u != x)
-                .findFirst()
-                .get();
+                                .filter(u->u != y2 && u != x)
+                                .findFirst()
+                                .get();
     }
 
     /**
@@ -189,8 +188,8 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      */
     private static void mdsFrom3vertexComponent(List<Integer> component, Graph g, Set<Integer> mds) {
         int v = component.stream()
-                .filter(x->g.getAdj().get(x).size() == 2)
-                .findFirst().get();
+                         .filter(x->g.getAdj().get(x).size() == 2)
+                         .findFirst().get();
         mds.add(v);
     }
 
@@ -207,7 +206,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
     private static Set<Integer> mdsFromConnectedComponents(Graph g) {
         Set<Integer> mds = new HashSet<>();
         DFS dfsAlgo = new DFS(g.size());
-        List lists = g.getAdj().values().stream().collect(Collectors.toCollection(ArrayList::new));
+       // List lists = g.getAdj().values().stream().collect(Collectors.toCollection(ArrayList::new));
         List<List<Integer>> listOfComponents = dfsAlgo.getTheListOfComponents(g.getAdj());
         for (List<Integer> compo: listOfComponents) {
             Set<Integer> mdsOfComponent = new HashSet<>();
@@ -227,7 +226,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
     /**
      *
      *  Return an int array that contains the two neighbors of the vertex v.
-     *  The first neighbor in the array should be  with degree three.
+     *  The first neighbor in the array should be degree three.
      *
      * @param g  a graph data structure
      * @param v  a vertex

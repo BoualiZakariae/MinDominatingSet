@@ -7,6 +7,9 @@ import umons.algorithm.dominatingset.graph.Result;
 import umons.algorithm.dominatingset.util.FileParser;
 
 import java.io.*;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestUtilities {
 
@@ -125,4 +128,103 @@ public class TestUtilities {
         }
         return graph;
     }
+
+
+    static class Edge {
+        Integer v;
+        Integer u;
+
+        Edge(Integer v,Integer u){
+            this.v=v;
+            this.u=u;
+        }
+
+        @Override
+        public boolean equals( Object o ) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Edge edge = (Edge) o;
+            return (Objects.equals(v, edge.v) && Objects.equals(u, edge.u))  ||
+                    (Objects.equals(v, edge.u) && Objects.equals(u, edge.v))    ;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(v, u);
+        }
+
+        @Override
+        public String toString() {
+            return v+" "+u;
+        }
+    }
+
+    private static void writeToFile( List<Graph> listOfGraphs ) throws IOException {
+
+        BufferedWriter writer;
+        String pathToNewFileFormat = "C:\\Users\\bouali\\Desktop\\graphes.txt";
+        writer = new BufferedWriter(new FileWriter(pathToNewFileFormat));
+        for (Graph g : listOfGraphs){
+            storeGraph(writer, g);
+        }
+        writer.close();
+        System.out.println("finish");
+    }
+
+    private static void storeGraph( BufferedWriter writer, Graph g ) throws IOException {
+        Set<Edge> edges = new HashSet<>();
+        writer.write(g.size()+" ");
+        for (Map.Entry<Integer,Set<Integer>> pair:g.getAdj().entrySet() ) {
+            int vertex = pair.getKey();
+
+
+            for (Integer neighbor : pair.getValue()) {
+                edges.add(new Edge(vertex,neighbor));
+            }
+        }
+        writer.write(edges.size()+"\n");
+        if (edges.size()>0)
+            for (Edge edge:edges ) {
+                writer.write(edge.toString()+"  ");
+            }
+        writer.write("\n");
+        edges=null;
+        System.gc();
+    }
+
+
+
+    /*
+     * Testing combination utility
+     *
+     * @param args
+     **/
+    public static void main2(String[] args) throws IOException {
+
+        Graph g = new Graph(3);
+        g.addVertex(1);
+        g.addVertex(2);
+        g.addVertex(3);
+        g.addVertex(3);
+        g.addEdge(1,2);
+        g.addEdge(2,3);
+
+
+        Graph g2 = new Graph(3);
+        g2.addVertex(1);
+        g2.addVertex(2);
+        g2.addVertex(3);
+        g2.addVertex(3);
+        g2.addEdge(1,2);
+        g2.addEdge(2,3);
+
+        writeToFile(Stream.of(g,g2).collect(Collectors.toCollection(ArrayList::new)));
+
+
+
+
+    }
+
+
+
 }
