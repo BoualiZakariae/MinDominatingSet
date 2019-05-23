@@ -267,13 +267,12 @@ public class Graph {
     /**
      *
      *
-     * @return true if all vertices in the graph are degree 0
+     * @return true if all vertices in X are degree 0
      */
-     public boolean allVerticesDegreeZero( ) {
-        return  !this.adj.values()
-                         .stream()
-                         .anyMatch(set->set.size()>0);
-    }
+     public boolean areIsolated( Set<Integer> X) {
+         return !X.stream().
+                 anyMatch(v->this.adj.get(v).size()>0);
+     }
 
     public int size() {
         return this.adj.size();

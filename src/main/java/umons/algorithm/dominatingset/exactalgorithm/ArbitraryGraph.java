@@ -134,13 +134,10 @@ public class ArbitraryGraph implements MdsAlgorithm {
      * @param graph  a {@link Graph} data structure
      * @return       all the vertices v where d(v)= 0
      */
-    private static Set<Integer> getZeroDegreeVertices( Graph graph ) {
-        return graph.getAdj()
-                    .keySet()
-                    .stream()
-                    .filter(i->graph.getAdj().get(i).isEmpty())
-                    .collect(Collectors.toCollection(HashSet::new));
-
+    private static Set<Integer> getZeroDegreeVertices( Graph graph, Set<Integer> X ) {
+        return X.stream()
+                .filter(i->graph.getAdj().get(i).isEmpty())
+                .collect(Collectors.toCollection(HashSet::new));
     }
 
 
@@ -175,28 +172,28 @@ public class ArbitraryGraph implements MdsAlgorithm {
      * @return       the minimum dominating set of the set X
      */
     private static Set<Integer> baseCase( Graph graph, Set<Integer> X ) {
-        if (graph.allVerticesDegreeZero()) {/*maybe replace by X*/
-            //Set<Integer> mds = new HashSet<>();
+        if (graph.areIsolated(X)) {
             return X;
-            /*mds.addAll(X);
-            return mds;*/
         }
         /*
          * all node with 0 or >=3 degree
-         * 3t/8 combination
+         *
          */
-        Set<Integer> listOfZeroDegreeVertices = getZeroDegreeVertices(graph);
-        if (listOfZeroDegreeVertices.size() > 0) {
-            Graph gPrime = graph.removeVertices(listOfZeroDegreeVertices);
+        Set<Integer> zeroDegreeVertices = getZeroDegreeVertices(graph, X);
+        if (zeroDegreeVertices.size() > 0) {
+            Graph gPrime = graph.removeVertices(zeroDegreeVertices);
             Set<Integer> newX = X.stream()  /*set of vertices that has at least 3 neighbours*/
-                                 .filter(x -> !listOfZeroDegreeVertices.contains(x))
+                                 .filter(x -> !zeroDegreeVertices.contains(x))
                                  .collect(Collectors.toCollection(HashSet::new));
             Set<Integer> mds = minDominatingSet(gPrime, newX);
-            listOfZeroDegreeVertices.stream()
+            zeroDegreeVertices.stream()
                     .filter(v->X.contains(v))
                     .forEach(v->mds.add(v));
             return mds;
         }
+        /*
+         * all node with degree >=3
+         */
         return minDominatingSet(graph, X);/*looking for the mds in the subsets */
     }
 

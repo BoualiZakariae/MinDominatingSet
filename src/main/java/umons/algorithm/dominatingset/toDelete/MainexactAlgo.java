@@ -94,7 +94,7 @@ public class MainexactAlgo {
                 mds = algo.run(g);
                 if (mds.getMds().size() != Integer.parseInt(res[2])){
                     incorrect++;
-                    System.out.println(g+" "+line+" AlgoFound "+mds.getMds().size());
+                    System.out.println(line+" AlgoFound "+mds.getMds().size());
                 }
                 Stats.addStatistic(g,mds.getMds().size(),mds.getTime());
                 line = reader.readLine();
