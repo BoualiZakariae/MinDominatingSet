@@ -43,6 +43,8 @@ public class TestUtilities {
         } else {
             min = (word.length() / 3) + 1;
         }
+
+
         return min;
     }
 

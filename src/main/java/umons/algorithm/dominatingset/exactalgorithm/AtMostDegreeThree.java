@@ -269,7 +269,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
                                 .get();
         if(x.getDegree()>2 ){
             //not presented in the paper, the case where every vertex in the graph is degree three
-            return caseXisdegreeThree(g, x);
+            return mdsFromCubicGraph(g, x);
         }
         //iterating over all cases
         for(Node node : listOfNeighbors  ){
@@ -339,7 +339,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      *  @param x    the x vertex with {d(x)=3}
      *  @return     the mds of G from a degree two vertex.
      */
-    private static Set<Integer> caseXisdegreeThree(Graph g, Node x) {
+    private static Set<Integer> mdsFromCubicGraph( Graph g, Node x) {
 
         Set<Integer> D1, D2, D3 = null, D4, D5= null, D6= null, D7= null, D8= null, D9= null, D10= null;
         Set<Integer> neighborsOfX = g.getClosedNeighbors(x.getId());

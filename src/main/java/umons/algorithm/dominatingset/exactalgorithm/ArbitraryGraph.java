@@ -175,10 +175,11 @@ public class ArbitraryGraph implements MdsAlgorithm {
      * @return       the minimum dominating set of the set X
      */
     private static Set<Integer> baseCase( Graph graph, Set<Integer> X ) {
-        if (graph.allVerticesDegreeZero()) {
-            Set<Integer> mds = new HashSet<>();
-            mds.addAll(X);
-            return mds;
+        if (graph.allVerticesDegreeZero()) {/*maybe replace by X*/
+            //Set<Integer> mds = new HashSet<>();
+            return X;
+            /*mds.addAll(X);
+            return mds;*/
         }
         /*
          * all node with 0 or >=3 degree
