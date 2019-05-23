@@ -64,6 +64,7 @@ public class Graph {
      *
      */
     public Optional<Node> getVertexOfDegreeOneOrTwo() {
+
         return  this.adj.keySet()
                         .stream()
                         .filter(key->adj.get(key).size()==1 || adj.get(key).size()==2)
@@ -155,6 +156,7 @@ public class Graph {
             throw new NoSuchElementException();
 
         Set<Integer> vertices = new HashSet<>();
+        
         vertices.add(v);
         return removeVertices(vertices);
     }

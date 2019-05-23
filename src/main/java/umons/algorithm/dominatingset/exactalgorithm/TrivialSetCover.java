@@ -2,6 +2,7 @@ package umons.algorithm.dominatingset.exactalgorithm;
 
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
+import umons.algorithm.dominatingset.util.Stats;
 import umons.algorithm.dominatingset.util.Util;
 
 import java.util.ArrayList;
@@ -179,7 +180,7 @@ public class TrivialSetCover implements MdsAlgorithm {
                                                .collect(Collectors.toList());
         List<Integer> list = trivialAlgo(s, U);
         double end = System.currentTimeMillis();
-        //Stats.numberOfGraphs++;
+        Stats.numberOfGraphs++;
         return new Result(new HashSet<>(list),end-start);
     }
 

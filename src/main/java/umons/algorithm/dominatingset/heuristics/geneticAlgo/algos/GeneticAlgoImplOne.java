@@ -14,7 +14,7 @@ import java.util.*;
  *
  * A first genetic algorithm implementation for solving the minimum dominating set problem
  *
- * This Algo implement the algorithm from the paper
+ * This Algo implements the algorithm from the paper ""
  *
  */
 public class GeneticAlgoImplOne extends GeneticAlgorithm {
@@ -54,15 +54,15 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
     /**
      * The main genetic algorithm method
      *
-     * @param graph the given graph.
+     * @param graph     the given graph.
      * @param knownDominatingNumber
-     *              the known minimum dominating Set size
-     *              for the given graph.
-     *              When this value equal to -1, it means that the mds
-     *              number is unknown for this graph.
-     *              Knowing the mds size help to stop the algorithm.
+     *                  the known minimum dominating Set size
+     *                  for the given graph.
+     *                  When this value equal to -1, it means that the mds
+     *                  number is unknown for this graph.
+     *                  Knowing the mds size help to stop running the algorithm.
      *
-     * @return      the dominating set and the time taken to compute it.
+     * @return          the dominating set and the time taken to compute it.
      */
     @Override
     public Result run( Graph graph , int knownDominatingNumber) {
@@ -120,10 +120,10 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
 
     /**
      *  Generate and return a new individual to integrate the population.
-     * depending on some probability, the method create a new individual by selection->mutation->crossover
-     * or generate a randomly new individual.
+     *  depending on some probability, the method create a new individual by selection->mutation->crossover
+     *  or generate a randomly new individual.
      *
-     * @param population the curent population
+     * @param population the current population
      * @return a new child
      */
     private Individual generateChild( ListPopulation population ) {
