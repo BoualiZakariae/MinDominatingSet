@@ -10,11 +10,7 @@ There are 4 packages:
 
 4-util: some utilities classes used by this project.
 
+To run the implemented algorithms  a jar file (mds.jar) is located in the same directory as this README file.
 
 
-Every package contains a info.txt that has more details about the given package.
-
-To run the implemented algorithms  a mds.jar is located in the same directory as this readMe file.
-
-For detailled information wich parameters to give,
-plase refer to the main method of "\src\main\java\umons\algorithm\dominatingset\Run.java" classs.
+For detailled information hwo to run the jar file, plase refer to the main method of the class "\src\main\java\umons\algorithm\dominatingset\Run.java".
