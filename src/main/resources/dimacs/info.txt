@@ -1,7 +1,3 @@
-every file in this folder contains a graph instance.
+every file in this folder contains one graph instance.
 
-the graphs from this database could be found on wwww. .
 
-please refer to the exacts/houseOfGraphs/graph_968_26_8.lst file, to understand the fileormat.
-
-todo

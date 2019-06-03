@@ -10,14 +10,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-
 public class AtmostDegreeThreeAlgoTest
 {
 
     AtMostDegreeThree algo = new AtMostDegreeThree();
     private Graph graph;
-    @Test
-    @Disabled
+    @Test@Disabled
     public void firstGraphInstance(){
         Graph graph = new Graph(5);
         graph.addVertices(0,1,2,3,4);
@@ -31,8 +29,7 @@ public class AtmostDegreeThreeAlgoTest
         Assertions.assertEquals(2,mds.getMds().size());
     }
 
-    @Test
-    @Disabled
+    @Test@Disabled
     public void secondGraphInstance(){
         Graph graph = new Graph(6);
         graph.addVertices(0,1,2,3,4,5);
@@ -45,8 +42,7 @@ public class AtmostDegreeThreeAlgoTest
         Assertions.assertEquals(3,mds.getMds().size());
     }
 
-    @Test
-    @Disabled
+    @Test@Disabled
     public void thirdGraphInstance(){
         Graph graph = new Graph(6);
         graph.addVertices(0,1,2,3,4,5);
@@ -60,8 +56,7 @@ public class AtmostDegreeThreeAlgoTest
         Assertions.assertEquals(2,mds.getMds().size());
     }
 
-    @Test
-    @Disabled
+    @Test@Disabled
     public void fourthGraphInstance(){
         Graph graph = new Graph(6);
         graph.addVertices(0,1,2,3,4,5);
@@ -75,8 +70,7 @@ public class AtmostDegreeThreeAlgoTest
         Assertions.assertEquals(2,mds.getMds().size());
     }
 
-    @Test
-    @Disabled
+    @Test@Disabled
     public void fifthGraphInstance(){
         Graph graph = new Graph(7);
         graph.addVertices(0,1,2,3,4,5,6);
@@ -90,8 +84,7 @@ public class AtmostDegreeThreeAlgoTest
         Assertions.assertEquals(3,mds.getMds().size());
     }
 
-    @Test
-    @Disabled
+    @Test@Disabled
     public void testGetNeighborsOf3DegreeVertices(){
         Graph graph = new Graph(8);
         graph.addVertices(0,1,2,3,4,5,6,7);
@@ -113,8 +106,7 @@ public class AtmostDegreeThreeAlgoTest
         Assertions.assertEquals(correctList, listOfNeighbors);
     }
 
-    @Test
-    @Disabled
+    @Test@Disabled
     public void testingSetOfSetsDuplicate(){
 
         Set<Set<Integer>> setOfMds = new HashSet<>();
@@ -303,7 +295,7 @@ public class AtmostDegreeThreeAlgoTest
         System.out.println(result.getTime());
     }
 
-    @Test
+    @Test@Disabled
     public void testPerformanceComparisonThree(){
 
         Graph graph = new Graph(46);
@@ -429,7 +421,7 @@ public class AtmostDegreeThreeAlgoTest
     }
 
     @Test@BeforeEach@Disabled
-   public  void testParsingRegularsGraphs(){
+    public  void testParsingRegularsGraphs(){
 
        String pathToRegularGraphsFile = "C:\\Users\\bouali\\Desktop\\Thesis2018-2019\\graphes\\graphes\\HouseOfGraphes\\graph_3357_34_10.lst";
        FileParser fileParser = new FileParser();
@@ -438,7 +430,7 @@ public class AtmostDegreeThreeAlgoTest
 
    }
 
-    @Test
+    @Test@Disabled
     public void testPerformanceComparisonFive(){
 
             MdsAlgorithm mdsAlgo = new ImprovedSetCover();
@@ -456,7 +448,7 @@ public class AtmostDegreeThreeAlgoTest
 
     }
 
-    @Test
+    @Test@Disabled
     public void testPerformanceComparisonRegularGraphs(){
 
         MdsAlgorithm mdsAlgo;
@@ -489,7 +481,7 @@ public class AtmostDegreeThreeAlgoTest
         System.out.println("totalMdsSizeGerneralGraph "+totalMdsSzeGerneralGraph);
     }
 
-    @Test
+    @Test@Disabled
     public void testPerformanceComparisonFour(){
         System.out.println("testPerformanceComparisonFour");
         Graph graph = new Graph(38);
@@ -591,7 +583,7 @@ public class AtmostDegreeThreeAlgoTest
 
     }
 
-    @Test
+    @Test@Disabled
     public void testSharingNeighbors(){
         Graph g = new Graph(6);
         g.addVertices(0,1,2,3,4,5);

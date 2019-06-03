@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  *
  * This Class implements the part 5 "Graphs of maximum degree three" from the
  * paper : Exact (exponential) algorithms for the dominating set problem
- *
+ *         Fedor V.Fomin, Dieter Kratsch, and Gerhard J.Woeginger
  *
  *  This algorithm represent the 'Algorithme spécial' in the thesis.
  *
@@ -206,7 +206,6 @@ public class AtMostDegreeThree implements MdsAlgorithm {
     private static Set<Integer> mdsFromConnectedComponents(Graph g) {
         Set<Integer> mds = new HashSet<>();
         DFS dfsAlgo = new DFS(g.size());
-       // List lists = g.getAdj().values().stream().collect(Collectors.toCollection(ArrayList::new));
         List<List<Integer>> listOfComponents = dfsAlgo.getTheListOfComponents(g.getAdj());
         for (List<Integer> compo: listOfComponents) {
             Set<Integer> mdsOfComponent = new HashSet<>();
@@ -311,7 +310,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
 
         } // case 2.2
         // y1 and y2 not adjacent?
-        if (g.getDegreeOf(y2) == 1) {//maybenotpresented in the paper todo
+        if (g.getDegreeOf(y2) == 1) {
             Set<Integer> neighborsOfX = g.getClosedNeighbors(x.getId());
             Graph gPrime = g.removeVertices(neighborsOfX);
             Set<Integer> D0 = mdsOfGraphMaxDegreeThree(gPrime);
@@ -326,22 +325,21 @@ public class AtMostDegreeThree implements MdsAlgorithm {
             return case2_2_1(g, y1, x, y2);
         if (g.getDegreeOf(y2) == 3)
             return case2_2_2(g, y1, x, y2);
-        return null;//to be deleted todo
+        return null;
     }
 
 
 
     /**
-     *  This method represents the case where every vertices in the graph is degree three.
+     *  This method represents the case where every vertex in the graph is degree three.
      *  Return the mds of G from a degree three vertex.
-     *  todo to be reviewed for retesting
      *  @param g    a graph data structure
-     *  @param x    the x vertex with {d(x)=3}
+     *  @param x    the x vertex where {d(x)=3}
      *  @return     the mds of G from a degree two vertex.
      */
     private static Set<Integer> mdsFromCubicGraph( Graph g, Node x) {
 
-        Set<Integer> D1, D2, D3 = null, D4, D5= null, D6= null, D7= null, D8= null, D9= null, D10= null;
+        Set<Integer> D1, D2, D3, D4, D5=null, D6=null, D7=null, D8=null, D9=null, D10=null;
         Set<Integer> neighborsOfX = g.getClosedNeighbors(x.getId());
 
         // add x
@@ -460,9 +458,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      *
      *
      * @param g     graph data structure
-     * @param x     the x vertex with {d(x)=2}
-     * @param y1    neighbor of x with {d(y1)=3}
-     * @param y2    neighbor of x with {d(y2)=3}
+     * @param x     the x vertex where {d(x)=2}
+     * @param y1    neighbor of x where {d(y1)=3}
+     * @param y2    neighbor of x where {d(y2)=3}
      * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_2_2(Graph g, int y1, Node x, int y2) {
@@ -552,9 +550,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      *
      *
      * @param g     graph data structure
-     * @param x     the x vertex with {d(x)=2}
-     * @param y1    neighbor of x with {d(y1)=3}
-     * @param y2    neighbor of x with {d(y2)=2}
+     * @param x     the x vertex where {d(x)=2}
+     * @param y1    neighbor of x where {d(y1)=3}
+     * @param y2    neighbor of x where {d(y2)=2}
      * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_2_1(Graph g, int y1, Node x, int y2) {
@@ -618,9 +616,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      *
      *
      * @param g     graph data structure
-     * @param x     the x vertex with {d(x)=2}
-     * @param y1    neighbor of x with {d(y1)=3}
-     * @param y2    neighbor of x with {d(y2)=3}
+     * @param x     the x vertex where {d(x)=2}
+     * @param y1    neighbor of x where {d(y1)=3}
+     * @param y2    neighbor of x where {d(y2)=3}
      * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_1_2(Graph g, int y1, Node x, int y2) {
@@ -671,9 +669,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      *
      *
      * @param g     graph data structure
-     * @param x     the x vertex with {d(x)=2}
-     * @param y1    neighbor of x with {d(y1)=3}
-     * @param y2    neighbor of x with {d(y2)=2}
+     * @param x     the x vertex where {d(x)=2}
+     * @param y1    neighbor of x where {d(y1)=3}
+     * @param y2    neighbor of x where {d(y2)=2}
      * @return      Return the mds of G from a degree two vertex.
      */
     private static Set<Integer> case2_1_1(Graph g, int y1, int y2, Node x) {
@@ -683,7 +681,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
         Set<Integer> D1 = mdsOfGraphMaxDegreeThree(gPrime);
         D1.add(y1);
         //y and z in mds
-        //looking for z:the third neighbor of y1
+        //z:the third neighbor of y1
         int z = getThirdNeighborOf(y1, g, y2, x.getId());
         Set<Integer> neighborsOfZ = g.getClosedNeighbors(z);
         Set<Integer> vertices = neighborsOfZ.stream()
@@ -694,11 +692,8 @@ public class AtMostDegreeThree implements MdsAlgorithm {
         Set<Integer> D2 = mdsOfGraphMaxDegreeThree(gPrime);
         D2.add(y1);
         D2.add(z);
-        if (D1.size() < D2.size()) {
-            return D1;
-        } else {
-            return D2;
-        }
+
+        return Util.minOfTheSet(D1,D2);
     }
 
 
@@ -707,7 +702,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
      *  Return the mds of G from a degree one vertex.
      *
      *  @param g    a graph data structure
-     *  @param x    the x vertex with {d(x)=1}
+     *  @param x    the x vertex where {d(x)=1}
      *  @return     the mds of G from a degree one vertex.
      */
     private static Set<Integer> degreeOneVertexCase(Graph g, Node x) {
@@ -719,14 +714,14 @@ public class AtMostDegreeThree implements MdsAlgorithm {
                 .findFirst()
                 .get();
         int z2 = getThirdNeighborOf(y, g, z1, x.getId());
-        // case 1.A, add y to the ArbitraryGraph
+        // case 1.A
         Set<Integer> neighborsOfY = g.getClosedNeighbors(y);
         Graph gPrime = g.removeVertices(neighborsOfY);
         Set<Integer> D1 = mdsOfGraphMaxDegreeThree(gPrime);
         D1.add(y);
         // case B
 
-        // add y-z1 to the ArbitraryGraph
+        // add y-z1
         Set<Integer> neighborsOfZ1 = g.getClosedNeighbors(z1);
         Set<Integer> vertices;
         Set<Integer> D2 = null,D3=null;
@@ -741,7 +736,7 @@ public class AtMostDegreeThree implements MdsAlgorithm {
             D2.add(z1);
 
         }
-        // add y-z2 to the ArbitraryGraph
+        // add y-z2
         Set<Integer> neighborsOfZ2 = g.getClosedNeighbors(z2);
         if (neighborsOfZ2.size()>3 && !openNeigborintersection(neighborsOfZ2,neighborsOfY)){
             vertices =  neighborsOfZ2.stream()
@@ -761,9 +756,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
     /**
      *  Test if the two sets contains more than 3 common elements.
      *
-     * @param setOne
-     * @param setTwo
-     * @return true if the two given set share more than 3 common elements.
+     * @param setOne    the first set
+     * @param setTwo    the second set
+     * @return          true if the two given set share more than 3 common elements.
      */
     public static boolean openNeigborintersection(Set<Integer> setOne, Set<Integer> setTwo ) {
         int counter=0;
@@ -776,6 +771,9 @@ public class AtMostDegreeThree implements MdsAlgorithm {
 
 
     /**
+     * Run rhe special algorithm on the graph instance {@Code g},
+     * return a Result object that contains the minimum dominating set of {@Code g}
+     * and the time taken to compute it.
      *
      * @param graph the graph instance
      */
@@ -787,7 +785,6 @@ public class AtMostDegreeThree implements MdsAlgorithm {
         }
         Set<Integer> mds = mdsOfGraphMaxDegreeThree(graph);
         double end = System.currentTimeMillis();
-        Stats.numberOfGraphs++;
         return new Result(mds,end-start);
     }
 }

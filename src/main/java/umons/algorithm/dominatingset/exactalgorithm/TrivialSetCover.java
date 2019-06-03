@@ -13,23 +13,24 @@ import java.util.stream.Collectors;
 
 /**
  *
- * This Class implements the Algorithm 1  : "A trivial set cover algorithm"
- * from the paper : Exact algorithms for dominating set.
+ * This Class implements the Algorithm: "A trivial set cover algorithm"
+ *                  from the paper : Exact algorithms for dominating set.
  *                  Johan M.M. van Rooij, Hans L. Bodlaender
+ *
  *
  * This algorithm represent the 'Algorithme trivial' from the thesis.
  *
- *@author bouali
+ * @author bouali
  */
 public class TrivialSetCover implements MdsAlgorithm {
 
     /**
      * This utility method help to restore the real set indices
      *
-     * of the minimum dominating set
+     * of the minimum dominating set.
      *
-     * @param s   the minimum dominating set
-     * @param map a hashmap that store the real indices
+     * @param s     the minimum dominating set
+     * @param map   a HashMap that store the real indices values.
      */
     static void getBackRealSetIndices( List<Integer> s, HashMap<Integer, Integer> map) {
         for (int i = 0; i < s.size(); i++){
@@ -56,7 +57,9 @@ public class TrivialSetCover implements MdsAlgorithm {
             }
             return null;
         }
-        int indexOfS = Util.getMaximumSet(s); //index of maximal set in s
+        //index of S where S is the maximum set in s
+        int indexOfS = Util.getMaximumSet(s);
+
         // Branch 1: we take S
         List<Integer> UPrime = Util.setMinus(U, s.get(indexOfS));
         List<List<Integer>> sPrime = new ArrayList<>();
@@ -89,9 +92,9 @@ public class TrivialSetCover implements MdsAlgorithm {
      * Taking S into the set cover
      *
      *
-     * @param s          the set of set
+     * @param s          the set of sets
      * @param indexOfS   the index of the chosen S
-     * @param sPrime     the next set of set
+     * @param sPrime     the next set of sets
      * @param indicesMap a map for helping to save the real indices
      *                   this map will be reused when returning from the recursive calls.
      *
@@ -115,9 +118,9 @@ public class TrivialSetCover implements MdsAlgorithm {
      * Discarding S from the set cover
      *
      *
-     * @param s          the set of set
+     * @param s          the set of sets
      * @param indexOfS   the index of the discarded S
-     * @param sPrime     the new set of Set
+     * @param sPrime     the new set of sets
      * @param indicesMap a map for helping to save the real indices
      *                   this map will be used when returning from the recursive call
      *
@@ -180,7 +183,6 @@ public class TrivialSetCover implements MdsAlgorithm {
                                                .collect(Collectors.toList());
         List<Integer> list = trivialAlgo(s, U);
         double end = System.currentTimeMillis();
-        Stats.numberOfGraphs++;
         return new Result(new HashSet<>(list),end-start);
     }
 

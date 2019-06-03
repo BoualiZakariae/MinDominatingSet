@@ -40,17 +40,15 @@ public class GeneticAlgoImplTwo extends GeneticAlgorithm {
         popInitialisation(graph, biMap, individuals);
         TreeSetPopulation population = new TreeSetPopulation(individuals);
         int gen=0;
-        int maxGen = 10000;//10000
+        int maxGen = 10000;
         do{
-           // System.out.println("gene "+gen);
             evolve(graph, biMap,population );
             if (population.getIndividuals().first().getFitness() == knownDominatingNumber){
-                System.out.println("we should break");
+               // System.out.println("best mds found");
                 break;
             }
         }while (gen++ < maxGen || knownDominatingNumber != -1 );
         double end = System.currentTimeMillis();
-        Stats.numberOfGraphs++;
         return new Result(population.getIndividuals().first().mdsFrom(biMap),end-start);
     }
 

@@ -22,7 +22,7 @@ public class UniformCrossOver implements CrossOverStrategy {
      */
     public Individual crossOver( Individual parentOne, Individual parentTwo ){
         Individual child = new Individual(parentOne.getSize());
-        double probParentOne = (double) parentOne.getFitness() / (parentOne.getFitness() + parentTwo.getFitness());
+        double probParentOne = (double) parentTwo.getFitness() / (parentOne.getFitness() + parentTwo.getFitness());
         double p_parent;
         int index = 0;
         while (index < parentOne.getSize()) {
@@ -35,4 +35,6 @@ public class UniformCrossOver implements CrossOverStrategy {
         }
         return child;
     }
+
+
 }

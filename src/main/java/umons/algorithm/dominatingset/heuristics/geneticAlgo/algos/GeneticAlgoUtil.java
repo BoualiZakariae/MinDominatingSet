@@ -43,10 +43,10 @@ public class GeneticAlgoUtil {
      *
      * Given an individual that does not represents a valid mds solution,
      * this method run the greedy algorithm to add more vertices to dominate
-     * the given graph instance. On the paper, this operation is called a heuristic repair operation.
+     * the given graph instance.
      *
      * @param graph         the graph instance.
-     * @param individual    the individual that don't represent a valis mds solution.
+     * @param individual    the individual which don't represent a valid mds solution.
      * @param map           a map data structure that store the real vertices values.
      * @return              a set of integer that represents a valid mds solution of the given graph instance.
      */
@@ -71,12 +71,12 @@ public class GeneticAlgoUtil {
 
 
     /**
-     * Given an individual that does not represents a valid mds solution,
+     * Given an individual which does not represents a valid mds solution,
      * this method add more vertices randomly to the invalid solution represented by the given individual.
-     * On the paper, this operation is called a random repair operation.
+     * On the paper.
      *
      * @param graph  the graph instance.
-     * @param child  the individual that don't represent a valid mds solution.
+     * @param child  the individual which don't represent a valid mds solution.
      * @param map    a map data structure that store the real vertices values.
      * @return       a set of integer that represents a valid mds solution of the given graph instance.
      */
@@ -106,9 +106,9 @@ public class GeneticAlgoUtil {
 
     /**
      *
-     * @param DS
-     * @param map
-     * @return
+     * @param DS    the dominating set
+     * @param map   a map data structure that store the real vertices values.
+     * @return      the real set of indices of the mds.
      */
     public static Set<Integer> getBackRealIndices( Set<Integer> DS, BiMap<Integer, Integer> map ) {
         Set<Integer> realIndices = new HashSet<>();
@@ -118,15 +118,5 @@ public class GeneticAlgoUtil {
         return realIndices;
     }
 
-    /**
-     * A helper method to print individuals fitness
-     * used for testing purpose.
-     *
-     * @param individuals the list of individuals.
-     */
-    public static void printIndividualsSize( List<Individual> individuals ) {
-        for (Individual ind:individuals) {
-            System.out.print(ind.getFitness()+" ");
-        }
-    }
+
 }

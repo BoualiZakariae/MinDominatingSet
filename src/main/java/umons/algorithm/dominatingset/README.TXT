@@ -1,20 +1,18 @@
-This Java Project represents the implementation of the Minimum dominanting set Algorithms
+This Java project contains some implementations of the Minimum Dominanting Set Algorithms
 
-presented in the thesis :
+There are 4 packages:
 
-Comparaison....
-By Bouali Zakariae
+1-exactalgorithm: contains the exacts solutions algorithms.
 
-The are 4 packages:
+2-graph: for the data structure representation of the graph.
 
-exactalgorithm: contains the class responsible for the exacts solutions algorithms
-graph: for the data structure representation of the graphs
-heuristics: contains the class responsible for the heuristics solutions
-util: some utility class used in this project
+3-heuristics: contains the class responsible for the heuristics solutions.
+
+4-util: some utilities classes used by this project.
 
 
 
-Every Package contains a file.info that has more details about the given package
+Every package contains a info.txt that has more details about the given package.
 
 
 

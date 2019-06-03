@@ -56,8 +56,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      *
      * @param graph     the given graph.
      * @param knownDominatingNumber
-     *                  the known minimum dominating Set size
-     *                  for the given graph.
+     *                  the known minimum dominating set size for the given graph.
      *                  When this value equal to -1, it means that the mds
      *                  number is unknown for this graph.
      *                  Knowing the mds size help to stop running the algorithm.
@@ -81,7 +80,7 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
             if (population.isUnique(newChild)){
                 population.replaceWorstBy(newChild);
                 if(newChild.getFitness() < F){
-                   // System.out.println("new best fitness found "+newChild.getFitness());
+                    System.out.println("new best fitness found "+newChild.getFitness());
                     F = newChild.getFitness();
                     best = newChild;
                 }
@@ -89,7 +88,6 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
             }
         }while (gen < maxNumGeneration && (knownDominatingNumber == -1  ||  best.getFitness() != knownDominatingNumber));
         double end = System.currentTimeMillis();
-        Stats.numberOfGraphs++;
         return new Result(best.mdsFrom(biMap),end-start);
     }
 
@@ -103,8 +101,8 @@ public class GeneticAlgoImplOne extends GeneticAlgorithm {
      *
      *
      * @param graph     the graph to dominate.
-     * @param biMap     a map that hold pairing values between indiviual indices -> Set values.
-     * @param newChild  the child individual that represent an invalid solution.
+     * @param biMap     a map that hold pairing values between individual indices -> Set values.
+     * @param newChild  the child individual that represents an invalid solution.
      *
      * repair the solution found in the newChild individual.
      */

@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.exactalgorithm.ArbitraryGraph;
 import umons.algorithm.dominatingset.exactalgorithm.ImprovedSetCover;
@@ -23,6 +24,7 @@ import java.util.stream.Stream;
  * The graphs instances located in the 'resources\exacts' folder were downloaded from the house of graph database.
  *
  */
+@Disabled
 public class CompareExactsAlgorithmsTest {
 
     private static List<Graph> listOfGraphs = new ArrayList();
@@ -35,7 +37,7 @@ public class CompareExactsAlgorithmsTest {
      * @throws IOException
      * @throws URISyntaxException
      */
-    @Test@BeforeAll
+    @Test@BeforeAll@Disabled
     public static void compareHouseOfGraphInstance() throws IOException, URISyntaxException {
 
         Path exacts = Paths.get(CompareExactsAlgorithmsTest.class.getResource("/exacts").toURI());
@@ -50,7 +52,7 @@ public class CompareExactsAlgorithmsTest {
 
 
 
-    @Test
+    @Test@Disabled
     public void testPerformanceArbitraryGraph(){
 
        System.out.println("new ArbitraryGraph() Test");
@@ -64,7 +66,7 @@ public class CompareExactsAlgorithmsTest {
        }
     }
 
-    @Test
+    @Test@Disabled
     public void testPerformanceTrivialAlgo(){
 
         System.out.println("new TrivialAlgo Test");
@@ -77,7 +79,7 @@ public class CompareExactsAlgorithmsTest {
     }
 
 
-    @Test
+    @Test@Disabled
     public void testPerformanceImprovedSetCover(){
 
         System.out.println("new ImprovedSetCover() Test");
