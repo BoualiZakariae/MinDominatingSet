@@ -4,7 +4,6 @@ import java.util.*;
 
 /**
  *
- * @author bouali
  *
  *
  * This class represents a graph data structure.
@@ -50,7 +49,7 @@ public class Graph {
      *
      * @param y1    the first vetex
      * @param y2    the second vertex
-     * @return  true if y1 and y2 are adjacent, false otherwise
+     * @return      true if y1 and y2 are adjacent, false otherwise
      */
     public boolean areAdjacent(int y1, int y2) {
         return getAdj().get(y1).contains(y2);
@@ -97,9 +96,8 @@ public class Graph {
 
 
     /**
-     *  as this algorithm can find duplicate nodes,
-     *  the set datastructure help to avoid duplicate node
-     * @return
+     *
+     * @return the list of min degree neighbors of three degree vertices.
      */
     public Set<Node> getNeighborsOf3DegreeVertices() {
         Set<Node> nodes = new HashSet<>();
@@ -112,7 +110,6 @@ public class Graph {
                 int neighbor2 = neighbors[1];
                 int neighbor3 = neighbors[2];
                 minDegreeNode = minDegreeVertex(neighbor1, neighbor2, neighbor3);
-                /*Todo to be reviewed*/
                 nodes.add(minDegreeNode);
             }
         }
@@ -267,13 +264,12 @@ public class Graph {
     /**
      *
      *
-     * @return true if all vertices in the graph are degree 0
+     * @return true if all vertices in X are degree 0
      */
-     public boolean allVerticesDegreeZero( ) {
-        return  !this.adj.values()
-                         .stream()
-                         .anyMatch(set->set.size()>0);
-    }
+     public boolean areIsolated( Set<Integer> X) {
+         return !X.stream().
+                 anyMatch(v->this.adj.get(v).size()>0);
+     }
 
     public int size() {
         return this.adj.size();

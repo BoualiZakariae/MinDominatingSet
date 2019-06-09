@@ -19,7 +19,8 @@ public class TreeSetPopulation extends Population {
 
     /**
      * Class constructor.
-     * Create a population besad on the passed values.
+     *
+     * Create a population based on the passed values.
      * @param individuals the set of individuals.
      */
     public TreeSetPopulation( TreeSet<Individual> individuals ) {

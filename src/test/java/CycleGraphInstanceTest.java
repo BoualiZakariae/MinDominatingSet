@@ -1,9 +1,11 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.exactalgorithm.AtMostDegreeThree;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.graph.Result;
 
+@Disabled
 public class CycleGraphInstanceTest
 {
 
@@ -12,7 +14,7 @@ public class CycleGraphInstanceTest
     private Graph graph;
 
 
-    @Test
+    @Test@Disabled
     public void thirdCycleInstance(){
         graph = new Graph(3);
         graph.addVertices(0);
@@ -25,7 +27,7 @@ public class CycleGraphInstanceTest
         Assertions.assertEquals(1,mds.getMds().size());
     }
 
-    @Test
+    @Test@Disabled
     public void fourthCycleInstance(){
         graph = new Graph(4);
         graph.addVertices(0);
@@ -40,7 +42,7 @@ public class CycleGraphInstanceTest
         Assertions.assertEquals(2,mds.getMds().size());
     }
 
-    @Test
+    @Test@Disabled
     public void fifthCycleInstance(){
         graph = new Graph(5);
         graph.addVertices(0);
@@ -57,7 +59,7 @@ public class CycleGraphInstanceTest
         Assertions.assertEquals(2,mds.getMds().size());
     }
 
-    @Test
+    @Test@Disabled
     public void sixsthCycleInstance(){
         graph = new Graph(6);
         graph.addVertices(0);
@@ -77,7 +79,7 @@ public class CycleGraphInstanceTest
         Assertions.assertEquals(2,mds.getMds().size());
     }
 
-    @Test
+    @Test@Disabled
     public void seventhCycleInstance(){
         graph = new Graph(7);
         graph.addVertices(0);
@@ -98,7 +100,7 @@ public class CycleGraphInstanceTest
         Assertions.assertEquals(3,mds.getMds().size());
     }
 
-    @Test
+    @Test@Disabled
     public void eighthCycleInstance(){
         graph = new Graph(8);
         graph.addVertices(0);
@@ -122,7 +124,7 @@ public class CycleGraphInstanceTest
     }
 
 
-    @Test
+    @Test@Disabled
     public void ninethCycleInstance(){
         graph = new Graph(9);
         graph.addVertices(0);

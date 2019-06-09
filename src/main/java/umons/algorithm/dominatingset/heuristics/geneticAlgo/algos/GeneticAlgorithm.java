@@ -24,9 +24,9 @@ public abstract class GeneticAlgorithm  {
      * default values
      */
     int     populationSize = 100;// the size of the population
-    int     maxNumGeneration = 10000;//10000;//number of iteration
+    int     maxNumGeneration = 10000;//number of iteration
     double  p_Ds = 0.3;//probability of adding a vertex to a dominating set
-    double  p_CrossOver = 0.7;//probability of cross over
+    double  p_CrossOver = 0.7;//probability for cross over
     double  p_Mutation = 0.02;//probability for mutation
     private CrossOverStrategy crossOverStrategy = new UniformCrossOver();//default crossover strategy
     private MutationStrategy mutationStrategy = new BitFlipMutation();//default mutation strategy
@@ -96,8 +96,8 @@ public abstract class GeneticAlgorithm  {
 
     /**
      *
-     * @param individuals
-     * @return
+     * @param individuals the individuals that are already present in the population.
+     * @return  the number of individuals that remains to reach the population size.
      */
     private int getRemainingIndividualsSize( Collection<Individual> individuals ) {
         int remainingIndividuals = this.populationSize;
@@ -112,9 +112,9 @@ public abstract class GeneticAlgorithm  {
      *  This method do a crossover operation between two child.
      *  the class that implements this abstract class can choose to use another strategy.
      *
-     * @param parentOne
-     * @param parentTwo
-     * @return
+     * @param parentOne  a first  individual
+     * @param parentTwo  a second  individual
+     * @return           a new individual by making a cross over operation on the two given individuals
      */
     Individual crossOver( Individual parentOne, Individual parentTwo ){
        return this.crossOverStrategy.crossOver(parentOne,parentTwo);
@@ -125,8 +125,8 @@ public abstract class GeneticAlgorithm  {
      *  the class that implements this abstract class can override this method.
      *
      *
-     * @param child
-     * @param pMutation
+     * @param child      an individual to apply mutation on
+     * @param pMutation  the mutation probability
      */
     void applyMutation( Individual child, double pMutation ) {
         this.mutationStrategy.applyMutation(child,pMutation);
@@ -134,13 +134,13 @@ public abstract class GeneticAlgorithm  {
 
 
     /**
-     * This method define a mapping from genes to the graph vertices.
+     * This method defines a mapping between an individual and the corresponding graph vertices.
      * The returned BiMap help later when translating an individual
      * to a dominating set.
      *
      *
      * @param graph the given graph
-     * @return the Mapping where each key(gene) point to a value(vertex)
+     * @return      the Mapping where each key(gene) point to a value(vertex)
      */
     final BiMap<Integer, Integer> genesToVerticesMapping( Graph graph ) {
         BiMap<Integer, Integer> biMap = HashBiMap.create();
@@ -153,7 +153,7 @@ public abstract class GeneticAlgorithm  {
     }
 
     /**
-     *
+     *  set a new crossover strategy
      * @param crossOverStrategy
      */
     public void setCrossOverStrategy( CrossOverStrategy crossOverStrategy ) {
@@ -161,7 +161,10 @@ public abstract class GeneticAlgorithm  {
     }
 
 
-
+    /**
+     * set a new mutation strategy
+     * @param mutationStrategy
+     */
     public void setMutationStrategy( MutationStrategy mutationStrategy ) {
         this.mutationStrategy = mutationStrategy;
     }

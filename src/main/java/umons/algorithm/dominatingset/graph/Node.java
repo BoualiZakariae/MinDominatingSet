@@ -7,14 +7,11 @@ import java.util.Objects;
  *
  * This Class represents a vertex in the Graph.
  *
- * Every node is identified by an integer id
- * and an integer degree.
- *
- *
- * @author bouali
- */
+ **/
 public class Node {
-
+    /**
+     * the id of the node and its degree
+     */
     private int id;
     private int degree;
 
@@ -34,7 +31,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return "id : " + id + "with Degree: " + degree;
+        return "id : " + id + " with Degree: " + degree;
     }
     public int getDegree() {
         return degree;
@@ -42,8 +39,6 @@ public class Node {
     public int getId() {
         return id;
     }
-
-
     @Override
     public boolean equals( Object obj ) {
         if (!(obj instanceof Node))
@@ -51,7 +46,6 @@ public class Node {
         Node theOtherNode = (Node)obj;
         return this.id == theOtherNode.id && this.degree == theOtherNode.degree;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(this.id,this.degree);

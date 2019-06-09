@@ -7,6 +7,7 @@ import umons.algorithm.dominatingset.heuristics.geneticAlgo.population.Individua
 /**
  *
  */
+@Disabled
 public class CrossOverOperation {
 
 
@@ -14,8 +15,7 @@ public class CrossOverOperation {
     private MutationStrategy mutationStrategy;
     private Individual parentOne,parentTwo;
 
-
-    @BeforeEach
+    @Disabled@BeforeEach
     void init(){
         byte [] parentOneGenes = {1,1,0,0,1,0,1,0,1,1};
         byte [] parentTwoGenes = {0,0,1,0,1,0,0,1,1,0};
@@ -45,7 +45,7 @@ public class CrossOverOperation {
     }
 
 
-    @Test
+    @Test@Disabled
     void swapMutation(){
         System.out.println(parentOne);
         mutationStrategy = new BitSwapMutation();

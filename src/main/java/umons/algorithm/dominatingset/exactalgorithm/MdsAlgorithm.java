@@ -6,7 +6,7 @@ import umons.algorithm.dominatingset.graph.Result;
 
 /**
  *
- * This Interface define the method that
+ * This Interface defines the method that
  *
  * should be implemented by all the mds algorithms
  *

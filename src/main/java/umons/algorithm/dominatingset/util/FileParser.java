@@ -11,22 +11,24 @@ import java.util.stream.IntStream;
 /**
  * This class is responsible for parsing the files to a graph data structure format
  *
- * This class can parse 3 file format
+ * This class can parse 3 files format:
  *
- * The first is the triangleUp file format
- * The second is the dimacs file format
- * The third is the houseOfGraphs file format
+ * The first is the triangleUp file format.
+ * The second is the Dimacs file format.
+ * The third is the houseOfGraphs file format.
  *
- * and create as an output a Graph datastructure
+ *
  */
 public class FileParser {
 
 
     /**
-     * this method create a graph data structure from a housofgraph file data format.
-     * the vertices begin with 1 index
-     * @param file
-     * @return
+     * This method creates a graph data structure from a housofgraph file  format.
+     * the vertices in the file should begin with the vertex 1.
+     * a file that have the vertex 0 could resolve on error.
+     *
+     * @param file  a file from housofgraph database.
+     * @return      a graph datastructure
      */
     public static Graph createGraphsFromHouseOfGraphs( File file) {
         String [] graphName = file.getName()
@@ -35,7 +37,7 @@ public class FileParser {
         int graphId = Integer.parseInt(graphName[1]) ;
         int numberOfVertices= Integer.parseInt(graphName[2]) ;
         int mdsSize = Integer.parseInt(graphName[3]) ;
-        System.out.println(graphId+" "+numberOfVertices+" "+mdsSize);
+       // System.out.println(graphId+" "+numberOfVertices+" "+mdsSize);
         BufferedReader reader;
         Graph graph = new Graph(26);
         IntStream.range(1,numberOfVertices+1)
@@ -64,10 +66,10 @@ public class FileParser {
 
 
     /**
-     *
-     * @param file
-     * @return
-     * @throws IOException
+     * This method creates a graph data structure from a Dimacs file  format.
+     *      *
+     * @param file  a Dimacs file format.
+     * @return      a graph datastructure
      */
     public static Graph createGraphFromDimacsFormat( File file) {
         BufferedReader reader;
@@ -93,8 +95,8 @@ public class FileParser {
 
     /**
      *
-     * @param line
-     * @return
+     * @param line  a line that contains information about the Dimacs file
+     * @return      the graphe size
      */
     private static int getGraphSize( String line ) {
         String [] firstLine =  line.split(" ");
@@ -103,9 +105,10 @@ public class FileParser {
 
 
     /**
+     *  add an edge in the Graph g.
      *
-     * @param g
-     * @param line
+     * @param g     the given graph
+     * @param line  the line containing the linking information.
      */
     public static void  addEdge(Graph g,String [] line){
         int u = Integer.parseInt(line[1]);
@@ -116,12 +119,12 @@ public class FileParser {
     }
     /**
      *
-     * @param n
-     * @param matrix
-     * @return
+     * @param n         the number of vertices.
+     * @param matrix    the adjacency matrix
+     *
+     * @return a graph datastructure created from a adjacency matrix representation.
      */
     public static Graph createGraph( int n, String matrix ) {
-       // System.out.println(n);
         Graph graph = new Graph(n);
         for (int i=0;i<n;i++)
         {

@@ -1,0 +1,18 @@
+the file of the triangleup format could contains many graph instances.
+
+Every line of the file will represent one graph instance.
+
+For example 3 110 1 represent the following graph:
+
+        1----0----2
+
+where 3 is the size of the graph, 110 is the binary representation of the graph,
+and 1 represent the size of the min dominating set.
+
+maxDegreeThree.txt contains graphs of maximum degree 3.
+to get a larger graph instances you can download from :
+
+https://alumniumonsac-my.sharepoint.com/:t:/g/personal/151013_umons_ac_be/ESECR1uelp9Gh2OeeSf7GXQBpk_0wMIF1I0AwI8VgsWa1A?e=8p6tSn
+
+
+

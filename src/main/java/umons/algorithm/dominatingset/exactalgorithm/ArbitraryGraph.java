@@ -18,11 +18,11 @@ import java.util.stream.Collectors;
  *
  *
  * This Class implements the part 3 :"An exact algorithm for the arbitrary graph"
- *
  * from the paper : Exact (exponential) algorithms for the dominating set problem
+ *                  Fedor V.Fomin, Dieter Kratsch, and Gerhard J.Woeginger
+ *
  *
  * This algorithm represent the 'Algorithme général' in the thesis.
- *
  *
  **/
 public class ArbitraryGraph implements MdsAlgorithm {
@@ -67,7 +67,8 @@ public class ArbitraryGraph implements MdsAlgorithm {
 
 
     /**
-     * Test if the {@code dominatingSet} dominates X
+     * Test if {@code dominatingSet} dominates X
+     *
      * @param graph         a {@link Graph} data structure
      * @param dominatingSet the dominating set
      * @param X             set of vertices that should be dominated
@@ -89,8 +90,8 @@ public class ArbitraryGraph implements MdsAlgorithm {
      * Return the mds from a base case where every vertex is at least degree three.
      *
      * @param graph a {@link Graph} data structure
-     * @param X
-     * @return the mds for the base case where every vertex has at least 3 neighbors
+     * @param X     set of vertices that should be dominated
+     * @return      the mds for the base case where every vertex has at least 3 neighbors
      */
     private static Set<Integer> minDominatingSet( Graph graph, Set<Integer> X ) {
         if (X.isEmpty()) {
@@ -107,12 +108,12 @@ public class ArbitraryGraph implements MdsAlgorithm {
             index++;
         }
         //loop on all subset and get the min dominating set
-       myloopToBreak: for (int currentSubsetSize = 1; currentSubsetSize <= maxMdsSize; currentSubsetSize++) {
+       iterOverAllMds: for (int currentSubsetSize = 1; currentSubsetSize <= maxMdsSize; currentSubsetSize++) {
                             ArrayList<int[]> combinations = Util.getCombinations(V, currentSubsetSize);
                             for (int[] combination : combinations) {
                                 if (isDominating(graph, combination, X) && combination.length < minMdsSize) {
                                     currentMds = combination;
-                                    break myloopToBreak;
+                                    break iterOverAllMds;
                                 }
                             }
                       }
@@ -123,7 +124,6 @@ public class ArbitraryGraph implements MdsAlgorithm {
                 al.add(x);
             }
         }
-
         return al;
     }
 
@@ -132,15 +132,12 @@ public class ArbitraryGraph implements MdsAlgorithm {
      * Return the set of vertices with degree zero
      *
      * @param graph  a {@link Graph} data structure
-     * @return       all the vertices v where d(v)= 0
+     * @return       all vertices v ∈ X, where d(v)= 0
      */
-    private static Set<Integer> getZeroDegreeVertices( Graph graph ) {
-        return graph.getAdj()
-                    .keySet()
-                    .stream()
-                    .filter(i->graph.getAdj().get(i).isEmpty())
-                    .collect(Collectors.toCollection(HashSet::new));
-
+    private static Set<Integer> getZeroDegreeVertices( Graph graph, Set<Integer> X ) {
+        return X.stream()
+                .filter(i->graph.getAdj().get(i).isEmpty())
+                .collect(Collectors.toCollection(HashSet::new));
     }
 
 
@@ -167,7 +164,7 @@ public class ArbitraryGraph implements MdsAlgorithm {
 
     /**
      *
-     * This method deal with the base case where every vertices
+     * This method deal with the base case where every vertex
      * in the graph is degree zero or at least 3.
      *
      * @param graph  a {@link Graph} data structure
@@ -175,28 +172,28 @@ public class ArbitraryGraph implements MdsAlgorithm {
      * @return       the minimum dominating set of the set X
      */
     private static Set<Integer> baseCase( Graph graph, Set<Integer> X ) {
-        if (graph.allVerticesDegreeZero()) {/*maybe replace by X*/
-            //Set<Integer> mds = new HashSet<>();
+        if (graph.areIsolated(X)) {
             return X;
-            /*mds.addAll(X);
-            return mds;*/
         }
         /*
          * all node with 0 or >=3 degree
-         * 3t/8 combination
+         *
          */
-        Set<Integer> listOfZeroDegreeVertices = getZeroDegreeVertices(graph);
-        if (listOfZeroDegreeVertices.size() > 0) {
-            Graph gPrime = graph.removeVertices(listOfZeroDegreeVertices);
+        Set<Integer> zeroDegreeVertices = getZeroDegreeVertices(graph, X);
+        if (zeroDegreeVertices.size() > 0) {
+            Graph gPrime = graph.removeVertices(zeroDegreeVertices);
             Set<Integer> newX = X.stream()  /*set of vertices that has at least 3 neighbours*/
-                                 .filter(x -> !listOfZeroDegreeVertices.contains(x))
+                                 .filter(x -> !zeroDegreeVertices.contains(x))
                                  .collect(Collectors.toCollection(HashSet::new));
             Set<Integer> mds = minDominatingSet(gPrime, newX);
-            listOfZeroDegreeVertices.stream()
+            zeroDegreeVertices.stream()
                     .filter(v->X.contains(v))
                     .forEach(v->mds.add(v));
             return mds;
         }
+        /*
+         * all node with degree >=3
+         */
         return minDominatingSet(graph, X);/*looking for the mds in the subsets */
     }
 
@@ -375,7 +372,6 @@ public class ArbitraryGraph implements MdsAlgorithm {
         Set<Integer> X = initialisationOfX(graph);
         Set<Integer> mds = mdsOfrArbitraryGraph(graph, X);
         double end = System.currentTimeMillis();
-        Stats.numberOfGraphs++;
         return new Result(mds,end-start);
     }
 }

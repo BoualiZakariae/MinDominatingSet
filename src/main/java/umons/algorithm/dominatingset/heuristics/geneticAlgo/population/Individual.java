@@ -15,7 +15,7 @@ import java.util.*;
 public class Individual implements Comparable<Individual>{
 
     /**
-     *  Each individual has a size,a fitness value and
+     *  Each individual has a size, a fitness value and
      *  a byte array that represents the equivalent mds.
      */
     private byte[] genes;
@@ -39,7 +39,7 @@ public class Individual implements Comparable<Individual>{
      * Class constructor.
      *
      * Create a new Individual with the given bytes array.
-     * @param _genes a bytes array that represent a mds.
+     * @param _genes a bytes array that represent an mds.
      */
     public Individual(byte[] _genes ) {
         this.size = _genes.length;
@@ -65,7 +65,8 @@ public class Individual implements Comparable<Individual>{
     }
 
     /**
-     * class constructor.
+     * Class constructor.
+     *
      * create an individual based on the given dominating set
      * @param ds
      * @param size
@@ -83,7 +84,7 @@ public class Individual implements Comparable<Individual>{
      */
     private void initialisation( double prob ) {
         boolean flag = false;
-        while (!flag) {/* this flag is used to be sure that at least one genome is different than 0*/
+        while (!flag) {/* this flag is used to be sure that at least one genome value is different than 0*/
             int index = 0;
             Random random=new Random();
             double ran ;
@@ -125,7 +126,7 @@ public class Individual implements Comparable<Individual>{
      * is equal to the given passed value.
      *
      * @param index the index in the bytes array.
-     * @param b the new value.
+     * @param b     the new value.
      */
     public void setAtIndex( int index, byte b ) {
         this.genes[index] = b;
@@ -152,8 +153,8 @@ public class Individual implements Comparable<Individual>{
 
     /**
      *
-     * @param o
-     * @return true if the passed object is equal to this object.
+     * @param o     the other object to copmare with
+     * @return      true if the passed object is equal to this object.
      */
     @Override
     public boolean equals( Object o ) {

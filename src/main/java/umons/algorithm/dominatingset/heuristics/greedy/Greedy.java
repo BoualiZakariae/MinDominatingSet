@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 public class Greedy implements MdsAlgorithm {
 
     /**
-     * each vertex in the graph has an integer value that
+     * Each vertex in the graph has an integer value that
      * represents its weight, and a boolean value that indicate
-     * if it is already covered
+     * if it is already covered.
      */
     HashMap<Integer, Integer> weights ;
     private HashMap<Integer, Boolean> covered ;
@@ -33,7 +33,7 @@ public class Greedy implements MdsAlgorithm {
     /**
      * @return the the maximum weight of the graph
      * this value indicate which vertex can cover
-     * the maximum number of vertices
+     * the maximum number of vertices.
      */
     private int getMax() {
         return this.weights.entrySet()
@@ -49,12 +49,10 @@ public class Greedy implements MdsAlgorithm {
      *
      * @return the vertex that will be added to the dominating set
      *
-     * this vertex should have the maximum weight
+     * this vertex should have the maximum weight.
      */
     int chooseVertex() {
-     //   System.out.println("it should be never called");
         int M = getMax();
-       // System.out.print("the maxim of uncovered  elements is "+ M);
         if (M == 0)
             return -1;
         List<Integer> set = this.weights.entrySet()
@@ -69,7 +67,7 @@ public class Greedy implements MdsAlgorithm {
     /**
      * adjustWeights implementation for the greedy algorithm
      * After adding a vertex to the dominating Set, an adjustment
-     * of weight should be done on the vertices characteristics
+     * of weight should be done on the vertices.
      * @param g
      * @param v
      */
@@ -102,7 +100,7 @@ public class Greedy implements MdsAlgorithm {
      *
      * @param graph the graph instance
      *
-     * @return mds of the graph instance
+     * @return the mds of the graph instance
      */
     @Override
     public Result run( Graph graph  ) {
@@ -115,14 +113,11 @@ public class Greedy implements MdsAlgorithm {
         }
         int v = chooseVertex();
         while (v != -1) {
-           // System.out.println("the choosen v is" +v);
             D.add(v);
             adjustWeights(graph, v);
             v = chooseVertex();
         }
-        //System.out.println();
         double end = System.currentTimeMillis();
-        Stats.numberOfGraphs++;
         return new Result(D,end-start);
         }
 

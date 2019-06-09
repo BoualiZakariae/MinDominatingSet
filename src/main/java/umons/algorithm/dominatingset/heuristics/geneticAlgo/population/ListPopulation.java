@@ -19,6 +19,7 @@ public class ListPopulation extends Population {
 
     /**
      * Class constructor.
+     *
      * Create a population based on the passed values.
      * @param individuals the list of individuals.
      */
@@ -92,7 +93,7 @@ public class ListPopulation extends Population {
     /**
      *
      * @param child
-     * @return true whenever this population dosen't contains an individual equal to the given individual,
+     * @return true whenever this population doesn't contain an individual equal to the given individual,
      *         otherwise return false.
      */
     public boolean isUnique( Individual child ) {
@@ -100,10 +101,9 @@ public class ListPopulation extends Population {
     }
 
     /**
-     *  This method replace the individual with the highest fitness
-     *  with the given individual.
+     *  This method replace the worst individual with the given individual.
      *
-     * @param child
+     * @param child the new individual to integrate the population
      */
     public void replaceWorstBy( Individual child ) {
         int worstIndividualIndex = IntStream.range(0, individuals.size())

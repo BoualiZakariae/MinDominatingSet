@@ -17,7 +17,7 @@ public class GreedyRev implements MdsAlgorithm {
 
     /**
      * each vertex in the graph has an integer value that
-     * indicate how much time it can be covered, and a boolean
+     * indicate how much it can be covered, and a boolean
      * value that indicate if it is uniquely covered
      */
     private HashMap<Integer, Integer> coveredBy ;
@@ -66,10 +66,10 @@ public class GreedyRev implements MdsAlgorithm {
      * @param v
      * @param g
      *
-     * adjustWeights implementation for the greedy algorithm
+     * adjust implementation for the greedy algorithm
      *
      */
-    private void adjustWeights( Set<Integer> D, int v, Graph g ) {
+    private void adjust( Set<Integer> D, int v, Graph g ) {
         int oldValue = coveredBy.get(v);
         coveredBy.replace(v, oldValue - 1);
 
@@ -121,7 +121,7 @@ public class GreedyRev implements MdsAlgorithm {
 
         while (v != -1) {
             D.remove(v);
-            adjustWeights(D, v, g);
+            adjust(D, v, g);
             v = chooseVertex(g,D, v1, start);
         }
         double end = System.currentTimeMillis();

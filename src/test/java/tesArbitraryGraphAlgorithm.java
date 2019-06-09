@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.util.Util;
 
@@ -5,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
-
+@Disabled
 public class tesArbitraryGraphAlgorithm {
 
 
-    @Test
+    @Test@Disabled
     public void testCombinationUtility(){
         int [] array = new int[10];
         IntStream.range(0,10).forEach(i->array[i]=i);
@@ -19,7 +20,6 @@ public class tesArbitraryGraphAlgorithm {
         System.out.println(lists.size());
 
     }
-
 
     public static List<int[]> combinations2(int[] arr, int len, int startPosition, int[] result, List<int[]> subsets){
         if (len == 0){

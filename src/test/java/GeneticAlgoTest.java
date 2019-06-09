@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import umons.algorithm.dominatingset.graph.Graph;
 import umons.algorithm.dominatingset.heuristics.geneticAlgo.algos.GeneticAlgoImplOne;
@@ -7,11 +8,12 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
+@Disabled
 public class GeneticAlgoTest {
 
 
-    @Test
+    @Test@Disabled
+
     public void testDominatingSetMinimisation(){
 
         Graph graph = new Graph(7);

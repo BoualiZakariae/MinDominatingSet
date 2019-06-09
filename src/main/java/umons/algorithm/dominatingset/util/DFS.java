@@ -11,14 +11,13 @@ import java.util.*;
  */
 public class DFS {
 
-    /**
-     *
-     */
+
     private List<List<Integer>> listOfCompenents = new ArrayList<>();
     private Map<Integer,Boolean> visited ;
     Map<Integer, Set<Integer>> adj;
 
     /**
+     * Class constructor
      *
      * @param n
      */
@@ -29,8 +28,8 @@ public class DFS {
 
     /**
      *
-     * @param adjMap
-     * @return
+     * @param adjMap    the given graph
+     * @return          the list of components of  the given graph
      */
     public List<List<Integer>> getTheListOfComponents(Map<Integer, Set<Integer>> adjMap){
         adj= adjMap;
@@ -51,11 +50,7 @@ public class DFS {
 
     }
 
-    /**
-     *
-     * @param v
-     * @param component
-     */
+
     public void DFS( int v ,List<Integer> component) {
         visited.put(v,true);
         component.add(v);
