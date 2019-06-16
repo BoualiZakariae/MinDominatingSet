@@ -220,8 +220,13 @@ public class Graph {
     public void addEdge( int u, int v)  {
         if (this.getAdj().get(u)==null || this.getAdj().get(v)==null)
             return;
+        if (!this.getAdj().get(u).contains(v) && !this.getAdj().get(v).contains(u) )
+        {
+            this.m++;
+        }
         this.getAdj().get(u).add(v);
         this.getAdj().get(v).add(u);
+
     }
 
 

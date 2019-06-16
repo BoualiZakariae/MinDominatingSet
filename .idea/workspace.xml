@@ -4,7 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff9584af-b495-474a-8eec-f216b4a1e2ff" name="Default" comment="refactoring of the whole project.&#10;unused code deleted.&#10;documentation of some classses.">
+    <list default="true" id="ff9584af-b495-474a-8eec-f216b4a1e2ff" name="Default" comment="resolving merge conflict">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,8 +33,7 @@
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="DsmViewSettings">
     <option name="groupByModuleGroups" value="false" />
@@ -102,7 +101,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="GeneralAlgoBugResolver" />
       </map>
     </option>
     <favorite-branches>
@@ -132,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/DFS.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/heuristics/GeneticAlgo/population/Population.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/graph/Node.java" />
-        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/Stats.java" />
         <option value="$PROJECT_DIR$/src/test/java/tesArbitraryGraphAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/test/java/CompareExactsAlgorithmsTest.java" />
@@ -173,6 +171,7 @@
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/toDelete/TestUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/util/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/Run.java" />
+        <option value="$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT" />
       </list>
     </option>
   </component>
@@ -180,8 +179,8 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-74" />
-    <option name="y" value="160" />
+    <option name="x" value="1168" />
+    <option name="y" value="-86" />
     <option name="width" value="1296" />
     <option name="height" value="687" />
   </component>
@@ -241,6 +240,11 @@
             <path>
               <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
               <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -282,23 +286,6 @@
               <item name="umons" type="462c0819:PsiDirectoryNode" />
               <item name="algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="dominatingset" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="umons" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="dominatingset" type="462c0819:PsiDirectoryNode" />
-              <item name="Run.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinDominatingSet" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MinDominatingSet" type="b2602c69:ProjectViewProjectNode" />
@@ -706,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557850171313</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="resolving merge conflict">
+      <created>1560122455911</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1560122455911</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -742,7 +736,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="891244000" />
+    <option name="totallyTimeSpent" value="892802000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -754,9 +748,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="696" extended-state="7" />
+    <frame x="1272" y="-373" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2524272" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1663113" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -770,13 +764,13 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4978678" weight="0.07427938" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50373137" side_tool="true" weight="0.42350334" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.54333335" />
       <window_info anchor="bottom" id="Dependency Viewer" order="8" weight="0.5399113" />
       <window_info anchor="bottom" id="Duplicates" order="9" weight="0.23059867" />
       <window_info anchor="bottom" id="Inspection Results" order="10" sideWeight="0.49573562" weight="0.29711753" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.50373137" side_tool="true" weight="0.42350334" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.50373137" side_tool="true" weight="0.42333335" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.48720682" weight="0.36474502" />
-      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49946696" weight="0.5443459" />
+      <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4989339" visible="true" weight="0.54333335" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -880,16 +874,10 @@
     <MESSAGE value="documentation of the operation package has been added." />
     <MESSAGE value="atmostdegreeThreealgo bug has been resolved.&#10;new combination method implementation.&#10;new tested class added for algorithms comparison." />
     <MESSAGE value="refactoring of the whole project.&#10;unused code deleted.&#10;documentation of some classses." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring of the whole project.&#10;unused code deleted.&#10;documentation of some classses." />
+    <MESSAGE value="resolving merge conflict" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolving merge conflict" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dimacs/info.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -946,13 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="618" column="37" selection-start-line="618" selection-start-column="37" selection-end-line="618" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="13" />
         </state>
       </provider>
     </entry>
@@ -1196,6 +1177,18 @@
         <state relative-caret-position="102">
           <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.TXT">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-678" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/umons/algorithm/dominatingset/README.TXT">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
