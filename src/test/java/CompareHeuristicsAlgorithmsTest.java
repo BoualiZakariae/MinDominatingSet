@@ -36,20 +36,28 @@ public class CompareHeuristicsAlgorithmsTest {
      * @throws IOException
      * @throws URISyntaxException
      */
-    @Test@BeforeAll@Disabled
+    @Test@BeforeAll
     public static void compareHouseOfGraphInstance() throws IOException, URISyntaxException {
 
-        Path exacts = Paths.get(CompareExactsAlgorithmsTest.class.getResource("/dimacs/hugeGraphs").toURI());
+        //Path exacts = Paths.get(CompareExactsAlgorithmsTest.class.getResource("/dimacs/hugeGraphs").toURI());
+        Path exacts = Paths.get(CompareExactsAlgorithmsTest.class.getResource("/dimacs/mediumGraphs").toURI());
         Stream<Path> files = Files.list(exacts);
         files.forEach(
                 p-> {
+                        System.out.print(p.getFileName());
                         Graph hugeGraph = FileParser.createGraphFromDimacsFormat(new File(p.toString()));
                         listOfGraphs.add(hugeGraph);
-                        System.out.println(hugeGraph.size());
+                        System.out.println(" "+hugeGraph.size()+" "+hugeGraph.getNumberOfEdges());
+
+
 
 
                 });
     }
+
+
+
+
     @Test@Disabled
     public void  testPerformanceGreedy(){
         for(Graph graph:listOfGraphs){

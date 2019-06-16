@@ -1,0 +1,8 @@
+every file in this folder contains one graph instance.
+The name of the file should respect the following format : graph_id_N_mdsSize.lst
+where id : is the identifiant in the database house of graphs.
+      N  : the number of vertices of the graph.
+      mdsSize: the known mds size of the graph.
+
+the graphs from this database could be found on https://hog.grinvin.org/
+
