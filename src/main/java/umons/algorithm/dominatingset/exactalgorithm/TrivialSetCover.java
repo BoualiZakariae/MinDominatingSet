@@ -27,9 +27,9 @@ public class TrivialSetCover implements MdsAlgorithm {
     /**
      * This utility method help to restore the real set indices
      *
-     * of the minimum dominating set.
+     * of the minimum set cover.
      *
-     * @param s     the minimum dominating set
+     * @param s     the minimum set cover indices
      * @param map   a HashMap that store the real indices values.
      */
     static void getBackRealSetIndices( List<Integer> s, HashMap<Integer, Integer> map) {

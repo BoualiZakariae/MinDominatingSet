@@ -24,7 +24,7 @@ import java.util.stream.Stream;
  * The graphs instances located in the 'resources\exacts' folder were downloaded from the house of graph database.
  *
  */
-@Disabled
+
 public class CompareExactsAlgorithmsTest {
 
     private static List<Graph> listOfGraphs = new ArrayList();
@@ -37,13 +37,14 @@ public class CompareExactsAlgorithmsTest {
      * @throws IOException
      * @throws URISyntaxException
      */
-    @Test@BeforeAll@Disabled
+    @Test@BeforeAll
     public static void compareHouseOfGraphInstance() throws IOException, URISyntaxException {
 
-        Path exacts = Paths.get(CompareExactsAlgorithmsTest.class.getResource("/exacts").toURI());
+        Path exacts = Paths.get(CompareExactsAlgorithmsTest.class.getResource("/houseOfGraphs").toURI());
         Stream<Path> files = Files.list(exacts);
         FileParser fileParser = new FileParser();
-        files.forEach(
+        files.filter(p-> ! p.getFileName().endsWith("info.txt")).
+             forEach(
                 p-> {
                     Graph graph = fileParser.createGraphsFromHouseOfGraphs(new File(String.valueOf(p)));
                     listOfGraphs.add(graph);
@@ -79,7 +80,7 @@ public class CompareExactsAlgorithmsTest {
     }
 
 
-    @Test@Disabled
+    @Test
     public void testPerformanceImprovedSetCover(){
 
         System.out.println("new ImprovedSetCover() Test");

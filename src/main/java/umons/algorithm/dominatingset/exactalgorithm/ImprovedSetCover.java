@@ -68,10 +68,6 @@ public class ImprovedSetCover extends TrivialSetCover {
      */
     private static List<Integer> reductionRuleOne( List<List<Integer>> s, List<Integer> U ) {
         countElementsFrequency(s);
-        // base case
-        if (s.isEmpty()) {
-            return new ArrayList<>();
-        }
         // if there exists an element e in U with frequency 1
         int singletonSetindex = getTheSingletonSetIndex(s, U);
         if (singletonSetindex == -1)
@@ -93,7 +89,8 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @param s     the set of sets
      * @param U     the set of elements to cover
      * @return      the Set Cover of U
-     */    private static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U ) {
+     */
+    private static List<Integer> reductionRuleTwo( List<List<Integer>> s, List<Integer> U ) {
         for (int i = 0; i < s.size(); i++) {
             for (int j = 0; j < s.size(); j++) {
                 if (i != j) {
@@ -148,8 +145,12 @@ public class ImprovedSetCover extends TrivialSetCover {
      * @return   the Set Cover of U
      */
     private static List<Integer> Algo3MSC( List<List<Integer>> s, List<Integer> U ) {
-        if (s.isEmpty())
-            return new ArrayList<>();
+        if (s.isEmpty()) {
+            if (U.isEmpty()) {
+                return new ArrayList<>();
+            }
+            return null;
+        }
 
         // rule 1
         List<Integer> setCover = reductionRuleOne(s, U);
