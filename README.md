@@ -10,9 +10,10 @@ There are 4 packages:
 
 4-util: some utilities classes used in this project.
 
- /**
-     *
+    /*
      * @param args
+     *
+     *
      *
      * To run this program, you should pass as parameters:
      *  + the algorithm type.
