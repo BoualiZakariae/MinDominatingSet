@@ -1,6 +1,6 @@
 # Minimum dominating set
 
-In graph theory, the dominating set is a well know Np-complete problem. To date, we don't have a polynomial time algorithm to solve this problem. In my Master thesis, I did a review of literature about the well know exact solutions, greedy and metha-heuristique solutions.
+In graph theory, the dominating set is a well know Np-complete problem. To date, we don't have a polynomial time algorithm to solve this problem. In my Master thesis, I did a review of literature about the well know exact, greedy and metha-heuristique solutions.
 
 This repository contains my Java implementation to solve the Minimum Dominanting Set.
 
