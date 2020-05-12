@@ -1,10 +1,23 @@
 # Minimum dominating set
 
+## Summary
+
+[Abstract](https://github.com/JavaZakariae/MinDominatingSet/blob/master/abstract.pdf).
+
+[Thesis](https://github.com/JavaZakariae/MinDominatingSet/blob/master/thesis.pdf).
+
+[Presentation](https://github.com/JavaZakariae/MinDominatingSet/blob/master/presentation_thesis.pdf).
+
+## Introduction
+
 In graph theory, the dominating set is a well know Np-complete problem. To date, we don't have a polynomial time algorithm to solve this problem. In my Master thesis, I did a review of literature about the well know exact, greedy and metha-heuristique solutions.
 
 This repository contains my Java implementation to solve the Minimum Dominanting Set.
 
 # Project guidline
+
+
+
 
 There are 4 packages:
 
