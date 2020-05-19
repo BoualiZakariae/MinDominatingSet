@@ -2,11 +2,11 @@
 
 ## Summary
 
-[Abstract](https://github.com/JavaZakariae/MinDominatingSet/blob/master/abstract.pdf).
+I. [Abstract](https://github.com/JavaZakariae/MinDominatingSet/blob/master/abstract.pdf).
 
-[Thesis](https://github.com/JavaZakariae/MinDominatingSet/blob/master/thesis.pdf).
+II. [Thesis](https://github.com/JavaZakariae/MinDominatingSet/blob/master/thesis.pdf).
 
-[Presentation](https://github.com/JavaZakariae/MinDominatingSet/blob/master/presentation_thesis.pdf).
+III. [Presentation](https://github.com/JavaZakariae/MinDominatingSet/blob/master/presentation_thesis.pdf).
 
 ## Introduction
 
